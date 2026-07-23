@@ -1,8 +1,29 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fffdf9;
+  --foreground: #1f2937;
+  --color-primary-50: #eff8ff;
+  --color-primary-100: #d9edff;
+  --color-primary-200: #b8dfff;
+  --color-primary-300: #86caff;
+  --color-primary-400: #4dabff;
+  --color-primary-500: #2288f7;
+  --color-primary-600: #1268e0;
+  --color-primary-700: #1053b5;
+  --color-primary-800: #134590;
+  --color-primary-900: #143c73;
+  --color-primary-950: #0f2748;
+  --color-accent-50: #fff9ec;
+  --color-accent-100: #ffefc8;
+  --color-accent-200: #ffdd8b;
+  --color-accent-300: #ffc44d;
+  --color-accent-400: #ffab24;
+  --color-accent-500: #fa8b09;
+  --color-accent-600: #de6704;
+  --color-accent-700: #b84707;
+  --color-accent-800: #94370d;
+  --color-accent-900: #7a2f0e;
 }
 
 @theme inline {
@@ -10,13 +31,29 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-primary-50: var(--color-primary-50);
+  --color-primary-100: var(--color-primary-100);
+  --color-primary-200: var(--color-primary-200);
+  --color-primary-300: var(--color-primary-300);
+  --color-primary-400: var(--color-primary-400);
+  --color-primary-500: var(--color-primary-500);
+  --color-primary-600: var(--color-primary-600);
+  --color-primary-700: var(--color-primary-700);
+  --color-primary-800: var(--color-primary-800);
+  --color-primary-900: var(--color-primary-900);
+  --color-primary-950: var(--color-primary-950);
+
+  --color-accent-50: var(--color-accent-50);
+  --color-accent-100: var(--color-accent-100);
+  --color-accent-200: var(--color-accent-200);
+  --color-accent-300: var(--color-accent-300);
+  --color-accent-400: var(--color-accent-400);
+  --color-accent-500: var(--color-accent-500);
+  --color-accent-600: var(--color-accent-600);
+  --color-accent-700: var(--color-accent-700);
+  --color-accent-800: var(--color-accent-800);
+  --color-accent-900: var(--color-accent-900);
 }
 
 body {
