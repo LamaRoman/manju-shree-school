@@ -1,0 +1,246 @@
+{
+  "meta": {
+    "schoolName": "Manju Shree Primary School",
+    "siteDescription": "Manju Shree Primary School is a community school dedicated to education, character, and preserving the Sambata language."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "curriculum": "Curriculum",
+    "volunteer": "Volunteer",
+    "team": "Team",
+    "getInvolved": "Get Involved",
+    "location": "Patarasi-3, Jumla",
+    "whatsapp": "Chat on WhatsApp",
+    "toggleMenu": "Toggle menu",
+    "languageLabel": "Language"
+  },
+  "footer": {
+    "tagline": "Nurturing curious minds and preserving the Sambata language and culture, one student at a time.",
+    "explore": "Explore",
+    "aboutUs": "About Us",
+    "ourTeam": "Our Team",
+    "contact": "Contact",
+    "address1": "Manju Shree Primary School",
+    "address2": "Patarasi-3, Jumla, Nepal",
+    "supportUs": "Support Us",
+    "supportUsText": "Donations of food, sanitary pads, and stationery directly reach our students.",
+    "becomeVolunteer": "Become a Volunteer",
+    "rights": "All rights reserved."
+  },
+  "home": {
+    "title": "Educating children, preserving culture, building community.",
+    "subtitle": "We provide quality education rooted in strong values while keeping the Sambata language and heritage alive for the next generation — supported by a community of generous volunteers.",
+    "becomeVolunteer": "Become a Volunteer",
+    "learnAboutUs": "Learn About Us",
+    "stats": {
+      "students": "Students enrolled",
+      "teachers": "Dedicated teachers",
+      "years": "Years serving the community",
+      "volunteers": "Active volunteers"
+    },
+    "exploreTitle": "Explore Manju Shree Primary School",
+    "exploreSubtitle": "Everything you need to know about who we are, what we teach, and how you can help.",
+    "learnMore": "Learn more →",
+    "quickLinks": {
+      "about": {
+        "title": "About Us",
+        "description": "Our background, mission, and the values that guide every classroom."
+      },
+      "curriculum": {
+        "title": "Curriculum",
+        "description": "How we teach the Sambata language alongside our core subjects."
+      },
+      "volunteer": {
+        "title": "Volunteer",
+        "description": "Donate food, sanitary pads, or stationery — or give your time."
+      },
+      "team": {
+        "title": "Our Team",
+        "description": "Meet the founder, principal, and teachers behind Manju Shree Primary School."
+      }
+    },
+    "galleryTitle": "Life at Manju Shree Primary School",
+    "gallerySubtitle": "Real moments from our school in Patarasi-3, Jumla — together, growing, and supported by our community.",
+    "gallery": {
+      "assembly": {
+        "title": "Morning Assembly",
+        "description": "Students gather together each day, surrounded by the mountains of Jumla."
+      },
+      "newBackpacks": {
+        "title": "New Backpacks",
+        "description": "Students received school bags donated by the Rotary Club of Herzogenaurach & Himalaya Patan."
+      },
+      "communityCare": {
+        "title": "Community Care",
+        "description": "Volunteers and monks distribute clothing and supplies to families and elders in the village."
+      }
+    },
+    "ctaTitle": "Every meal, pad, and pencil makes a difference.",
+    "ctaText": "Many of our students rely on community generosity for daily meals, hygiene products, and school supplies. Join our volunteers in supporting them.",
+    "ctaButton": "See How You Can Help"
+  },
+  "about": {
+    "badge": "About Us",
+    "title": "Our Background",
+    "buildingCaption": "Our school building in Patarasi-3, Jumla — opened in 2023.",
+    "intro": "Located in Patarasi-3, Jumla, Manju Shree Primary School opened its doors in 2023 in a traditional stone building at the heart of the village — and has quickly grown into a school dedicated to academic excellence and cultural preservation.",
+    "howWeStartedTitle": "How we started",
+    "howWeStartedP1": "Manju Shree Primary School opened in 2023 in a traditional stone building in Patarasi-3, Jumla. Supported by local community members, Buddhist monks, and international partners, the school held a joyful opening ceremony that welcomed the village's children to a place built especially for them.",
+    "howWeStartedP2": "Just a few years in, the school is already home to a close-knit community of students, teachers, and volunteers — with new partnerships, like our collaboration with the Rotary Club of Herzogenaurach & Himalaya Patan, helping equip every student with the supplies they need.",
+    "milestones": {
+      "founded": { "year": "2023", "text": "Shree Manju Shree Primary School opened in a traditional stone building in the heart of Patarasi-3, Jumla." },
+      "campus": { "year": "2023", "text": "Celebrated our opening ceremony with blessings from local Buddhist monks and the whole community." },
+      "language": { "year": "2024", "text": "Introduced our Sambata language and cultural program alongside the core curriculum." },
+      "programs": { "year": "2024", "text": "Partnered with the Rotary Club of Herzogenaurach & Himalaya Patan and local volunteers to provide school bags and supplies to every student." },
+      "today": { "year": "Today", "text": "200+ students across all primary grades, supported by 12 teachers and a growing network of local and international volunteers." }
+    },
+    "goalsTitle": "Our Aim & Goals",
+    "goalsSubtitle": "Everything we do is guided by four core commitments to our students and community.",
+    "goals": {
+      "quality": { "title": "Deliver quality education for every child", "description": "Provide a well-rounded, affordable education regardless of a family's financial background." },
+      "language": { "title": "Preserve the Sambata language and culture", "description": "Ensure the next generation can read, write, and speak Sambata fluently and take pride in their heritage." },
+      "confidence": { "title": "Build confident, capable young people", "description": "Develop critical thinking, creativity, and life skills that prepare students for higher education and beyond." },
+      "community": { "title": "Strengthen the community around the school", "description": "Partner with families and volunteers so no child goes without food, hygiene essentials, or school supplies." }
+    },
+    "valuesTitle": "Our Core Values",
+    "valuesSubtitle": "Six values that we teach, model, and live by every day.",
+    "values": {
+      "respect": { "title": "Respect", "description": "We treat every student, family, and colleague with dignity and kindness." },
+      "integrity": { "title": "Integrity", "description": "We act honestly and hold ourselves accountable, in and out of the classroom." },
+      "compassion": { "title": "Compassion", "description": "We care for the wellbeing of every child, especially those who need it most." },
+      "curiosity": { "title": "Curiosity", "description": "We encourage questions, exploration, and a lifelong love of learning." },
+      "community": { "title": "Community", "description": "We believe education is a shared responsibility between school, family, and volunteers." },
+      "perseverance": { "title": "Perseverance", "description": "We teach students to work hard, stay resilient, and never give up on their goals." }
+    }
+  },
+  "curriculum": {
+    "badge": "Curriculum",
+    "title": "The Sambata Language Program",
+    "subtitle": "Alongside math, science, and the arts, every student at Manju Shree Primary School studies the Sambata language — keeping it alive for generations to come.",
+    "levelsTitle": "Learning by Level",
+    "levelsSubtitle": "The program builds progressively from spoken foundations to advanced literature and composition.",
+    "levels": {
+      "foundation": {
+        "stage": "Foundation",
+        "grades": "Grades 1–2",
+        "focus": "Listening & Speaking",
+        "description": "Students learn the Sambata alphabet, common greetings, numbers, and everyday vocabulary through songs, games, and guided conversation.",
+        "topics": ["Sambata alphabet & phonetics", "Basic vocabulary & greetings", "Simple conversation practice", "Traditional songs & rhymes"]
+      },
+      "intermediate": {
+        "stage": "Intermediate",
+        "grades": "Grades 3–4",
+        "focus": "Reading & Writing",
+        "description": "Students build grammar and comprehension skills, reading short stories and writing simple compositions in Sambata.",
+        "topics": ["Grammar & sentence structure", "Reading short stories", "Guided writing & spelling", "Community folktales"]
+      },
+      "advanced": {
+        "stage": "Advanced",
+        "grades": "Grade 5",
+        "focus": "Literature & Composition",
+        "description": "Students study Sambata literature and oral history, and practice formal writing, debate, and storytelling.",
+        "topics": ["Sambata literature & poetry", "Essay & composition writing", "Oral history & storytelling", "Public speaking & debate"]
+      }
+    },
+    "approachTitle": "Our Teaching Approach",
+    "methodology": {
+      "immersion": { "title": "Immersion-first teaching", "description": "Classes are conducted primarily in Sambata to build natural fluency alongside grammar instruction." },
+      "storytelling": { "title": "Storytelling & oral history", "description": "Community elders and teachers share traditional stories that carry language, values, and history together." },
+      "songs": { "title": "Songs, games & recitation", "description": "Younger students learn vocabulary and pronunciation through music, rhymes, and interactive games." },
+      "cultural": { "title": "Cultural connection", "description": "Field visits, festivals, and family involvement reinforce that language and culture are lived, not just studied." }
+    },
+    "scheduleTitle": "Sample Weekly Schedule",
+    "scheduleSubtitle": "Sambata language class meets daily, with a focused theme each day.",
+    "scheduleDay": "Day",
+    "scheduleFocus": "Focus",
+    "schedule": {
+      "monday": { "day": "Monday", "topic": "Vocabulary & Speaking Practice" },
+      "tuesday": { "day": "Tuesday", "topic": "Grammar & Sentence Structure" },
+      "wednesday": { "day": "Wednesday", "topic": "Reading Circle" },
+      "thursday": { "day": "Thursday", "topic": "Writing Workshop" },
+      "friday": { "day": "Friday", "topic": "Storytelling & Culture Hour" }
+    }
+  },
+  "volunteer": {
+    "badge": "Volunteer With Us",
+    "title": "Food, Hygiene Supplies & Stationery for Our Students",
+    "photoCaption": "Volunteers and monks hand out gifts and supplies to students during our opening ceremony.",
+    "subtitle": "Many of our students face daily barriers that have nothing to do with learning — an empty stomach, a missing pencil, or a lack of hygiene products. Our volunteers make sure those barriers don't stand in the way of an education.",
+    "waysTitle": "Ways to Give",
+    "waysSubtitle": "Every donation, big or small, goes directly to a student who needs it.",
+    "categories": {
+      "food": {
+        "title": "Food",
+        "description": "Many students travel long distances and rely on school meals to get through the day.",
+        "items": ["Rice, lentils & grains", "Cooking oil & seasoning", "Fresh vegetables & fruit", "Milk & nutritional supplements"]
+      },
+      "hygiene": {
+        "title": "Sanitary Pads & Hygiene",
+        "description": "Access to hygiene products helps girls stay in school with dignity, every day of the month.",
+        "items": ["Sanitary pads", "Soap & hand sanitizer", "Toothbrushes & toothpaste", "Hygiene education materials"]
+      },
+      "stationery": {
+        "title": "Stationery",
+        "description": "Basic school supplies remove a major barrier for families who cannot afford them.",
+        "items": ["Notebooks & exercise books", "Pens, pencils & erasers", "School bags", "Textbooks & reading materials"]
+      }
+    },
+    "howTitle": "How It Works",
+    "steps": {
+      "choose": { "title": "Choose how you'll help", "description": "Pick one or more categories — food, hygiene supplies, stationery, or your time." },
+      "tell": { "title": "Tell us your plan", "description": "Fill out the form below, or email us directly, with what you'd like to contribute." },
+      "coordinate": { "title": "We coordinate delivery", "description": "Our volunteer coordinator arranges drop-off, pickup, or an in-kind purchase together with you." },
+      "reach": { "title": "Your donation reaches students", "description": "Items are distributed directly to the students and families who need them most." }
+    },
+    "ctaTitle": "Ready to Get Involved?",
+    "ctaSubtitle": "Share a few details below and our volunteer coordinator will follow up with next steps.",
+    "form": {
+      "nameLabel": "Full name",
+      "namePlaceholder": "Jane Doe",
+      "emailLabel": "Email address",
+      "emailPlaceholder": "jane@example.com",
+      "interestsLabel": "I'd like to help with",
+      "interests": {
+        "food": "Food donations",
+        "hygiene": "Sanitary pads & hygiene supplies",
+        "stationery": "Stationery & school supplies",
+        "time": "Volunteering time / teaching",
+        "other": "Other"
+      },
+      "messageLabel": "Message (optional)",
+      "messagePlaceholder": "Tell us how you'd like to contribute...",
+      "submit": "Send via WhatsApp",
+      "thankYouTitle": "Almost done!",
+      "thankYouText": "We've opened WhatsApp with your details filled in — just hit send and our volunteer coordinator will get back to you soon. You can also reach us directly at"
+    }
+  },
+  "team": {
+    "badge": "Our Team",
+    "title": "The People Behind Manju Shree Primary School",
+    "subtitle": "Meet the founder, principal, and teachers who bring our mission to life every day.",
+    "communityCaption": "Staff, volunteers, and community members at our 2023 opening celebration.",
+    "leaders": {
+      "founder": {
+        "name": "Him Bahadur Shahi",
+        "role": "Founder",
+        "message": "“We opened Manju Shree Primary School in 2023 because our village needed a place where children could learn close to home. It has only been a few years, but I am already proud to see how many children have found not just an education here, but a sense of belonging. My hope is simple: that every child who studies here grows up strong in knowledge and proud of who they are.”"
+      },
+      "principal": {
+        "name": "Kamala Devi Rawal",
+        "role": "Principal",
+        "message": "“Every morning I get to watch our teachers turn a classroom into a place of curiosity and confidence. We hold our students to high academic standards while making sure no child is held back by hunger, a missing notebook, or something they couldn't control. That balance — rigor and care — is what Manju Shree Primary School stands for.”"
+      }
+    },
+    "teachersTitle": "Our Teachers & Staff",
+    "teachersSubtitle": "A dedicated team of educators and coordinators serving our students every day.",
+    "teachers": {
+      "languageLead": { "name": "Dil Kumari Budha", "role": "Sambata Language Lead", "bio": "Leads our Sambata language program across all levels and coordinates with community elders on oral history lessons." },
+      "math": { "name": "Bishnu Prasad Sharma", "role": "Mathematics Teacher", "bio": "Teaches grades 3–5 mathematics and runs our after-school math club." },
+      "science": { "name": "Sarita Rawal", "role": "Science Teacher", "bio": "Brings hands-on experiments to life for our primary science classes." },
+      "primary": { "name": "Purna Bahadur Shahi", "role": "Primary Grades Teacher", "bio": "Guides our youngest learners (grades 1–2) through their first years of reading, writing, and Sambata basics." },
+      "arts": { "name": "Devi Maya Budha", "role": "Arts & Music Teacher", "bio": "Runs music, art, and traditional dance classes that celebrate Sambata culture." },
+      "volunteer": { "name": "Krishna Bahadur Rawal", "role": "Volunteer Coordinator", "bio": "Manages our volunteer network and coordinates food, hygiene, and stationery donation drives." }
+    }
+  }
+}

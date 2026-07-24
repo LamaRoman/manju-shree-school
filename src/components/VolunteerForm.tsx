@@ -1,29 +1,30 @@
 "use client";
 
 import { useState } from "react";
+import type { Dictionary } from "@/lib/i18n";
+import { WHATSAPP_NUMBER } from "@/lib/whatsapp";
 
-const interests = [
-  "Food donations",
-  "Sanitary pads & hygiene supplies",
-  "Stationery & school supplies",
-  "Volunteering time / teaching",
-  "Other",
-];
-
-export default function VolunteerForm() {
+export default function VolunteerForm({ dict }: { dict: Dictionary }) {
   const [submitted, setSubmitted] = useState(false);
+  const form = dict.volunteer.form;
+
+  const interests = [
+    form.interests.food,
+    form.interests.hygiene,
+    form.interests.stationery,
+    form.interests.time,
+    form.interests.other,
+  ];
 
   if (submitted) {
     return (
       <div className="rounded-2xl border border-primary-100 bg-primary-50 p-8 text-center">
         <p className="text-2xl">🙏</p>
         <h3 className="mt-2 text-lg font-semibold text-primary-900">
-          Thank you for reaching out!
+          {form.thankYouTitle}
         </h3>
         <p className="mt-2 text-sm text-gray-600">
-          We&apos;ve noted your interest. Our volunteer coordinator will contact you at
-          the email address you provided within a few days. In the meantime, feel free
-          to reach us directly at{" "}
+          {form.thankYouText}{" "}
           <a href="mailto:manjushreeprimary.jumla@gmail.com" className="font-medium text-primary-600">
             manjushreeprimary.jumla@gmail.com
           </a>
@@ -37,6 +38,24 @@ export default function VolunteerForm() {
     <form
       onSubmit={(e) => {
         e.preventDefault();
+
+        const data = new FormData(e.currentTarget);
+        const name = data.get("name")?.toString().trim() ?? "";
+        const email = data.get("email")?.toString().trim() ?? "";
+        const message = data.get("message")?.toString().trim() ?? "";
+        const selectedInterests = data.getAll("interest").map(String);
+
+        const lines = [
+          `*${dict.meta.schoolName}*`,
+          `${form.nameLabel}: ${name}`,
+          `${form.emailLabel}: ${email}`,
+          `${form.interestsLabel}: ${selectedInterests.length ? selectedInterests.join(", ") : "-"}`,
+          `${form.messageLabel}: ${message || "-"}`,
+        ];
+
+        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join("\n"))}`;
+        window.open(url, "_blank", "noopener,noreferrer");
+
         setSubmitted(true);
       }}
       className="space-y-5 rounded-2xl border border-primary-100 bg-white p-8 shadow-sm"
@@ -44,7 +63,7 @@ export default function VolunteerForm() {
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="text-sm font-medium text-gray-700">
-            Full name
+            {form.nameLabel}
           </label>
           <input
             id="name"
@@ -52,12 +71,12 @@ export default function VolunteerForm() {
             type="text"
             required
             className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
-            placeholder="Jane Doe"
+            placeholder={form.namePlaceholder}
           />
         </div>
         <div>
           <label htmlFor="email" className="text-sm font-medium text-gray-700">
-            Email address
+            {form.emailLabel}
           </label>
           <input
             id="email"
@@ -65,13 +84,13 @@ export default function VolunteerForm() {
             type="email"
             required
             className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
-            placeholder="jane@example.com"
+            placeholder={form.emailPlaceholder}
           />
         </div>
       </div>
 
       <div>
-        <span className="text-sm font-medium text-gray-700">I&apos;d like to help with</span>
+        <span className="text-sm font-medium text-gray-700">{form.interestsLabel}</span>
         <div className="mt-2 flex flex-wrap gap-2">
           {interests.map((interest) => (
             <label
@@ -87,14 +106,14 @@ export default function VolunteerForm() {
 
       <div>
         <label htmlFor="message" className="text-sm font-medium text-gray-700">
-          Message (optional)
+          {form.messageLabel}
         </label>
         <textarea
           id="message"
           name="message"
           rows={4}
           className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
-          placeholder="Tell us how you'd like to contribute..."
+          placeholder={form.messagePlaceholder}
         />
       </div>
 
@@ -102,7 +121,7 @@ export default function VolunteerForm() {
         type="submit"
         className="w-full rounded-full bg-accent-500 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-600 sm:w-auto"
       >
-        Submit Interest
+        {form.submit}
       </button>
     </form>
   );
