@@ -76,10 +76,9 @@ export default function GalleryGrid({
                   />
                   {/* Always-visible expand hint — hover-only affordances never reach
                       touch/mobile visitors, who are most of this site's audience. */}
-                  <div className="absolute bottom-2 right-2 flex h-7 w-7 items-center justify-center rounded-full bg-black/50 text-white transition-colors group-hover:bg-black/70">
+                  <div className="absolute bottom-2 right-2 flex h-7 w-7 items-center justify-center rounded-full bg-primary-900/40 text-white backdrop-blur-sm transition-colors group-hover:bg-primary-900/60">
                     <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2">
-                      <circle cx="10" cy="10" r="7" />
-                      <path d="M21 21l-5.5-5.5M10 7v6M7 10h6" strokeLinecap="round" />
+                      <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </div>
                 </div>
