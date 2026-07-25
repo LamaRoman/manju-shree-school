@@ -8,6 +8,7 @@ const dictionaries = {
   en: () => import("@/dictionaries/en.json").then((m) => m.default),
   ne: () => import("@/dictionaries/ne.json").then((m) => m.default),
   zh: () => import("@/dictionaries/zh.json").then((m) => m.default),
+  bo: () => import("@/dictionaries/bo.json").then((m) => m.default),
 };
 
 export type Dictionary = typeof en;

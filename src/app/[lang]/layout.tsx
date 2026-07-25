@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Noto_Serif_Tibetan } from "next/font/google";
 import "../globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -15,6 +15,18 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+// Geist has no Tibetan glyphs — without this, Tibetan text renders as blank
+// boxes. Applied only via the html[lang="bo"] rule in globals.css, and not
+// preloaded, so non-Tibetan pages never fetch it. Google Fonts only ships a
+// Serif cut for Tibetan (no Sans variant), so this is used for both body and
+// heading text on Tibetan pages.
+const notoSerifTibetan = Noto_Serif_Tibetan({
+  variable: "--font-tibetan",
+  subsets: ["tibetan"],
+  weight: ["400", "700"],
+  preload: false,
 });
 
 export async function generateStaticParams() {
@@ -51,7 +63,7 @@ export default async function RootLayout({
   return (
     <html
       lang={lang}
-      className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${notoSerifTibetan.variable} h-full scroll-smooth antialiased`}
     >
       <body className="flex min-h-full flex-col">
         <Navbar lang={lang} dict={dict} />

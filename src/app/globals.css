@@ -26,6 +26,14 @@
   --color-accent-900: #7a2f0e;
 }
 
+/* Geist has no Tibetan glyphs. Override the source variable that --font-sans
+   chains to (see @theme inline below) so every existing font-sans usage
+   picks up the Tibetan font automatically on Tibetan pages, with no need to
+   touch individual components. */
+html[lang="bo"] {
+  --font-geist-sans: var(--font-tibetan), sans-serif;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
