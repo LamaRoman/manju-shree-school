@@ -65,15 +65,23 @@ export default function GalleryGrid({
                 key={photo.id}
                 type="button"
                 onClick={() => setOpen({ groupIndex, photoIndex })}
-                className="overflow-hidden rounded-2xl border border-primary-100 bg-white text-left shadow-sm transition-shadow hover:shadow-md"
+                className="group cursor-zoom-in overflow-hidden rounded-2xl border border-primary-100 bg-white text-left shadow-sm transition-shadow hover:shadow-md"
               >
-                <div className="relative aspect-[4/3] w-full">
+                <div className="relative aspect-[4/3] w-full overflow-hidden">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={photo.url}
                     alt={photo.caption || ""}
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
+                  {/* Always-visible expand hint — hover-only affordances never reach
+                      touch/mobile visitors, who are most of this site's audience. */}
+                  <div className="absolute bottom-2 right-2 flex h-7 w-7 items-center justify-center rounded-full bg-black/50 text-white transition-colors group-hover:bg-black/70">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2">
+                      <circle cx="10" cy="10" r="7" />
+                      <path d="M21 21l-5.5-5.5M10 7v6M7 10h6" strokeLinecap="round" />
+                    </svg>
+                  </div>
                 </div>
                 {photo.description && (
                   <div className="p-4">

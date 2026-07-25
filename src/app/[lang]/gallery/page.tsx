@@ -43,7 +43,7 @@ export default async function GalleryPage({
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-16">
+      <section className="mx-auto max-w-6xl px-6 pt-4 pb-16">
         {photos.length === 0 ? (
           <p className="text-center text-gray-500">{dict.gallery.empty}</p>
         ) : (
