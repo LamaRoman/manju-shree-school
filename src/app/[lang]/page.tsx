@@ -37,7 +37,7 @@ export default async function Home({
     <div className="flex flex-col">
       <section className="relative overflow-hidden">
         <Image
-          src="/photos/hero-mountains.jpeg"
+          src="/photos/hero-school-group.jpeg"
           alt=""
           fill
           priority
@@ -45,7 +45,7 @@ export default async function Home({
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-primary-950/45" />
-        <div className="relative mx-auto flex min-h-[480px] max-w-6xl flex-col items-center justify-end px-6 pb-14 pt-28 text-center sm:min-h-[560px] lg:min-h-[620px] lg:pb-16">
+        <div className="relative mx-auto flex min-h-[480px] max-w-6xl flex-col items-center justify-center px-6 pb-40 pt-16 text-center sm:min-h-[560px] lg:min-h-[620px] lg:pb-48">
           <div className="flex flex-col items-center gap-8 px-6 py-10 sm:px-12 sm:py-12">
             <h1 className="max-w-3xl text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
               {dict.home.title}
@@ -69,9 +69,27 @@ export default async function Home({
             </div>
           </div>
         </div>
+        <a
+          href="#explore-more"
+          aria-label={dict.home.scrollDown}
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce text-white/80 transition-colors hover:text-white"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="h-8 w-8"
+          >
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </a>
       </section>
 
-      <section className="border-y border-primary-100 bg-white">
+      <section id="explore-more" className="border-y border-primary-100 bg-white">
         <div className="mx-auto grid max-w-6xl grid-cols-2 gap-8 px-6 py-12 sm:grid-cols-4">
           {statMeta.map((stat) => (
             <div key={stat.key} className="text-center">
@@ -154,9 +172,31 @@ export default async function Home({
         </div>
       </section>
 
+      <section className="border-y border-primary-100 bg-primary-50">
+        <div className="mx-auto flex max-w-5xl flex-col items-center gap-6 px-6 py-16 text-center">
+          <span className="rounded-full bg-primary-100 px-4 py-1 text-sm font-semibold text-primary-700">
+            {dict.support.badge}
+          </span>
+          <h2 className="max-w-2xl text-3xl font-bold text-primary-950">
+            {dict.support.title}
+          </h2>
+          <p className="max-w-2xl text-gray-600 leading-7">
+            {dict.support.visionText}
+          </p>
+          <Link
+            href={`/${locale}/support`}
+            className="rounded-full bg-primary-600 px-7 py-3 text-base font-semibold text-white shadow-sm transition-colors hover:bg-primary-700"
+          >
+            {dict.footer.supportBuildingLink}
+          </Link>
+        </div>
+      </section>
+
       <section className="bg-primary-900">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-6 py-16 text-center">
-          <h2 className="text-3xl font-bold text-white">{dict.home.ctaTitle}</h2>
+          <h2 className="text-3xl font-bold text-white">
+            {dict.home.ctaTitle}
+          </h2>
           <p className="max-w-2xl text-primary-100">{dict.home.ctaText}</p>
           <Link
             href={`/${locale}/volunteer`}

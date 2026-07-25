@@ -45,6 +45,11 @@ export default function Footer({ lang, dict }: { lang: Locale; dict: Dictionary 
                 {dict.footer.ourTeam}
               </Link>
             </li>
+            <li>
+              <Link href={`/${lang}/support`} className="hover:text-white">
+                {dict.nav.support}
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -74,6 +79,12 @@ export default function Footer({ lang, dict }: { lang: Locale; dict: Dictionary 
             className="mt-4 inline-block rounded-full bg-accent-500 px-4 py-2 text-sm font-semibold text-white hover:bg-accent-600"
           >
             {dict.footer.becomeVolunteer}
+          </Link>
+          <Link
+            href={`/${lang}/support`}
+            className="mt-3 block text-sm font-semibold text-primary-100 hover:text-white"
+          >
+            {dict.footer.supportBuildingLink} →
           </Link>
         </div>
       </div>

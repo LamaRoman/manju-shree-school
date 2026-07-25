@@ -67,7 +67,9 @@ export default function Navbar({ lang, dict }: { lang: Locale; dict: Dictionary 
     { href: `/${lang}`, label: dict.nav.home },
     { href: `/${lang}/about`, label: dict.nav.about },
     { href: `/${lang}/curriculum`, label: dict.nav.curriculum },
+    { href: `/${lang}/gallery`, label: dict.nav.gallery },
     { href: `/${lang}/volunteer`, label: dict.nav.volunteer },
+    { href: `/${lang}/support`, label: dict.nav.support },
     { href: `/${lang}/team`, label: dict.nav.team },
   ];
 

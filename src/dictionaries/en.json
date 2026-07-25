@@ -7,7 +7,9 @@
     "home": "Home",
     "about": "About",
     "curriculum": "Curriculum",
+    "gallery": "Gallery",
     "volunteer": "Volunteer",
+    "support": "Support Us",
     "team": "Team",
     "getInvolved": "Get Involved",
     "location": "Patarasi-3, Jumla",
@@ -25,6 +27,7 @@
     "address2": "Patarasi-3, Jumla, Nepal",
     "supportUs": "Support Us",
     "supportUsText": "Donations of food, sanitary pads, and stationery directly reach our students.",
+    "supportBuildingLink": "Help build our classrooms",
     "becomeVolunteer": "Become a Volunteer",
     "rights": "All rights reserved."
   },
@@ -33,6 +36,7 @@
     "subtitle": "We provide quality education rooted in strong values while keeping the Sambata language and heritage alive for the next generation — supported by a community of generous volunteers.",
     "becomeVolunteer": "Become a Volunteer",
     "learnAboutUs": "Learn About Us",
+    "scrollDown": "Scroll down",
     "stats": {
       "students": "Students enrolled",
       "teachers": "Dedicated teachers",
@@ -116,8 +120,8 @@
   },
   "curriculum": {
     "badge": "Curriculum",
-    "title": "The Sambata Language Program",
-    "subtitle": "Alongside math, science, and the arts, every student at Manju Shree Primary School studies the Sambata language — keeping it alive for generations to come.",
+    "title": "Our Curriculum",
+    "subtitle": "A well-rounded education in math, science, and the arts — building strong foundations for every student at Manju Shree Primary School.",
     "levelsTitle": "Learning by Level",
     "levelsSubtitle": "The program builds progressively from spoken foundations to advanced literature and composition.",
     "levels": {
@@ -161,6 +165,12 @@
       "thursday": { "day": "Thursday", "topic": "Writing Workshop" },
       "friday": { "day": "Friday", "topic": "Storytelling & Culture Hour" }
     }
+  },
+  "gallery": {
+    "badge": "Gallery",
+    "title": "Photo Gallery",
+    "subtitle": "Moments from daily life, events, and celebrations at Manju Shree Primary School.",
+    "empty": "No photos yet — check back soon."
   },
   "volunteer": {
     "badge": "Volunteer With Us",
@@ -214,6 +224,56 @@
       "thankYouTitle": "Almost done!",
       "thankYouText": "We've opened WhatsApp with your details filled in — just hit send and our volunteer coordinator will get back to you soon. You can also reach us directly at"
     }
+  },
+  "support": {
+    "badge": "Request for Support",
+    "title": "Help Us Build a Permanent Home for Our School",
+    "subtitle": "Manju Shree Primary School, Jumla — Western Himalayan Region, Nepal",
+    "greeting": "Respected and Compassionate Supporters,",
+    "greetingText": "We extend our heartfelt appreciation to every individual and organization dedicated to serving society and supporting underprivileged children with generosity and compassion. On behalf of Manju Shree Primary School, located in the remote Himalayan region of Jumla, western Nepal, we sincerely thank you for your kindness and consideration.",
+    "situationTitle": "Introduction & Current Situation",
+    "situationP1": "Manju Shree Primary School was established to provide quality education to children living in a remote Himalayan region where educational opportunities are extremely limited. Our goal is not only to provide academic knowledge but also to nurture children with good moral values, compassion, discipline, and responsibility — enabling them to become capable and caring members of society.",
+    "situationP2": "The school has been operating for more than two years and currently offers classes up to Grade Three. We now have 100 students, and the number continues to grow as more families recognize the importance of education. Despite this encouraging progress, we still do not have our own classrooms or assembly hall and must operate from rented buildings — making teaching and learning difficult. Nevertheless, our teachers and students continue their work with determination, dedication, and hope.",
+    "visionTitle": "Our Vision",
+    "visionText": "Our vision is to give every child access to quality education while developing academic excellence, strong moral character, cultural awareness, environmental responsibility, and compassion. We hope to become a school where children receive not only knowledge but also the values and life skills needed to build a meaningful future. Constructing permanent classrooms and a multipurpose hall has become one of our most urgent priorities, and with the support of compassionate donors, we believe the school can continue to grow and serve many more children.",
+    "philosophyTitle": "Our Educational Philosophy",
+    "philosophySubtitle": "At Manju Shree Primary School, education is not limited to textbooks — we believe children should grow into complete human beings through the balanced development of knowledge, character, culture, and compassion.",
+    "philosophy": {
+      "culture": {
+        "title": "Cultural & Language Education",
+        "description": "We encourage students to learn and appreciate their own language, history, traditions, music, and cultural heritage — building confidence, identity, and pride while respecting other cultures."
+      },
+      "environment": {
+        "title": "Environmental Education",
+        "description": "Students learn to keep their surroundings clean, conserve water, reduce waste, and care for animals and plants — cultivating responsible citizens who live in harmony with nature."
+      },
+      "family": {
+        "title": "Respect for Parents & Family",
+        "description": "We teach children to understand the love, sacrifice, and hard work of their parents, developing gratitude, respect, responsibility, and good character."
+      }
+    },
+    "objectivesTitle": "Our Objectives",
+    "objectives": [
+      "Provide equal educational opportunities for every child.",
+      "Ensure that children from poor and disadvantaged families can continue their education without interruption.",
+      "Instill good morals, compassion, discipline, and ethical values.",
+      "Preserve and promote local language, culture, and traditions.",
+      "Foster love, respect, and responsibility toward the natural environment.",
+      "Teach children to appreciate and respect the love and sacrifices of their parents.",
+      "Equip students with practical knowledge, confidence, and life skills so they can contribute positively to society.",
+      "Provide quality education locally so families who cannot afford to send children to cities in Nepal or abroad can still receive an excellent education within their own community."
+    ],
+    "whyTitle": "Why Your Support Is Needed",
+    "whyP1": "Many children in our region come from poor families and cannot afford quality education. Without educational opportunities, their future becomes increasingly difficult, limiting their ability to improve their lives and contribute to society.",
+    "whyP2": "Education empowers children with knowledge, confidence, and hope. It helps preserve culture and language, promotes respect for the environment, and nurtures gratitude, compassion, and responsible citizenship. Achieving these goals requires adequate classrooms, learning facilities, educational materials, and financial support.",
+    "whyP3": "Your generous contribution will directly help provide a safe learning environment and brighter opportunities for children living in one of Nepal's most remote Himalayan communities.",
+    "closingTitle": "Every Contribution Brings Hope",
+    "closingText": "We sincerely request your kind support in helping us build a better future for these children. Every contribution, whether large or small, brings hope and creates lasting change in their lives. On behalf of the teachers, students, parents, and the entire Manju Shree Primary School community, we express our deepest gratitude for your kindness, generosity, and compassion.",
+    "closingSignoff": "With sincere respect and appreciation,",
+    "closingSchool": "Manju Shree Primary School",
+    "closingLocation": "Jumla, Western Himalayan Region, Nepal",
+    "contactButton": "Contact Us to Support",
+    "whatsappButton": "Message Us on WhatsApp"
   },
   "team": {
     "badge": "Our Team",
