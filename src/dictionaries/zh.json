@@ -149,7 +149,11 @@
     "badge": "相册",
     "title": "照片相册",
     "subtitle": "Manju Shree Primary School 日常生活、活动与庆典的珍贵瞬间。",
-    "empty": "暂无照片——敬请期待。"
+    "empty": "暂无照片——敬请期待。",
+    "uncategorized": "其他照片",
+    "previous": "上一张照片",
+    "next": "下一张照片",
+    "close": "关闭"
   },
   "volunteer": {
     "badge": "加入我们的志愿者",

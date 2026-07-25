@@ -170,7 +170,11 @@
     "badge": "Gallery",
     "title": "Photo Gallery",
     "subtitle": "Moments from daily life, events, and celebrations at Manju Shree Primary School.",
-    "empty": "No photos yet — check back soon."
+    "empty": "No photos yet — check back soon.",
+    "uncategorized": "Other Photos",
+    "previous": "Previous photo",
+    "next": "Next photo",
+    "close": "Close"
   },
   "volunteer": {
     "badge": "Volunteer With Us",

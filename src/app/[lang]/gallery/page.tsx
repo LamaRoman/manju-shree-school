@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { getDictionary, isLocale } from "@/lib/i18n";
 import { notFound } from "next/navigation";
-import { getGalleryPhotos } from "@/lib/gallery";
+import { getGalleryPhotos, groupPhotosByCaption } from "@/lib/gallery";
+import GalleryGrid from "./GalleryGrid";
 
 export async function generateMetadata({
   params,
@@ -26,6 +27,7 @@ export default async function GalleryPage({
   if (!isLocale(lang)) notFound();
   const dict = await getDictionary(lang);
   const photos = await getGalleryPhotos();
+  const groups = groupPhotosByCaption(photos);
 
   return (
     <div>
@@ -45,33 +47,15 @@ export default async function GalleryPage({
         {photos.length === 0 ? (
           <p className="text-center text-gray-500">{dict.gallery.empty}</p>
         ) : (
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {photos.map((photo) => (
-              <div
-                key={photo.id}
-                className="overflow-hidden rounded-2xl border border-primary-100 bg-white shadow-sm"
-              >
-                <div className="relative aspect-[4/3] w-full">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={photo.url}
-                    alt={photo.caption || ""}
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-                {(photo.caption || photo.description) && (
-                  <div className="p-4">
-                    {photo.caption && (
-                      <p className="font-semibold text-primary-900">{photo.caption}</p>
-                    )}
-                    {photo.description && (
-                      <p className="mt-1 text-sm leading-6 text-gray-600">{photo.description}</p>
-                    )}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+          <GalleryGrid
+            groups={groups}
+            labels={{
+              uncategorized: dict.gallery.uncategorized,
+              previous: dict.gallery.previous,
+              next: dict.gallery.next,
+              close: dict.gallery.close,
+            }}
+          />
         )}
       </section>
     </div>
