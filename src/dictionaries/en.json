@@ -300,7 +300,7 @@
     "teachersSubtitle": "A dedicated team of educators and coordinators serving our students every day.",
     "teachers": {
       "languageLead": { "name": "Dil Kumari Budha", "role": "Sambata Language Lead", "bio": "Leads our Sambata language program across all levels and coordinates with community elders on oral history lessons." },
-      "math": { "name": "Bishnu Prasad Sharma", "role": "Mathematics Teacher", "bio": "Teaches grades 3–5 mathematics and runs our after-school math club." },
+      "math": { "name": "Bishnu Prasad Sharma", "role": "Mathematics Teacher", "bio": "Teaches grade 3 mathematics and runs our after-school math club." },
       "science": { "name": "Sarita Rawal", "role": "Science Teacher", "bio": "Brings hands-on experiments to life for our primary science classes." },
       "primary": { "name": "Purna Bahadur Shahi", "role": "Primary Grades Teacher", "bio": "Guides our youngest learners (grades 1–2) through their first years of reading, writing, and Sambata basics." },
       "arts": { "name": "Devi Maya Budha", "role": "Arts & Music Teacher", "bio": "Runs music, art, and traditional dance classes that celebrate Sambata culture." },
