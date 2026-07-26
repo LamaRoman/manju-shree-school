@@ -12,6 +12,15 @@ const categoryMeta = [
 
 const stepMeta = ["choose", "tell", "coordinate", "reach"] as const;
 
+const expectMeta = [
+  { key: "homestay", icon: "🏡" },
+  { key: "included", icon: "🍽️" },
+  { key: "facilities", icon: "🚿" },
+  { key: "rules", icon: "📋" },
+  { key: "commitment", icon: "🗓️" },
+  { key: "proposal", icon: "💡" },
+] as const;
+
 export async function generateMetadata({
   params,
 }: {
@@ -117,6 +126,31 @@ export default async function VolunteerPage({
               );
             })}
           </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-16">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="text-3xl font-bold text-primary-950">{dict.volunteer.expectTitle}</h2>
+          <p className="mt-3 text-gray-600">{dict.volunteer.expectSubtitle}</p>
+        </div>
+
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {expectMeta.map(({ key, icon }) => {
+            const item = dict.volunteer.expectations[key];
+            return (
+              <div
+                key={key}
+                className="flex gap-4 rounded-2xl border border-primary-100 bg-white p-6 shadow-sm"
+              >
+                <span className="text-3xl">{icon}</span>
+                <div>
+                  <h3 className="font-semibold text-primary-900">{item.title}</h3>
+                  <p className="mt-1 text-sm leading-6 text-gray-600">{item.description}</p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </section>
 

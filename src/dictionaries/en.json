@@ -1,7 +1,7 @@
 {
   "meta": {
     "schoolName": "Manju Shree Primary School",
-    "siteDescription": "Manju Shree Primary School is a community school dedicated to education, character, and preserving the Sambata language."
+    "siteDescription": "Manju Shree Primary School is a community school dedicated to education, character, and preserving local tradition and culture."
   },
   "nav": {
     "home": "Home",
@@ -18,7 +18,7 @@
     "languageLabel": "Language"
   },
   "footer": {
-    "tagline": "Nurturing curious minds and preserving the Sambata language and culture, one student at a time.",
+    "tagline": "Nurturing curious minds and preserving tradition and culture, one student at a time.",
     "explore": "Explore",
     "aboutUs": "About Us",
     "ourTeam": "Our Team",
@@ -33,7 +33,7 @@
   },
   "home": {
     "title": "Educating children, preserving culture, building community.",
-    "subtitle": "We provide quality education rooted in strong values while keeping the Sambata language and heritage alive for the next generation — supported by a community of generous volunteers.",
+    "subtitle": "We provide quality education rooted in strong values while keeping our tradition and culture alive for the next generation — supported by a community of generous volunteers.",
     "becomeVolunteer": "Become a Volunteer",
     "learnAboutUs": "Learn About Us",
     "scrollDown": "Scroll down",
@@ -53,7 +53,7 @@
       },
       "curriculum": {
         "title": "Curriculum",
-        "description": "How we teach the Sambata language alongside our core subjects."
+        "description": "How we blend academics with tradition, culture, and language electives."
       },
       "volunteer": {
         "title": "Volunteer",
@@ -73,7 +73,7 @@
       },
       "newBackpacks": {
         "title": "New Backpacks",
-        "description": "Students received school bags donated by the Rotary Club of Herzogenaurach & Himalaya Patan."
+        "description": "Students received new school bags donated by kind individuals in our community."
       },
       "communityCare": {
         "title": "Community Care",
@@ -94,19 +94,19 @@
     "intro": "Located in Patarasi-3, Jumla, Manju Shree Primary School opened its doors in 2023 in a traditional stone building at the heart of the village — and has quickly grown into a school dedicated to academic excellence and cultural preservation.",
     "howWeStartedTitle": "How we started",
     "howWeStartedP1": "Manju Shree Primary School opened in 2023 in a traditional stone building in Patarasi-3, Jumla. Supported by local community members, Buddhist monks, and international partners, the school held a joyful opening ceremony that welcomed the village's children to a place built especially for them.",
-    "howWeStartedP2": "Just a few years in, the school is already home to a close-knit community of students, teachers, and volunteers — with new partnerships, like our collaboration with the Rotary Club of Herzogenaurach & Himalaya Patan, helping equip every student with the supplies they need.",
+    "howWeStartedP2": "Just a few years in, the school is already home to a close-knit community of students, teachers, and volunteers — with kind individuals and local partners stepping in to help equip every student with the supplies they need.",
     "milestones": {
       "founded": { "year": "2023", "text": "Shree Manju Shree Primary School opened in a traditional stone building in the heart of Patarasi-3, Jumla." },
       "campus": { "year": "2023", "text": "Celebrated our opening ceremony with blessings from local Buddhist monks and the whole community." },
-      "language": { "year": "2024", "text": "Introduced our Sambata language and cultural program alongside the core curriculum." },
-      "programs": { "year": "2024", "text": "Partnered with the Rotary Club of Herzogenaurach & Himalaya Patan and local volunteers to provide school bags and supplies to every student." },
+      "language": { "year": "2024", "text": "Introduced Sambata as an additional language and culture elective alongside our core curriculum." },
+      "programs": { "year": "2024", "text": "Partnered with kind individuals and local volunteers to provide school bags and supplies to every student." },
       "today": { "year": "Today", "text": "200+ students across all primary grades, supported by 12 teachers and a growing network of local and international volunteers." }
     },
     "goalsTitle": "Our Aim & Goals",
     "goalsSubtitle": "Everything we do is guided by four core commitments to our students and community.",
     "goals": {
       "quality": { "title": "Deliver quality education for every child", "description": "Provide a well-rounded, affordable education regardless of a family's financial background." },
-      "language": { "title": "Preserve the Sambata language and culture", "description": "Ensure the next generation can read, write, and speak Sambata fluently and take pride in their heritage." },
+      "language": { "title": "Preserve our tradition and culture", "description": "Ensure the next generation stays connected to their roots, customs, and heritage, and takes pride in who they are." },
       "confidence": { "title": "Build confident, capable young people", "description": "Develop critical thinking, creativity, and life skills that prepare students for higher education and beyond." },
       "community": { "title": "Strengthen the community around the school", "description": "Partner with families and volunteers so no child goes without food, hygiene essentials, or school supplies." }
     },
@@ -124,9 +124,9 @@
   "curriculum": {
     "badge": "Curriculum",
     "title": "Our Curriculum",
-    "subtitle": "We follow the government's national curriculum in math, science, and the arts, and teach our own Sambata language and culture program in addition — building strong foundations for every student at Manju Shree Primary School.",
-    "levelsTitle": "Sambata Language Program by Level",
-    "levelsSubtitle": "Taught alongside the national curriculum, our Sambata program builds progressively from spoken foundations to advanced literature and composition.",
+    "subtitle": "We follow the government's national curriculum in math, science, and the arts, and additionally offer Sambata as a language and culture elective — much like a school elsewhere might offer Mandarin or Vietnamese — building strong foundations for every student at Manju Shree Primary School.",
+    "levelsTitle": "Sambata Language Elective by Level",
+    "levelsSubtitle": "Taught alongside the national curriculum, our Sambata elective builds progressively from spoken foundations to advanced literature and composition.",
     "proposed": "Proposed",
     "levels": {
       "foundation": {
@@ -210,6 +210,16 @@
       "tell": { "title": "Tell us your plan", "description": "Fill out the form below, or email us directly, with what you'd like to contribute." },
       "coordinate": { "title": "We coordinate delivery", "description": "Our volunteer coordinator arranges drop-off, pickup, or an in-kind purchase together with you." },
       "reach": { "title": "Your donation reaches students", "description": "Items are distributed directly to the students and families who need them most." }
+    },
+    "expectTitle": "What to Expect as a Volunteer",
+    "expectSubtitle": "We want you to arrive with a clear, honest picture of daily life here before you commit.",
+    "expectations": {
+      "homestay": { "title": "Eco-Friendly Homestay", "description": "You'll stay with a local family in a simple, eco-friendly homestay — a great way to experience daily village life firsthand." },
+      "included": { "title": "Free Food & Accommodation", "description": "Meals and accommodation are provided at no cost for the full length of your stay." },
+      "facilities": { "title": "Village-Style Facilities", "description": "Toilets and washing facilities are simple and village-style, the same as what local families use — please come prepared for a rustic, rural setting." },
+      "rules": { "title": "Follow School Rules", "description": "Volunteers are expected to respect and follow the school's rules and daily schedule at all times." },
+      "commitment": { "title": "Minimum Time Commitment", "description": "We ask for a minimum stay of 2 weeks, so you have time to build real relationships with students and make a meaningful contribution." },
+      "proposal": { "title": "Bring Your Own Ideas", "description": "If you have a project or teaching idea you'd like to propose, we welcome it — just share your plan with us in advance." }
     },
     "ctaTitle": "Ready to Get Involved?",
     "ctaSubtitle": "Share a few details below and our volunteer coordinator will follow up with next steps.",
@@ -303,7 +313,7 @@
     "teachersTitle": "Our Teachers & Staff",
     "teachersSubtitle": "A dedicated team of educators and coordinators serving our students every day.",
     "teachers": {
-      "languageLead": { "name": "Dil Kumari Budha", "role": "Sambata Language Lead", "bio": "Leads our Sambata language program across all levels and coordinates with community elders on oral history lessons." },
+      "languageLead": { "name": "Dil Kumari Budha", "role": "Sambata Language Lead", "bio": "Leads our Sambata language elective across all levels and coordinates with community elders on oral history lessons." },
       "math": { "name": "Bishnu Prasad Sharma", "role": "Mathematics Teacher", "bio": "Teaches grade 3 mathematics and runs our after-school math club." },
       "science": { "name": "Sarita Rawal", "role": "Science Teacher", "bio": "Brings hands-on experiments to life for our primary science classes." },
       "primary": { "name": "Purna Bahadur Shahi", "role": "Primary Grades Teacher", "bio": "Guides our youngest learners (grades 1–2) through their first years of reading, writing, and Sambata basics." },

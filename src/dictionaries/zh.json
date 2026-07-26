@@ -1,7 +1,7 @@
 {
   "meta": {
     "schoolName": "Manju Shree Primary School",
-    "siteDescription": "Manju Shree Primary School 是一所致力于教育、品格培养以及萨姆巴塔语（Sambata）传承的社区学校。"
+    "siteDescription": "Manju Shree Primary School 是一所致力于教育、品格培养以及本地传统与文化传承的社区学校。"
   },
   "nav": {
     "home": "首页",
@@ -18,7 +18,7 @@
     "languageLabel": "语言"
   },
   "footer": {
-    "tagline": "传承萨姆巴塔语言与文化，一次培养一位好奇的心灵。",
+    "tagline": "传承传统与文化，一次培养一位好奇的心灵。",
     "explore": "浏览",
     "aboutUs": "关于我们",
     "ourTeam": "我们的团队",
@@ -33,7 +33,7 @@
   },
   "home": {
     "title": "教育孩子，传承文化，凝聚社区。",
-    "subtitle": "我们提供扎根于坚定价值观的优质教育，同时让萨姆巴塔语言与文化传承给下一代——并得到众多慷慨志愿者组成的社区的支持。",
+    "subtitle": "我们提供扎根于坚定价值观的优质教育，同时让我们的传统与文化传承给下一代——并得到众多慷慨志愿者组成的社区的支持。",
     "becomeVolunteer": "成为志愿者",
     "learnAboutUs": "了解我们",
     "scrollDown": "向下滚动",
@@ -48,7 +48,7 @@
     "learnMore": "了解更多 →",
     "quickLinks": {
       "about": { "title": "关于我们", "description": "我们的背景、使命，以及指导每间教室的价值观。" },
-      "curriculum": { "title": "课程设置", "description": "我们如何在核心科目之外教授萨姆巴塔语言。" },
+      "curriculum": { "title": "课程设置", "description": "我们如何将学术课程与传统、文化及语言选修课结合。" },
       "volunteer": { "title": "志愿服务", "description": "捐赠食品、卫生巾或文具——或贡献您的时间。" },
       "team": { "title": "我们的团队", "description": "认识 Manju Shree Primary School 的创始人、校长和教师们。" }
     },
@@ -56,7 +56,7 @@
     "gallerySubtitle": "来自尼泊尔久姆拉帕塔拉西三村我们学校的真实瞬间——共同成长，携手同行，得到社区的支持。",
     "gallery": {
       "assembly": { "title": "晨间集会", "description": "学生们每天在久姆拉群山的环绕下聚集在一起。" },
-      "newBackpacks": { "title": "崭新的书包", "description": "学生们收到了由赫尔佐根拉赫及喜马拉雅帕坦罗塔里俱乐部（Rotary Club of Herzogenaurach & Himalaya Patan）捐赠的书包。" },
+      "newBackpacks": { "title": "崭新的书包", "description": "学生们收到了来自社区中善心人士捐赠的全新书包。" },
       "communityCare": { "title": "社区关怀", "description": "志愿者和喇嘛们向村里的家庭与老人分发衣物和物资。" }
     },
     "ctaTitle": "每一餐、每一片卫生巾、每一支铅笔都意义非凡。",
@@ -73,19 +73,19 @@
     "intro": "Manju Shree Primary School 位于尼泊尔久姆拉帕塔拉西三村，于2023年在村庄中心一座传统石屋中正式开学——并在短时间内迅速发展成为一所致力于学术卓越与文化传承的学校。",
     "howWeStartedTitle": "我们的起步",
     "howWeStartedP1": "Manju Shree Primary School 于2023年在尼泊尔久姆拉帕塔拉西三村的一座传统石造建筑中开学。在当地社区成员、佛教喇嘛以及国际合作伙伴的支持下，学校举办了一场欢乐的开学典礼，迎接村里的孩子们来到这个专为他们而建的地方。",
-    "howWeStartedP2": "创办仅仅几年，学校已经成为学生、教师与志愿者们紧密相连的大家庭——与赫尔佐根拉赫及喜马拉雅帕坦罗塔里俱乐部等新合作伙伴的携手，正帮助每一位学生获得所需的学习用品。",
+    "howWeStartedP2": "创办仅仅几年，学校已经成为学生、教师与志愿者们紧密相连的大家庭——善心人士与本地合作伙伴的携手相助，正帮助每一位学生获得所需的学习用品。",
     "milestones": {
       "founded": { "year": "2023", "text": "Shree Manju Shree Primary School 在尼泊尔久姆拉帕塔拉西三村中心的一座传统石造建筑中开学。" },
       "campus": { "year": "2023", "text": "在当地佛教喇嘛与全体社区的祝福下，举行了我们的开学典礼。" },
-      "language": { "year": "2024", "text": "在核心课程之外，引入了我们的萨姆巴塔语言与文化课程。" },
-      "programs": { "year": "2024", "text": "与赫尔佐根拉赫及喜马拉雅帕坦罗塔里俱乐部以及当地志愿者合作，为每位学生提供了书包与学习用品。" },
+      "language": { "year": "2024", "text": "在核心课程之外，引入了萨姆巴塔语言与文化选修课。" },
+      "programs": { "year": "2024", "text": "与善心人士以及当地志愿者合作，为每位学生提供了书包与学习用品。" },
       "today": { "year": "至今", "text": "200多名学生就读于各个小学年级，由12位教师和不断壮大的本地及国际志愿者网络提供支持。" }
     },
     "goalsTitle": "我们的宗旨与目标",
     "goalsSubtitle": "我们所做的一切都遵循着对学生和社区的四项核心承诺。",
     "goals": {
       "quality": { "title": "为每个孩子提供优质教育", "description": "无论家庭经济状况如何，都提供全面且负担得起的教育。" },
-      "language": { "title": "传承萨姆巴塔语言与文化", "description": "确保下一代能够流利地读、写、说萨姆巴塔语，并为自己的文化遗产感到自豪。" },
+      "language": { "title": "传承我们的传统与文化", "description": "确保下一代与自己的根源、习俗和文化遗产保持联系，并为自己的身份感到自豪。" },
       "confidence": { "title": "培养自信而有能力的年轻人", "description": "培养批判性思维、创造力和生活技能，为学生未来接受高等教育及以后的发展做好准备。" },
       "community": { "title": "加强学校周边社区的联系", "description": "与家庭和志愿者携手合作，确保没有孩子因缺乏食物、卫生用品或学习用具而受影响。" }
     },
@@ -103,9 +103,9 @@
   "curriculum": {
     "badge": "课程设置",
     "title": "我们的课程设置",
-    "subtitle": "我们在数学、科学和艺术方面遵循政府的国家课程，并额外教授我们自己的萨姆巴塔语言与文化课程——为 Manju Shree Primary School 的每位学生打下坚实的基础。",
-    "levelsTitle": "分级萨姆巴塔语言课程",
-    "levelsSubtitle": "与国家课程并行教授，我们的萨姆巴塔课程从口语基础循序渐进地发展到高级文学与写作。",
+    "subtitle": "我们在数学、科学和艺术方面遵循政府的国家课程，并额外开设萨姆巴塔语言与文化选修课——就像其他学校可能开设普通话或越南语选修课一样——为 Manju Shree Primary School 的每位学生打下坚实的基础。",
+    "levelsTitle": "分级萨姆巴塔语言选修课",
+    "levelsSubtitle": "与国家课程并行教授，我们的萨姆巴塔选修课从口语基础循序渐进地发展到高级文学与写作。",
     "proposed": "拟开设",
     "levels": {
       "foundation": {
@@ -177,6 +177,16 @@
       "tell": { "title": "告诉我们您的计划", "description": "填写下方表格，或直接发送电子邮件告诉我们您想捐赠的内容。" },
       "coordinate": { "title": "我们协调交付事宜", "description": "我们的志愿者协调员会与您一起安排物资的递送、领取或采购事宜。" },
       "reach": { "title": "您的捐赠送达学生手中", "description": "物资将直接分发给最需要帮助的学生和家庭。" }
+    },
+    "expectTitle": "志愿者须知",
+    "expectSubtitle": "我们希望您在做出承诺之前，对这里的日常生活有清晰、真实的了解。",
+    "expectations": {
+      "homestay": { "title": "生态友好型民宿", "description": "您将与当地家庭一起住在简朴、生态友好的民宿中——这是亲身体验乡村日常生活的好方式。" },
+      "included": { "title": "免费食宿", "description": "在您逗留的整个期间，餐食与住宿均免费提供。" },
+      "facilities": { "title": "乡村式设施", "description": "厕所与洗浴设施简朴、为乡村式，与当地家庭所使用的相同——请为质朴的乡村环境做好准备。" },
+      "rules": { "title": "遵守学校规定", "description": "志愿者应始终尊重并遵守学校的规定与日常作息安排。" },
+      "commitment": { "title": "最短时间承诺", "description": "我们要求志愿者至少停留2周，以便有时间与学生建立真实的联系并做出有意义的贡献。" },
+      "proposal": { "title": "带来您自己的想法", "description": "如果您有想要提议的项目或教学想法，我们非常欢迎——请提前与我们分享您的计划。" }
     },
     "ctaTitle": "准备好参与支持了吗？",
     "ctaSubtitle": "请在下方填写一些信息，我们的志愿者协调员会与您联系，说明后续步骤。",
@@ -270,7 +280,7 @@
     "teachersTitle": "我们的教师与员工",
     "teachersSubtitle": "一支每天悉心服务学生的敬业教师与协调员团队。",
     "teachers": {
-      "languageLead": { "name": "Dil Kumari Budha", "role": "萨姆巴塔语言负责人", "bio": "负责统筹各年级的萨姆巴塔语言课程，并与社区长者协作开展口述历史教学。" },
+      "languageLead": { "name": "Dil Kumari Budha", "role": "萨姆巴塔语言负责人", "bio": "负责统筹各年级的萨姆巴塔语言选修课，并与社区长者协作开展口述历史教学。" },
       "math": { "name": "Bishnu Prasad Sharma", "role": "数学教师", "bio": "教授三年级数学课程，并主持课后数学俱乐部。" },
       "science": { "name": "Sarita Rawal", "role": "科学教师", "bio": "通过动手实验为小学科学课堂注入活力。" },
       "primary": { "name": "Purna Bahadur Shahi", "role": "低年级教师", "bio": "在阅读、写作以及萨姆巴塔语基础学习的最初几年中，引导我们最年幼的学生（一至二年级）。" },
