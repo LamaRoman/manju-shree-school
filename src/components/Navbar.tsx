@@ -75,10 +75,10 @@ export default function Navbar({ lang, dict }: { lang: Locale; dict: Dictionary 
 
   return (
     <header className="sticky top-0 z-50 border-b border-primary-100 bg-white/90 backdrop-blur">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <nav className="mx-auto grid max-w-7xl grid-cols-[1fr_auto_1fr] items-center gap-4 px-6 py-4">
         <Link
           href={`/${lang}`}
-          className="flex items-center gap-2.5"
+          className="flex items-center gap-2.5 justify-self-start"
           onClick={() => setOpen(false)}
         >
           <Image
@@ -117,30 +117,32 @@ export default function Navbar({ lang, dict }: { lang: Locale; dict: Dictionary 
           })}
         </ul>
 
-        <div className="hidden items-center gap-3 md:flex">
-          <LanguageSwitcher lang={lang} />
-          <Link
-            href={`/${lang}/volunteer`}
-            className="rounded-full bg-accent-500 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-accent-600"
-          >
-            {dict.nav.getInvolved}
-          </Link>
-        </div>
-
-        <button
-          type="button"
-          aria-label={dict.nav.toggleMenu}
-          aria-expanded={open}
-          className="flex h-10 w-10 items-center justify-center rounded-md border border-gray-200 md:hidden"
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span className="sr-only">{dict.nav.toggleMenu}</span>
-          <div className="flex flex-col gap-1.5">
-            <span className="h-0.5 w-5 bg-gray-700" />
-            <span className="h-0.5 w-5 bg-gray-700" />
-            <span className="h-0.5 w-5 bg-gray-700" />
+        <div className="flex items-center justify-self-end gap-3">
+          <div className="hidden items-center gap-3 md:flex">
+            <LanguageSwitcher lang={lang} />
+            <Link
+              href={`/${lang}/volunteer`}
+              className="rounded-full bg-accent-500 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-accent-600"
+            >
+              {dict.nav.getInvolved}
+            </Link>
           </div>
-        </button>
+
+          <button
+            type="button"
+            aria-label={dict.nav.toggleMenu}
+            aria-expanded={open}
+            className="flex h-10 w-10 items-center justify-center rounded-md border border-gray-200 md:hidden"
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span className="sr-only">{dict.nav.toggleMenu}</span>
+            <div className="flex flex-col gap-1.5">
+              <span className="h-0.5 w-5 bg-gray-700" />
+              <span className="h-0.5 w-5 bg-gray-700" />
+              <span className="h-0.5 w-5 bg-gray-700" />
+            </div>
+          </button>
+        </div>
       </nav>
 
       {open && (
