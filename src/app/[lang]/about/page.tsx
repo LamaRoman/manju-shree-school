@@ -107,6 +107,18 @@ export default async function AboutPage({
         </div>
       </section>
 
+      <section className="bg-primary-900">
+        <div className="mx-auto max-w-3xl px-6 py-16 text-center">
+          <p className="text-sm font-semibold uppercase tracking-wide text-accent-300">
+            {dict.about.mottoEyebrow}
+          </p>
+          <blockquote className="mt-4 text-2xl font-bold leading-snug text-white sm:text-3xl">
+            {dict.about.motto}
+          </blockquote>
+          <p className="mt-6 leading-7 text-primary-100">{dict.about.mottoText}</p>
+        </div>
+      </section>
+
       <section className="bg-primary-50">
         <div className="mx-auto max-w-6xl px-6 py-16">
           <div className="mx-auto max-w-2xl text-center">

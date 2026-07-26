@@ -66,6 +66,11 @@ export default async function CurriculumPage({
                   <span className="rounded-full bg-primary-50 px-3 py-1 text-xs font-semibold text-primary-700">
                     {level.grades}
                   </span>
+                  {key === "advanced" && (
+                    <span className="rounded-full bg-accent-100 px-3 py-1 text-xs font-semibold text-accent-700">
+                      {dict.curriculum.proposed}
+                    </span>
+                  )}
                 </div>
                 <h3 className="mt-4 text-lg font-semibold text-primary-900">
                   {level.stage}

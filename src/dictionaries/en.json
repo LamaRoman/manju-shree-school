@@ -88,6 +88,9 @@
     "badge": "About Us",
     "title": "Our Background",
     "buildingCaption": "Our school building in Patarasi-3, Jumla — opened in 2023.",
+    "mottoEyebrow": "Our Motto",
+    "motto": "Learn with wisdom, lead with compassion.",
+    "mottoText": "The purpose of education is not merely to accumulate knowledge, but to cultivate wisdom and sound thinking. Together with a heart of compassion and kindness, serving and guiding others is the root of good leadership — shaping students who benefit not only themselves but their whole community.",
     "intro": "Located in Patarasi-3, Jumla, Manju Shree Primary School opened its doors in 2023 in a traditional stone building at the heart of the village — and has quickly grown into a school dedicated to academic excellence and cultural preservation.",
     "howWeStartedTitle": "How we started",
     "howWeStartedP1": "Manju Shree Primary School opened in 2023 in a traditional stone building in Patarasi-3, Jumla. Supported by local community members, Buddhist monks, and international partners, the school held a joyful opening ceremony that welcomed the village's children to a place built especially for them.",
@@ -121,9 +124,10 @@
   "curriculum": {
     "badge": "Curriculum",
     "title": "Our Curriculum",
-    "subtitle": "A well-rounded education in math, science, and the arts — building strong foundations for every student at Manju Shree Primary School.",
-    "levelsTitle": "Learning by Level",
-    "levelsSubtitle": "The program builds progressively from spoken foundations to advanced literature and composition.",
+    "subtitle": "We follow the government's national curriculum in math, science, and the arts, and teach our own Sambata language and culture program in addition — building strong foundations for every student at Manju Shree Primary School.",
+    "levelsTitle": "Sambata Language Program by Level",
+    "levelsSubtitle": "Taught alongside the national curriculum, our Sambata program builds progressively from spoken foundations to advanced literature and composition.",
+    "proposed": "Proposed",
     "levels": {
       "foundation": {
         "stage": "Foundation",
@@ -134,14 +138,14 @@
       },
       "intermediate": {
         "stage": "Intermediate",
-        "grades": "Grades 3–4",
+        "grades": "Grade 3",
         "focus": "Reading & Writing",
         "description": "Students build grammar and comprehension skills, reading short stories and writing simple compositions in Sambata.",
         "topics": ["Grammar & sentence structure", "Reading short stories", "Guided writing & spelling", "Community folktales"]
       },
       "advanced": {
         "stage": "Advanced",
-        "grades": "Grade 5",
+        "grades": "Grades 4–5",
         "focus": "Literature & Composition",
         "description": "Students study Sambata literature and oral history, and practice formal writing, debate, and storytelling.",
         "topics": ["Sambata literature & poetry", "Essay & composition writing", "Oral history & storytelling", "Public speaking & debate"]

@@ -50,6 +50,9 @@ export default async function Home({
             <h1 className="max-w-3xl text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
               {dict.home.title}
             </h1>
+            <p className="text-base font-semibold italic text-accent-300 sm:text-lg">
+              {dict.about.motto}
+            </p>
             <p className="max-w-2xl text-lg leading-8 text-primary-50">
               {dict.home.subtitle}
             </p>
