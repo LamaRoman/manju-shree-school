@@ -32,14 +32,11 @@ export default async function GalleryPage({
   return (
     <div>
       <section className="bg-gradient-to-b from-primary-50 to-white">
-        <div className="mx-auto max-w-4xl px-6 pt-16 pb-8 text-center">
-          <span className="rounded-full bg-primary-100 px-4 py-1 text-sm font-semibold text-primary-700">
-            {dict.gallery.badge}
-          </span>
-          <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-primary-950 sm:text-5xl">
+        <div className="mx-auto max-w-4xl px-6 pt-6 pb-6 text-center">
+          <h1 className="text-2xl font-extrabold tracking-tight text-primary-950 sm:text-3xl">
             {dict.gallery.title}
           </h1>
-          <p className="mt-4 text-lg leading-8 text-gray-600">{dict.gallery.subtitle}</p>
+          <p className="mt-3 text-base leading-7 text-gray-600">{dict.gallery.subtitle}</p>
         </div>
       </section>
 
