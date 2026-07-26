@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+/* Slightly larger base size — Tailwind's text-* utilities are all rem-based,
+   so this scales every font size on the site proportionally in one place
+   instead of bumping dozens of individual classes. */
+html {
+  font-size: 106%;
+}
+
 :root {
   --background: #fffdf9;
   --foreground: #1f2937;
