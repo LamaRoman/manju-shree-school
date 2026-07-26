@@ -44,16 +44,16 @@ export default async function Home({
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-primary-950/45" />
+        <div className="absolute inset-0 bg-primary-950/60" />
         <div className="relative mx-auto flex min-h-[480px] max-w-6xl flex-col items-center justify-center px-6 pb-40 pt-16 text-center sm:min-h-[560px] lg:min-h-[620px] lg:pb-48">
           <div className="flex flex-col items-center gap-8 px-6 py-10 sm:px-12 sm:py-12">
-            <h1 className="max-w-3xl text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+            <h1 className="max-w-3xl text-4xl font-extrabold tracking-tight text-white [text-shadow:0_2px_12px_rgba(0,0,0,0.55)] sm:text-5xl">
               {dict.home.title}
             </h1>
-            <p className="text-base font-semibold italic text-accent-300 sm:text-lg">
+            <p className="rounded-full border border-accent-300/40 bg-primary-950/40 px-6 py-2 text-base font-semibold italic text-accent-300 backdrop-blur-sm sm:text-lg">
               {dict.about.motto}
             </p>
-            <p className="max-w-2xl text-lg leading-8 text-primary-50">
+            <p className="max-w-2xl text-lg leading-8 text-primary-50 [text-shadow:0_2px_8px_rgba(0,0,0,0.55)]">
               {dict.home.subtitle}
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
