@@ -77,10 +77,10 @@ export default function Navbar({ lang, dict }: { lang: Locale; dict: Dictionary 
 
   return (
     <header className="sticky top-0 z-50 border-b border-primary-100 bg-white/90 backdrop-blur">
-      <nav className="mx-auto grid max-w-7xl grid-cols-[1fr_auto_1fr] items-center gap-4 px-6 py-4">
+      <nav className="mx-auto grid max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 px-6 py-4">
         <Link
           href={`/${lang}`}
-          className="flex items-center gap-2.5 justify-self-start"
+          className="flex shrink-0 items-center gap-2.5"
           onClick={() => setOpen(false)}
         >
           <Image
@@ -91,7 +91,7 @@ export default function Navbar({ lang, dict }: { lang: Locale; dict: Dictionary 
             className="h-11 w-11 shrink-0 object-contain"
             priority
           />
-          <span className="flex flex-col leading-tight">
+          <span className="flex flex-col leading-tight whitespace-nowrap">
             <span className="text-base font-bold text-primary-900 sm:text-lg">
               {dict.meta.schoolName}
             </span>
@@ -101,7 +101,7 @@ export default function Navbar({ lang, dict }: { lang: Locale; dict: Dictionary 
           </span>
         </Link>
 
-        <ul className="hidden gap-8 md:flex">
+        <ul className="hidden justify-center gap-8 md:flex">
           {links.map((link) => {
             const active = pathname === link.href;
             return (

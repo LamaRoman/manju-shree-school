@@ -17,7 +17,7 @@ const quickLinkMeta = [
 ] as const;
 
 const statMeta = [
-  { key: "students", value: "200+" },
+  { key: "students", value: "135+" },
   { key: "teachers", value: "12" },
   { key: "years", value: "3" },
   { key: "volunteers", value: "40+" },
