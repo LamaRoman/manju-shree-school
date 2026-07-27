@@ -129,7 +129,7 @@ export default async function SupportPage({
           <p className="text-primary-100 leading-7">{s.closingText}</p>
           <div className="flex flex-col gap-4 sm:flex-row">
             <a
-              href="mailto:manjushreeprimary.jumla@gmail.com"
+              href="mailto:manjushreeschool2024@gmail.com"
               className="rounded-full bg-accent-500 px-7 py-3 text-base font-semibold text-white shadow-sm transition-colors hover:bg-accent-600"
             >
               {s.contactButton}

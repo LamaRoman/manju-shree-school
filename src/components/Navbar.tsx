@@ -68,6 +68,8 @@ export default function Navbar({ lang, dict }: { lang: Locale; dict: Dictionary 
     { href: `/${lang}/about`, label: dict.nav.about },
     { href: `/${lang}/curriculum`, label: dict.nav.curriculum },
     { href: `/${lang}/gallery`, label: dict.nav.gallery },
+    { href: `/${lang}/calendar`, label: dict.nav.calendar },
+    { href: `/${lang}/trekking`, label: dict.nav.trekking },
     { href: `/${lang}/volunteer`, label: dict.nav.volunteer },
     { href: `/${lang}/support`, label: dict.nav.support },
     { href: `/${lang}/team`, label: dict.nav.team },
@@ -120,12 +122,6 @@ export default function Navbar({ lang, dict }: { lang: Locale; dict: Dictionary 
         <div className="flex items-center justify-self-end gap-3">
           <div className="hidden items-center gap-3 md:flex">
             <LanguageSwitcher lang={lang} />
-            <Link
-              href={`/${lang}/volunteer`}
-              className="rounded-full bg-accent-500 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-accent-600"
-            >
-              {dict.nav.getInvolved}
-            </Link>
           </div>
 
           <button
@@ -181,15 +177,6 @@ export default function Navbar({ lang, dict }: { lang: Locale; dict: Dictionary 
                   {localeNames[locale]}
                 </Link>
               ))}
-            </li>
-            <li>
-              <Link
-                href={`/${lang}/volunteer`}
-                onClick={() => setOpen(false)}
-                className="mt-2 block rounded-full bg-accent-500 px-4 py-2 text-center text-sm font-semibold text-white"
-              >
-                {dict.nav.getInvolved}
-              </Link>
             </li>
           </ul>
         </div>

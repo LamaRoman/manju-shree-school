@@ -1,27 +1,31 @@
 {
   "meta": {
     "schoolName": "Manju Shree Primary School",
-    "siteDescription": "Manju Shree Primary School is a community school dedicated to education, character, and preserving local tradition and culture."
+    "siteDescription": "Manju Shree Primary School is a community school in Jumla, Nepal, focused on education, good character, and keeping local tradition and culture alive."
   },
   "nav": {
     "home": "Home",
     "about": "About",
     "curriculum": "Curriculum",
     "gallery": "Gallery",
+    "calendar": "Calendar",
+    "trekking": "Trekking",
     "volunteer": "Volunteer",
     "support": "Support Us",
     "team": "Team",
-    "getInvolved": "Get Involved",
     "location": "Patarasi-3, Jumla",
     "whatsapp": "Chat on WhatsApp",
+    "facebook": "Follow us on Facebook",
+    "instagram": "Follow us on Instagram",
     "toggleMenu": "Toggle menu",
     "languageLabel": "Language"
   },
   "footer": {
-    "tagline": "Nurturing curious minds and preserving tradition and culture, one student at a time.",
+    "tagline": "Teaching children well and keeping our traditions alive, one student at a time.",
     "explore": "Explore",
     "aboutUs": "About Us",
     "ourTeam": "Our Team",
+    "trekking": "Trekking & Meditation",
     "contact": "Contact",
     "address1": "Manju Shree Primary School",
     "address2": "Patarasi-3, Jumla, Nepal",
@@ -33,7 +37,7 @@
   },
   "home": {
     "title": "Educating children, preserving culture, building community.",
-    "subtitle": "We provide quality education rooted in strong values while keeping our tradition and culture alive for the next generation — supported by a community of generous volunteers.",
+    "subtitle": "We provide quality education rooted in strong values, and we're keeping our tradition and culture alive for the next generation. Generous volunteers support us every step of the way.",
     "becomeVolunteer": "Become a Volunteer",
     "learnAboutUs": "Learn About Us",
     "scrollDown": "Scroll down",
@@ -57,7 +61,7 @@
       },
       "volunteer": {
         "title": "Volunteer",
-        "description": "Donate food, sanitary pads, or stationery — or give your time."
+        "description": "Donate food, sanitary pads, or stationery, or give your time."
       },
       "team": {
         "title": "Our Team",
@@ -65,7 +69,7 @@
       }
     },
     "galleryTitle": "Life at Manju Shree Primary School",
-    "gallerySubtitle": "Real moments from our school in Patarasi-3, Jumla — together, growing, and supported by our community.",
+    "gallerySubtitle": "Real moments from our school in Patarasi-3, Jumla, growing together with the support of our community.",
     "gallery": {
       "assembly": {
         "title": "Morning Assembly",
@@ -87,14 +91,14 @@
   "about": {
     "badge": "About Us",
     "title": "Our Background",
-    "buildingCaption": "Our school building in Patarasi-3, Jumla — opened in 2023.",
+    "buildingCaption": "Our school building in Patarasi-3, Jumla. Opened in 2023.",
     "mottoEyebrow": "Our Motto",
     "motto": "Learn with wisdom, lead with compassion.",
-    "mottoText": "The purpose of education is not merely to accumulate knowledge, but to cultivate wisdom and sound thinking. Together with a heart of compassion and kindness, serving and guiding others is the root of good leadership — shaping students who benefit not only themselves but their whole community.",
-    "intro": "Located in Patarasi-3, Jumla, Manju Shree Primary School opened its doors in 2023 in a traditional stone building at the heart of the village — and has quickly grown into a school dedicated to academic excellence and cultural preservation.",
+    "mottoText": "Education isn't just about gathering knowledge. It's about building wisdom and sound thinking. Good leadership starts with a compassionate heart, serving and guiding others so students grow into people who help not just themselves, but their whole community.",
+    "intro": "Manju Shree Primary School is located in Patarasi-3, Jumla. It opened in 2023 in a traditional stone building at the heart of the village, and has quickly grown into a school known for academic excellence and cultural preservation.",
     "howWeStartedTitle": "How we started",
     "howWeStartedP1": "Manju Shree Primary School opened in 2023 in a traditional stone building in Patarasi-3, Jumla. Supported by local community members, Buddhist monks, and international partners, the school held a joyful opening ceremony that welcomed the village's children to a place built especially for them.",
-    "howWeStartedP2": "Just a few years in, the school is already home to a close-knit community of students, teachers, and volunteers — with kind individuals and local partners stepping in to help equip every student with the supplies they need.",
+    "howWeStartedP2": "Just a few years in, the school is already home to a close-knit community of students, teachers, and volunteers. Kind individuals and local partners have stepped in to help make sure every student has the supplies they need.",
     "milestones": {
       "founded": { "year": "2023", "text": "Shree Manju Shree Primary School opened in a traditional stone building in the heart of Patarasi-3, Jumla." },
       "campus": { "year": "2023", "text": "Celebrated our opening ceremony with blessings from local Buddhist monks and the whole community." },
@@ -124,7 +128,7 @@
   "curriculum": {
     "badge": "Curriculum",
     "title": "Our Curriculum",
-    "subtitle": "We follow the government's national curriculum in math, science, and the arts, and additionally offer Sambata as a language and culture elective — much like a school elsewhere might offer Mandarin or Vietnamese — building strong foundations for every student at Manju Shree Primary School.",
+    "subtitle": "We follow the government's national curriculum in math, science, and the arts. We also offer Sambata as a language and culture elective, much like a school elsewhere might offer Mandarin or Vietnamese, giving every student at Manju Shree Primary School a strong foundation.",
     "levelsTitle": "Sambata Language Elective by Level",
     "levelsSubtitle": "Taught alongside the national curriculum, our Sambata elective builds progressively from spoken foundations to advanced literature and composition.",
     "proposed": "Proposed",
@@ -170,11 +174,65 @@
       "friday": { "day": "Friday", "topic": "Storytelling & Culture Hour" }
     }
   },
+  "trekking": {
+    "badge": "Explore Jumla",
+    "title": "Trekking & Meditation",
+    "subtitle": "Jumla sits in one of Nepal's most beautiful and least-visited corners. On your days off, you're welcome to explore the trails and quiet spots around Patarasi and Jumla Bazaar, from short hilltop walks to the multi-day trek out to Rara Lake.",
+    "dayTitle": "Short Walks & Quiet Spots",
+    "daySubtitle": "Good for a free morning or afternoon during your stay. No permits or guides needed for these.",
+    "dayHikes": {
+      "chandannath": {
+        "title": "Chandannath Temple",
+        "duration": "Half day",
+        "description": "A Shiva temple on the hill above Jumla Bazaar. The climb is short and the views over the valley are worth the sweat. A quiet place to sit for a while before heading back down."
+      },
+      "patmara": {
+        "title": "Jumla to Patmara",
+        "duration": "10 km, 4-5 hours",
+        "description": "A village trail through farmland and forest just outside Jumla Bazaar. Good for a half-day walk if you want to see how the surrounding villages live and farm."
+      },
+      "gothichaur": {
+        "title": "Gothichaur",
+        "duration": "16 km, 5 hours",
+        "description": "An open highland pasture used for grazing in the summer months. Flat, wide, and very quiet, it's a good spot to just sit and breathe for a while."
+      }
+    },
+    "multiTitle": "Multi-Day Treks",
+    "multiSubtitle": "For volunteers staying longer, or coming back for a second trip. These need proper planning, so talk to us in advance if you want to fit one in.",
+    "multiDay": {
+      "rara": {
+        "title": "Rara Lake",
+        "duration": "5-7 days round trip",
+        "description": "Nepal's largest lake, set inside Rara National Park at almost 3,000 meters. The trail crosses Danfe Lagna and Jaljala Pass before dropping down to the lake. It's the main reason people trek out this way, and it earns the trip."
+      },
+      "sinja": {
+        "title": "Sinja Valley",
+        "duration": "Usually added onto the Rara route",
+        "description": "The valley where the Nepali language is said to have originated, once home to the old Khasa Malla kingdom. Old stone ruins, quiet villages, and a slower pace than the trail to Rara."
+      },
+      "kanjiroba": {
+        "title": "Kanjiroba Himal Viewpoint",
+        "duration": "Extended, several extra days",
+        "description": "For volunteers who want to push further west toward Dolpo. Bigger peaks, fewer people, and a longer commitment. Best planned well ahead of time."
+      }
+    },
+    "noteTitle": "Before You Go",
+    "noteText": "Talk to our volunteer coordinator before planning a trek. Weather changes fast in the hills, some routes need a local guide, and trails can be closed depending on the season. We're happy to help you plan around your teaching schedule."
+  },
+  "calendar": {
+    "badge": "School Calendar",
+    "title": "Calendar",
+    "subtitle": "Upcoming events and holidays at Manju Shree Primary School, listed by month.",
+    "eventLabel": "Event",
+    "holidayLabel": "Holiday",
+    "empty": "No events have been added yet. Check back soon.",
+    "months": ["Baishakh", "Jestha", "Ashadh", "Shrawan", "Bhadra", "Ashwin", "Kartik", "Mangsir", "Poush", "Magh", "Falgun", "Chaitra"]
+  },
   "gallery": {
     "badge": "Gallery",
     "title": "Photo Gallery",
     "subtitle": "Moments from daily life, events, and celebrations at Manju Shree Primary School.",
-    "empty": "No photos yet — check back soon.",
+    "empty": "No photos yet. Check back soon.",
     "uncategorized": "Other Photos",
     "previous": "Previous photo",
     "next": "Next photo",
@@ -184,7 +242,7 @@
     "badge": "Volunteer With Us",
     "title": "Food, Hygiene Supplies & Stationery for Our Students",
     "photoCaption": "Volunteers and monks hand out gifts and supplies to students during our opening ceremony.",
-    "subtitle": "Many of our students face daily barriers that have nothing to do with learning — an empty stomach, a missing pencil, or a lack of hygiene products. Our volunteers make sure those barriers don't stand in the way of an education.",
+    "subtitle": "Many of our students face daily barriers that have nothing to do with learning: an empty stomach, a missing pencil, a lack of hygiene products. Our volunteers work to make sure those barriers don't stand in the way of an education.",
     "waysTitle": "Ways to Give",
     "waysSubtitle": "Every donation, big or small, goes directly to a student who needs it.",
     "categories": {
@@ -206,7 +264,7 @@
     },
     "howTitle": "How It Works",
     "steps": {
-      "choose": { "title": "Choose how you'll help", "description": "Pick one or more categories — food, hygiene supplies, stationery, or your time." },
+      "choose": { "title": "Choose how you'll help", "description": "Pick one or more categories: food, hygiene supplies, stationery, or your time." },
       "tell": { "title": "Tell us your plan", "description": "Fill out the form below, or email us directly, with what you'd like to contribute." },
       "coordinate": { "title": "We coordinate delivery", "description": "Our volunteer coordinator arranges drop-off, pickup, or an in-kind purchase together with you." },
       "reach": { "title": "Your donation reaches students", "description": "Items are distributed directly to the students and families who need them most." }
@@ -214,13 +272,14 @@
     "expectTitle": "What to Expect as a Volunteer",
     "expectSubtitle": "We want you to arrive with a clear, honest picture of daily life here before you commit.",
     "expectations": {
-      "homestay": { "title": "Eco-Friendly Homestay", "description": "You'll stay with a local family in a simple, eco-friendly homestay — a great way to experience daily village life firsthand." },
+      "homestay": { "title": "Eco-Friendly Homestay", "description": "You'll stay with a local family in a simple, eco-friendly homestay, a great way to experience daily village life firsthand." },
       "included": { "title": "Free Food & Accommodation", "description": "Meals and accommodation are provided at no cost for the full length of your stay." },
-      "facilities": { "title": "Village-Style Facilities", "description": "Toilets and washing facilities are simple and village-style, the same as what local families use — please come prepared for a rustic, rural setting." },
+      "facilities": { "title": "Village-Style Facilities", "description": "Toilets and washing facilities are simple and village-style, the same as what local families use. Please come prepared for a rustic, rural setting." },
       "rules": { "title": "Follow School Rules", "description": "Volunteers are expected to respect and follow the school's rules and daily schedule at all times." },
       "commitment": { "title": "Minimum Time Commitment", "description": "We ask for a minimum stay of 2 weeks, so you have time to build real relationships with students and make a meaningful contribution." },
-      "proposal": { "title": "Bring Your Own Ideas", "description": "If you have a project or teaching idea you'd like to propose, we welcome it — just share your plan with us in advance." }
+      "proposal": { "title": "Bring Your Own Ideas", "description": "If you have a project or teaching idea you'd like to propose, we welcome it. Just share your plan with us in advance." }
     },
+    "trekkingLink": "Explore nearby treks and quiet spots →",
     "ctaTitle": "Ready to Get Involved?",
     "ctaSubtitle": "Share a few details below and our volunteer coordinator will follow up with next steps.",
     "form": {
@@ -240,30 +299,30 @@
       "messagePlaceholder": "Tell us how you'd like to contribute...",
       "submit": "Send via WhatsApp",
       "thankYouTitle": "Almost done!",
-      "thankYouText": "We've opened WhatsApp with your details filled in — just hit send and our volunteer coordinator will get back to you soon. You can also reach us directly at"
+      "thankYouText": "We've opened WhatsApp with your details filled in. Just hit send and our volunteer coordinator will get back to you soon. You can also reach us directly at"
     }
   },
   "support": {
     "badge": "Request for Support",
     "title": "Help Us Build a Permanent Home for Our School",
-    "subtitle": "Manju Shree Primary School, Jumla — Western Himalayan Region, Nepal",
+    "subtitle": "Manju Shree Primary School, Jumla, Western Himalayan Region, Nepal",
     "greeting": "Respected and Compassionate Supporters,",
     "greetingText": "We extend our heartfelt appreciation to every individual and organization dedicated to serving society and supporting underprivileged children with generosity and compassion. On behalf of Manju Shree Primary School, located in the remote Himalayan region of Jumla, western Nepal, we sincerely thank you for your kindness and consideration.",
     "situationTitle": "Introduction & Current Situation",
-    "situationP1": "Manju Shree Primary School was established to provide quality education to children living in a remote Himalayan region where educational opportunities are extremely limited. Our goal is not only to provide academic knowledge but also to nurture children with good moral values, compassion, discipline, and responsibility — enabling them to become capable and caring members of society.",
-    "situationP2": "The school has been operating for more than two years and currently offers classes up to Grade Three, with Grades Four and Five now proposed as the school's next step. We now have 100 students, and the number continues to grow as more families recognize the importance of education. Despite this encouraging progress, we still do not have our own classrooms or assembly hall and must operate from rented buildings — making teaching and learning difficult. Nevertheless, our teachers and students continue their work with determination, dedication, and hope.",
+    "situationP1": "Manju Shree Primary School was established to provide quality education to children living in a remote Himalayan region where educational opportunities are extremely limited. Our goal isn't just academic knowledge. We also want to nurture children with good moral values, compassion, discipline, and responsibility, so they can grow into capable, caring members of society.",
+    "situationP2": "The school has been running for more than two years and currently teaches up to Grade Three, with Grades Four and Five planned next. We now have 100 students, and that number keeps growing as more families see the value of education. Despite this progress, we still don't have our own classrooms or an assembly hall, and have to operate out of rented buildings, which makes teaching harder. Even so, our teachers and students keep at it.",
     "visionTitle": "Our Vision",
     "visionText": "Our vision is to give every child access to quality education while developing academic excellence, strong moral character, cultural awareness, environmental responsibility, and compassion. We hope to become a school where children receive not only knowledge but also the values and life skills needed to build a meaningful future. Constructing permanent classrooms and a multipurpose hall has become one of our most urgent priorities, and with the support of compassionate donors, we believe the school can continue to grow and serve many more children.",
     "philosophyTitle": "Our Educational Philosophy",
-    "philosophySubtitle": "At Manju Shree Primary School, education is not limited to textbooks — we believe children should grow into complete human beings through the balanced development of knowledge, character, culture, and compassion.",
+    "philosophySubtitle": "At Manju Shree Primary School, education isn't limited to textbooks. We want children to grow as whole people, developing knowledge, character, culture, and compassion together.",
     "philosophy": {
       "culture": {
         "title": "Cultural & Language Education",
-        "description": "We encourage students to learn and appreciate their own language, history, traditions, music, and cultural heritage — building confidence, identity, and pride while respecting other cultures."
+        "description": "We encourage students to learn and appreciate their own language, history, traditions, music, and cultural heritage. This builds confidence, identity, and pride, while still respecting other cultures."
       },
       "environment": {
         "title": "Environmental Education",
-        "description": "Students learn to keep their surroundings clean, conserve water, reduce waste, and care for animals and plants — cultivating responsible citizens who live in harmony with nature."
+        "description": "Students learn to keep their surroundings clean, conserve water, reduce waste, and care for animals and plants. This helps them grow into responsible citizens who live in harmony with nature."
       },
       "family": {
         "title": "Respect for Parents & Family",
@@ -307,7 +366,7 @@
       "principal": {
         "name": "Kamala Devi Rawal",
         "role": "Principal",
-        "message": "“Every morning I get to watch our teachers turn a classroom into a place of curiosity and confidence. We hold our students to high academic standards while making sure no child is held back by hunger, a missing notebook, or something they couldn't control. That balance — rigor and care — is what Manju Shree Primary School stands for.”"
+        "message": "“Every morning I get to watch our teachers turn a classroom into a place of curiosity and confidence. We hold our students to high academic standards while making sure no child is held back by hunger, a missing notebook, or something they couldn't control. That balance of rigor and care is what Manju Shree Primary School stands for.”"
       }
     },
     "teachersTitle": "Our Teachers & Staff",

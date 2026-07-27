@@ -36,6 +36,16 @@ export default function Footer({ lang, dict }: { lang: Locale; dict: Dictionary 
               </Link>
             </li>
             <li>
+              <Link href={`/${lang}/calendar`} className="hover:text-white">
+                {dict.nav.calendar}
+              </Link>
+            </li>
+            <li>
+              <Link href={`/${lang}/trekking`} className="hover:text-white">
+                {dict.footer.trekking}
+              </Link>
+            </li>
+            <li>
               <Link href={`/${lang}/volunteer`} className="hover:text-white">
                 {dict.nav.volunteer}
               </Link>
@@ -61,11 +71,15 @@ export default function Footer({ lang, dict }: { lang: Locale; dict: Dictionary 
             <li>{dict.footer.address1}</li>
             <li>{dict.footer.address2}</li>
             <li>
-              <a href="mailto:manjushreeprimary.jumla@gmail.com" className="hover:text-white">
-                manjushreeprimary.jumla@gmail.com
+              <a href="mailto:manjushreeschool2024@gmail.com" className="hover:text-white">
+                manjushreeschool2024@gmail.com
               </a>
             </li>
-            <li>+977-XX-XXXXXX</li>
+            <li>
+              <a href="tel:+9779860739933" className="hover:text-white">
+                +977 986-0739933
+              </a>
+            </li>
           </ul>
         </div>
 

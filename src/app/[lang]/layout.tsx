@@ -4,6 +4,8 @@ import "../globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import FacebookButton from "@/components/FacebookButton";
+import InstagramButton from "@/components/InstagramButton";
 import { getDictionary, isLocale, locales, defaultLocale, type Locale } from "@/lib/i18n";
 import { notFound } from "next/navigation";
 
@@ -70,6 +72,8 @@ export default async function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer lang={lang} dict={dict} />
         <WhatsAppButton label={dict.nav.whatsapp} />
+        <FacebookButton label={dict.nav.facebook} />
+        <InstagramButton label={dict.nav.instagram} />
       </body>
     </html>
   );

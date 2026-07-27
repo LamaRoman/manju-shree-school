@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import VolunteerForm from "@/components/VolunteerForm";
 import { getDictionary, isLocale } from "@/lib/i18n";
 import { notFound } from "next/navigation";
@@ -152,6 +153,15 @@ export default async function VolunteerPage({
             );
           })}
         </div>
+
+        <p className="mt-8 text-center">
+          <Link
+            href={`/${lang}/trekking`}
+            className="text-sm font-semibold text-primary-600 hover:text-primary-700"
+          >
+            {dict.volunteer.trekkingLink}
+          </Link>
+        </p>
       </section>
 
       <section className="mx-auto max-w-3xl px-6 py-16">

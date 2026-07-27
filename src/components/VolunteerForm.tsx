@@ -25,8 +25,8 @@ export default function VolunteerForm({ dict }: { dict: Dictionary }) {
         </h3>
         <p className="mt-2 text-sm text-gray-600">
           {form.thankYouText}{" "}
-          <a href="mailto:manjushreeprimary.jumla@gmail.com" className="font-medium text-primary-600">
-            manjushreeprimary.jumla@gmail.com
+          <a href="mailto:manjushreeschool2024@gmail.com" className="font-medium text-primary-600">
+            manjushreeschool2024@gmail.com
           </a>
           .
         </p>
