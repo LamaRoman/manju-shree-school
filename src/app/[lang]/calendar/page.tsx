@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { getDictionary, isLocale } from "@/lib/i18n";
 import { notFound } from "next/navigation";
-import { getCalendarEvents, groupEventsByMonth } from "@/lib/calendar";
+import { getCalendarEvents } from "@/lib/calendar";
+import CalendarGrid from "./CalendarGrid";
 
 export async function generateMetadata({
   params,
@@ -26,7 +27,6 @@ export default async function CalendarPage({
   if (!isLocale(lang)) notFound();
   const dict = await getDictionary(lang);
   const events = await getCalendarEvents();
-  const monthGroups = groupEventsByMonth(events);
 
   return (
     <div>
@@ -42,45 +42,11 @@ export default async function CalendarPage({
         </div>
       </section>
 
-      <section className="mx-auto max-w-3xl px-6 py-16">
-        {monthGroups.length === 0 ? (
+      <section className="mx-auto max-w-5xl px-6 py-16">
+        {events.length === 0 ? (
           <p className="text-center text-gray-500">{dict.calendar.empty}</p>
         ) : (
-          <div className="space-y-10">
-            {monthGroups.map((group) => (
-              <div key={`${group.year}/${group.month}`}>
-                <h2 className="text-xl font-bold text-primary-950">
-                  {dict.calendar.months[group.month - 1]} {group.year}
-                </h2>
-                <ul className="mt-4 divide-y divide-primary-100 overflow-hidden rounded-2xl border border-primary-100 bg-white">
-                  {group.events.map((event) => (
-                    <li key={event.id} className="flex items-start gap-4 p-4">
-                      <span className="mt-0.5 shrink-0 rounded-full bg-primary-50 px-3 py-1 text-xs font-semibold text-primary-700">
-                        {event.date.split("/")[2]}
-                      </span>
-                      <div>
-                        <div className="flex items-center gap-2">
-                          <h3 className="font-semibold text-primary-900">{event.title}</h3>
-                          <span
-                            className={`rounded-full px-2 py-0.5 text-xs font-semibold ${
-                              event.type === "HOLIDAY"
-                                ? "bg-accent-100 text-accent-700"
-                                : "bg-primary-100 text-primary-700"
-                            }`}
-                          >
-                            {event.type === "HOLIDAY" ? dict.calendar.holidayLabel : dict.calendar.eventLabel}
-                          </span>
-                        </div>
-                        {event.description && (
-                          <p className="mt-1 text-sm leading-6 text-gray-600">{event.description}</p>
-                        )}
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
+          <CalendarGrid events={events} dict={dict.calendar} />
         )}
       </section>
     </div>

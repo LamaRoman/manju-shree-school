@@ -205,6 +205,12 @@
     "eventLabel": "活动",
     "holidayLabel": "假期",
     "empty": "目前还没有安排活动，请稍后再来看看。",
+    "noEventsMonth": "本月没有活动。",
+    "activitiesLabel": "活动",
+    "previousMonth": "上个月",
+    "nextMonth": "下个月",
+    "todayButton": "今天",
+    "weekdaysShort": ["日", "一", "二", "三", "四", "五", "六"],
     "months": ["Baishakh", "Jestha", "Ashadh", "Shrawan", "Bhadra", "Ashwin", "Kartik", "Mangsir", "Poush", "Magh", "Falgun", "Chaitra"]
   },
   "gallery": {
@@ -345,7 +351,7 @@
           "name": "Maria Suominen",
           "title": "常居芬兰、周游世界的作家、语言学家、艺术家兼教师",
           "credentials": "MA Critical Media and Cultural Studies, SOAS, University of London; MDra Directing Theatre, Royal Scottish Academy of Music and Drama",
-          "role": "顾问",
+          "role": "创始顾问",
           "message": "2022年，卡尔桑（Kalsang）到芬兰来看我，芬兰是一个以教育体系闻名的国家。他向我解释说，他尼泊尔村庄里的孩子们由于附近没有合适的学校，不得不前往加德满都或印度求学。我指出，这不仅意味着孩子们要离开家人，还意味着他们将与喜马拉雅文化和生活方式割裂，最终导致该地区人口流失。他们在旅途中面临的种种危险，更让人担忧。\n\n我问卡尔桑是否曾想过在村里办一所学校。他回答说，这一直是他多年的梦想，于是我鼓励他去实现它。\n\n2024年，我们再次相见，这次是在德里。办学许可已经获得，我们一起草拟了初步的课程安排与课表。我特别强调了争取村民支持、并将项目掌控在当地人手中的重要性，以确保其长期可持续发展。外部人士可以提供建议，但决定权应交由当地人。\n\n学校于当年晚些时候正式开学。看到它蓬勃发展，我感到无比欣慰！\n\nOm Ah Rapatsana Dhih!"
         }
       ]
