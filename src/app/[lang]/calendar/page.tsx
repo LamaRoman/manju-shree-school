@@ -31,7 +31,7 @@ export default async function CalendarPage({
   return (
     <div>
       <section className="bg-gradient-to-b from-primary-50 to-white">
-        <div className="mx-auto max-w-4xl px-6 py-16 text-center">
+        <div className="mx-auto max-w-4xl px-6 pt-16 pb-10 text-center">
           <span className="rounded-full bg-primary-100 px-4 py-1 text-sm font-semibold text-primary-700">
             {dict.calendar.badge}
           </span>
@@ -42,7 +42,7 @@ export default async function CalendarPage({
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-6 py-16">
+      <section className="mx-auto max-w-5xl px-6 pt-6 pb-16">
         {events.length === 0 ? (
           <p className="text-center text-gray-500">{dict.calendar.empty}</p>
         ) : (
