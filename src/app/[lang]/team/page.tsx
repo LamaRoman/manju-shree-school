@@ -22,6 +22,7 @@ function Avatar({ name, color }: { name: string; color: string }) {
 const leaderMeta = [
   { key: "founder", color: "bg-primary-600" },
   { key: "principal", color: "bg-accent-500" },
+  { key: "advisor", color: "bg-primary-700" },
 ] as const;
 
 const teacherMeta = [
@@ -88,12 +89,13 @@ export default async function TeamPage({
       </section>
 
       <section className="mx-auto max-w-5xl px-6 py-16">
-        <div className="grid gap-8 md:grid-cols-2">
+        <div className="grid gap-8">
           {leaderMeta.map(({ key, color }) => {
-            const leader = dict.team.leaders[key];
-            return (
+            const entry = dict.team.leaders[key];
+            const leaders = Array.isArray(entry) ? entry : entry ? [entry] : [];
+            return leaders.map((leader, i) => (
               <div
-                key={key}
+                key={`${key}-${i}`}
                 className="flex flex-col rounded-2xl border border-primary-100 bg-white p-8 shadow-sm"
               >
                 <div className="flex items-center gap-4">
@@ -107,7 +109,7 @@ export default async function TeamPage({
                   {leader.message}
                 </p>
               </div>
-            );
+            ));
           })}
         </div>
       </section>
