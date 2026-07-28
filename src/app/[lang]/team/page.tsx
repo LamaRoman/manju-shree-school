@@ -92,7 +92,9 @@ export default async function TeamPage({
         <div className="grid gap-8">
           {leaderMeta.map(({ key, color }) => {
             const entry = dict.team.leaders[key];
-            const leaders = Array.isArray(entry) ? entry : entry ? [entry] : [];
+            const leaders = (
+              Array.isArray(entry) ? entry : entry ? [entry] : []
+            ) as { name: string; role: string; message: string; title?: string; credentials?: string }[];
             return leaders.map((leader, i) => (
               <div
                 key={`${key}-${i}`}
@@ -103,6 +105,12 @@ export default async function TeamPage({
                   <div>
                     <h3 className="font-semibold text-primary-900">{leader.name}</h3>
                     <p className="text-sm text-accent-600">{leader.role}</p>
+                    {leader.title && (
+                      <p className="mt-1 text-sm text-gray-600">{leader.title}</p>
+                    )}
+                    {leader.credentials && (
+                      <p className="mt-1 text-xs text-gray-500">{leader.credentials}</p>
+                    )}
                   </div>
                 </div>
                 <p className="mt-5 text-sm leading-7 text-gray-600 italic">
