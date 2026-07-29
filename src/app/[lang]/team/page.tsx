@@ -23,6 +23,7 @@ const leaderMeta = [
   { key: "founder", color: "bg-primary-600" },
   { key: "principal", color: "bg-accent-500" },
   { key: "advisor", color: "bg-primary-700" },
+  { key: "coordinator", color: "bg-accent-700" },
 ] as const;
 
 const teacherMeta = [
