@@ -3,36 +3,40 @@ import Image from "next/image";
 import { getDictionary, isLocale } from "@/lib/i18n";
 import { notFound } from "next/navigation";
 
-function Avatar({ name, color }: { name: string; color: string }) {
+function Avatar({
+  name,
+  color,
+  size = "md",
+}: {
+  name: string;
+  color: string;
+  size?: "md" | "lg";
+}) {
   const initials = name
     .split(" ")
     .map((n) => n[0])
     .join("")
     .slice(0, 2);
 
+  const sizeClasses = size === "lg" ? "h-20 w-20 text-2xl" : "h-14 w-14 text-base";
+
   return (
     <div
-      className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-full text-lg font-bold text-white ${color}`}
+      className={`flex shrink-0 items-center justify-center rounded-full font-bold text-white ${sizeClasses} ${color}`}
     >
       {initials}
     </div>
   );
 }
 
-const leaderMeta = [
+const leadershipMeta = [
   { key: "founder", color: "bg-primary-600" },
   { key: "principal", color: "bg-accent-500" },
-  { key: "advisor", color: "bg-primary-700" },
-  { key: "coordinator", color: "bg-accent-700" },
 ] as const;
 
-const teacherMeta = [
-  { key: "languageLead", color: "bg-primary-500" },
-  { key: "math", color: "bg-accent-600" },
-  { key: "science", color: "bg-primary-700" },
-  { key: "primary", color: "bg-accent-500" },
-  { key: "arts", color: "bg-primary-600" },
-  { key: "volunteer", color: "bg-accent-700" },
+const advisoryMeta = [
+  { key: "advisor", color: "bg-primary-700" },
+  { key: "coordinator", color: "bg-accent-700" },
 ] as const;
 
 export async function generateMetadata({
@@ -90,60 +94,72 @@ export default async function TeamPage({
       </section>
 
       <section className="mx-auto max-w-5xl px-6 py-16">
-        <div className="grid gap-8">
-          {leaderMeta.map(({ key, color }) => {
-            const entry = dict.team.leaders[key];
-            const leaders = (
-              Array.isArray(entry) ? entry : entry ? [entry] : []
-            ) as { name: string; role: string; message: string; title?: string; credentials?: string }[];
-            return leaders.map((leader, i) => (
+        <div className="grid gap-8 lg:grid-cols-2 lg:items-stretch">
+          {leadershipMeta.map(({ key, color }) => {
+            const leader = dict.team.leaders[key] as {
+              name: string;
+              role: string;
+              message: string;
+              title?: string;
+              credentials?: string;
+            };
+            return (
               <div
-                key={`${key}-${i}`}
-                className="flex flex-col rounded-2xl border border-primary-100 bg-white p-8 shadow-sm"
+                key={key}
+                className="relative flex flex-col overflow-hidden rounded-2xl border border-primary-100 bg-white p-8 shadow-sm"
               >
-                <div className="flex items-center gap-4">
-                  <Avatar name={leader.name} color={color} />
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute -right-4 -top-6 font-serif text-[8rem] leading-none text-primary-50"
+                >
+                  &rdquo;
+                </span>
+                <div className="relative flex items-center gap-4">
+                  <Avatar name={leader.name} color={color} size="lg" />
                   <div>
-                    <h3 className="font-semibold text-primary-900">{leader.name}</h3>
-                    <p className="text-sm text-accent-600">{leader.role}</p>
-                    {leader.title && (
-                      <p className="mt-1 text-sm text-gray-600">{leader.title}</p>
-                    )}
-                    {leader.credentials && (
-                      <p className="mt-1 text-xs text-gray-500">{leader.credentials}</p>
-                    )}
+                    <h3 className="text-lg font-semibold text-primary-900">{leader.name}</h3>
+                    <p className="text-sm font-medium text-accent-600">{leader.role}</p>
                   </div>
                 </div>
-                <p className="mt-5 text-sm leading-7 text-gray-600 italic">
+                <p className="relative mt-6 flex-1 text-sm leading-7 text-gray-600 italic">
                   {leader.message}
                 </p>
               </div>
-            ));
+            );
           })}
         </div>
-      </section>
 
-      <section className="bg-primary-50">
-        <div className="mx-auto max-w-6xl px-6 py-16">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold text-primary-950">{dict.team.teachersTitle}</h2>
-            <p className="mt-3 text-gray-600">{dict.team.teachersSubtitle}</p>
-          </div>
-
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {teacherMeta.map(({ key, color }) => {
-              const teacher = dict.team.teachers[key];
-              return (
+        <div className="mt-12">
+          <h2 className="text-xl font-bold text-primary-950">{dict.team.advisoryTitle}</h2>
+          <div className="mt-6 grid gap-6 sm:grid-cols-2">
+            {advisoryMeta.map(({ key, color }) => {
+              const entry = dict.team.leaders[key];
+              const advisors = (
+                Array.isArray(entry) ? entry : entry ? [entry] : []
+              ) as { name: string; role: string; message: string; title?: string; credentials?: string }[];
+              return advisors.map((leader, i) => (
                 <div
-                  key={key}
-                  className="flex flex-col items-center rounded-2xl bg-white p-6 text-center shadow-sm"
+                  key={`${key}-${i}`}
+                  className="flex flex-col rounded-2xl bg-primary-50/60 p-6"
                 >
-                  <Avatar name={teacher.name} color={color} />
-                  <h3 className="mt-4 font-semibold text-primary-900">{teacher.name}</h3>
-                  <p className="text-sm text-accent-600">{teacher.role}</p>
-                  <p className="mt-2 text-sm leading-6 text-gray-600">{teacher.bio}</p>
+                  <div className="flex items-center gap-3">
+                    <Avatar name={leader.name} color={color} />
+                    <div>
+                      <h3 className="font-semibold text-primary-900">{leader.name}</h3>
+                      <p className="text-sm text-accent-600">{leader.role}</p>
+                      {leader.title && (
+                        <p className="mt-0.5 text-xs text-gray-600">{leader.title}</p>
+                      )}
+                      {leader.credentials && (
+                        <p className="mt-0.5 text-xs text-gray-500">{leader.credentials}</p>
+                      )}
+                    </div>
+                  </div>
+                  <p className="mt-4 text-sm leading-6 text-gray-600 italic">
+                    {leader.message}
+                  </p>
                 </div>
-              );
+              ));
             })}
           </div>
         </div>
