@@ -11,6 +11,7 @@ import {
   buttonPrimary,
   buttonSecondary,
 } from "@/components/ui";
+import Reveal from "@/components/Reveal";
 
 const galleryMeta = [
   { key: "assembly", photo: "/photos/school-assembly.jpeg" },
@@ -64,20 +65,16 @@ export default async function Home({
           className="absolute inset-0 -z-10"
           style={{
             backgroundImage:
-              "linear-gradient(180deg, rgba(46,15,19,0.82) 0%, rgba(46,15,19,0.55) 42%, rgba(46,15,19,0.72) 78%, rgba(46,15,19,0.92) 100%)",
+              "linear-gradient(180deg, rgba(46,15,19,0.62) 0%, rgba(46,15,19,0.38) 42%, rgba(46,15,19,0.55) 78%, rgba(46,15,19,0.78) 100%)",
           }}
         />
 
-        <div className="mx-auto flex min-h-[560px] max-w-4xl flex-col items-center justify-center px-6 pb-32 pt-20 text-center sm:min-h-[620px] sm:pb-36 lg:min-h-[680px]">
+        <Reveal className="mx-auto flex min-h-[560px] max-w-4xl flex-col items-center justify-center px-6 pb-32 pt-20 text-center sm:min-h-[620px] sm:pb-36 lg:min-h-[680px]">
           <Eyebrow tone="dark">{dict.nav.location}</Eyebrow>
 
-          <h1 className="mt-7 font-display text-4xl font-semibold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl">
+          <h1 className="mt-7 font-display text-4xl font-semibold leading-[1.1] tracking-tight text-white [text-shadow:0_2px_16px_rgba(0,0,0,0.45)] sm:text-5xl lg:text-6xl">
             {dict.home.title}
           </h1>
-
-          <p className="mt-7 max-w-2xl text-lg leading-8 text-white/85">
-            {dict.home.subtitle}
-          </p>
 
           <p className="mt-8 border-y border-accent-300/30 px-6 py-3 font-display text-lg italic text-accent-200 sm:text-xl">
             {dict.about.motto}
@@ -91,14 +88,16 @@ export default async function Home({
               {dict.home.learnAboutUs}
             </Link>
           </div>
-        </div>
-
+        </Reveal>
       </section>
 
       {/* Stats lifted onto the seam between the hero and the page. The hero's
           bottom padding is what reserves room for it. */}
       <section id="explore-more" className="relative z-10 -mt-20 px-6">
-        <div className="mx-auto grid max-w-5xl grid-cols-2 gap-y-8 rounded-3xl border border-gray-200/80 bg-white px-6 py-9 shadow-lift sm:grid-cols-4 sm:px-10">
+        <Reveal
+          delay={150}
+          className="mx-auto grid max-w-5xl grid-cols-2 gap-y-8 rounded-3xl border border-gray-200/80 bg-white px-6 py-9 shadow-lift sm:grid-cols-4 sm:px-10"
+        >
           {statMeta.map((stat, i) => (
             <div
               key={stat.key}
@@ -116,7 +115,7 @@ export default async function Home({
               </div>
             </div>
           ))}
-        </div>
+        </Reveal>
       </section>
 
       {/* ---------------------------------------------------------------- */}
@@ -129,27 +128,28 @@ export default async function Home({
         />
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {quickLinkMeta.map((link) => (
-            <Link
-              key={link.key}
-              href={`/${locale}/${link.href}`}
-              className="group relative flex flex-col overflow-hidden rounded-2xl border border-gray-200/80 bg-white p-6 shadow-soft transition duration-200 hover:-translate-y-1 hover:border-primary-200 hover:shadow-lift"
-            >
-              <span
-                aria-hidden
-                className="absolute inset-x-0 top-0 h-0.5 scale-x-0 bg-accent-400 transition-transform duration-300 group-hover:scale-x-100"
-              />
-              <IconTile icon={link.icon} />
-              <h3 className="mt-5 font-display text-lg font-semibold text-primary-950">
-                {dict.home.quickLinks[link.key].title}
-              </h3>
-              <p className="mt-2 flex-1 text-sm leading-6 text-gray-600">
-                {dict.home.quickLinks[link.key].description}
-              </p>
-              <span className="mt-5">
-                <ArrowLink label={dict.home.learnMore} />
-              </span>
-            </Link>
+          {quickLinkMeta.map((link, i) => (
+            <Reveal key={link.key} delay={i * 80}>
+              <Link
+                href={`/${locale}/${link.href}`}
+                className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200/80 bg-white p-6 shadow-soft transition duration-200 hover:-translate-y-1 hover:border-primary-200 hover:shadow-lift"
+              >
+                <span
+                  aria-hidden
+                  className="absolute inset-x-0 top-0 h-0.5 scale-x-0 bg-accent-400 transition-transform duration-300 group-hover:scale-x-100"
+                />
+                <IconTile icon={link.icon} />
+                <h3 className="mt-5 font-display text-lg font-semibold text-primary-950">
+                  {dict.home.quickLinks[link.key].title}
+                </h3>
+                <p className="mt-2 flex-1 text-sm leading-6 text-gray-600">
+                  {dict.home.quickLinks[link.key].description}
+                </p>
+                <span className="mt-5">
+                  <ArrowLink label={dict.home.learnMore} />
+                </span>
+              </Link>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -174,29 +174,28 @@ export default async function Home({
           </div>
 
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {galleryMeta.map(({ key, photo }) => (
-              <figure
-                key={key}
-                className="group overflow-hidden rounded-2xl border border-gray-200/80 bg-white shadow-soft transition duration-200 hover:shadow-lift"
-              >
-                <div className="relative aspect-[4/3] w-full overflow-hidden">
-                  <Image
-                    src={photo}
-                    alt={dict.home.gallery[key].title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    sizes="(min-width: 640px) 33vw, 100vw"
-                  />
-                </div>
-                <figcaption className="p-6">
-                  <h3 className="font-display text-lg font-semibold text-primary-950">
-                    {dict.home.gallery[key].title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-6 text-gray-600">
-                    {dict.home.gallery[key].description}
-                  </p>
-                </figcaption>
-              </figure>
+            {galleryMeta.map(({ key, photo }, i) => (
+              <Reveal key={key} delay={i * 80}>
+                <figure className="group h-full overflow-hidden rounded-2xl border border-gray-200/80 bg-white shadow-soft transition duration-200 hover:shadow-lift">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden">
+                    <Image
+                      src={photo}
+                      alt={dict.home.gallery[key].title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(min-width: 640px) 33vw, 100vw"
+                    />
+                  </div>
+                  <figcaption className="p-6">
+                    <h3 className="font-display text-lg font-semibold text-primary-950">
+                      {dict.home.gallery[key].title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-6 text-gray-600">
+                      {dict.home.gallery[key].description}
+                    </p>
+                  </figcaption>
+                </figure>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -208,7 +207,7 @@ export default async function Home({
       {/* ---------------------------------------------------------------- */}
       <section className="mx-auto w-full max-w-6xl px-6 py-24">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          <div className="relative">
+          <Reveal className="relative">
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl shadow-lift">
               <Image
                 src="/photos/school-building.jpeg"
@@ -222,9 +221,9 @@ export default async function Home({
               aria-hidden
               className="absolute -bottom-5 -left-5 -z-10 h-32 w-32 rounded-3xl bg-accent-200/60"
             />
-          </div>
+          </Reveal>
 
-          <div>
+          <Reveal delay={150}>
             <Eyebrow>{dict.support.badge}</Eyebrow>
             <h2 className="mt-5 font-display text-3xl font-semibold tracking-tight text-primary-950 sm:text-4xl">
               {dict.support.title}
@@ -238,7 +237,7 @@ export default async function Home({
             >
               {dict.footer.supportBuildingLink}
             </Link>
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -254,7 +253,7 @@ export default async function Home({
               "radial-gradient(60% 80% at 50% 0%, rgba(246,165,36,0.14) 0%, transparent 70%)",
           }}
         />
-        <div className="relative mx-auto flex max-w-3xl flex-col items-center gap-7 px-6 py-24 text-center">
+        <Reveal className="relative mx-auto flex max-w-3xl flex-col items-center gap-7 px-6 py-24 text-center">
           <h2 className="font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl">
             {dict.home.ctaTitle}
           </h2>
@@ -264,7 +263,7 @@ export default async function Home({
           <Link href={`/${locale}/volunteer`} className={buttonPrimary}>
             {dict.home.ctaButton}
           </Link>
-        </div>
+        </Reveal>
       </section>
     </div>
   );

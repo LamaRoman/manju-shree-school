@@ -54,10 +54,10 @@ export default async function TrekkingPage({
         />
 
         <div className="mt-14 grid gap-5 lg:grid-cols-3">
-          {dayHikeMeta.map(({ key, icon }) => {
+          {dayHikeMeta.map(({ key, icon }, i) => {
             const hike = dict.trekking.dayHikes[key];
             return (
-              <Card key={key} className="flex flex-col">
+              <Card key={key} delay={i * 90} className="flex flex-col">
                 <div className="flex items-start justify-between gap-4">
                   <IconTile icon={icon} />
                   <span className="rounded-full bg-accent-50 px-3 py-1 text-xs font-semibold whitespace-nowrap text-accent-800 ring-1 ring-accent-200/70">
@@ -85,10 +85,10 @@ export default async function TrekkingPage({
           />
 
           <div className="mt-14 grid gap-5 lg:grid-cols-3">
-            {multiDayMeta.map(({ key, icon }) => {
+            {multiDayMeta.map(({ key, icon }, i) => {
               const trek = dict.trekking.multiDay[key];
               return (
-                <Card key={key} className="flex flex-col">
+                <Card key={key} delay={i * 90} className="flex flex-col">
                   <div className="flex items-start justify-between gap-4">
                     <IconTile icon={icon} tone="accent" />
                     <span className="rounded-full bg-primary-50 px-3 py-1 text-xs font-semibold whitespace-nowrap text-primary-700 ring-1 ring-primary-100">

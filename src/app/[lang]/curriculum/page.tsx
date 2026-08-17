@@ -60,7 +60,7 @@ export default async function CurriculumPage({
           {levelMeta.map((key, i) => {
             const level = dict.curriculum.levels[key];
             return (
-              <Card key={key} className="flex flex-col">
+              <Card key={key} delay={i * 90} className="flex flex-col">
                 <div className="flex items-center justify-between gap-3">
                   <span className="font-display text-4xl font-semibold text-primary-200">
                     {String(i + 1).padStart(2, "0")}
@@ -109,10 +109,10 @@ export default async function CurriculumPage({
           <SectionHeading title={dict.curriculum.approachTitle} />
 
           <div className="mt-14 grid gap-5 sm:grid-cols-2">
-            {methodologyMeta.map(({ key, icon }) => {
+            {methodologyMeta.map(({ key, icon }, i) => {
               const m = dict.curriculum.methodology[key];
               return (
-                <Card key={key} className="flex gap-5">
+                <Card key={key} delay={i * 80} className="flex gap-5">
                   <IconTile icon={icon} tone="accent" />
                   <div>
                     <h3 className="font-display text-lg font-semibold text-primary-950">

@@ -86,10 +86,10 @@ export default async function VolunteerPage({
         />
 
         <div className="mt-14 grid gap-5 lg:grid-cols-3">
-          {categoryMeta.map(({ key, icon }) => {
+          {categoryMeta.map(({ key, icon }, i) => {
             const cat = dict.volunteer.categories[key];
             return (
-              <Card key={key} className="flex flex-col">
+              <Card key={key} delay={i * 90} className="flex flex-col">
                 <IconTile icon={icon} tone="accent" />
                 <h3 className="mt-5 font-display text-lg font-semibold text-primary-950">
                   {cat.title}
@@ -157,10 +157,10 @@ export default async function VolunteerPage({
         />
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {expectMeta.map(({ key, icon }) => {
+          {expectMeta.map(({ key, icon }, i) => {
             const item = dict.volunteer.expectations[key];
             return (
-              <Card key={key} className="flex gap-5">
+              <Card key={key} delay={i * 70} className="flex gap-5">
                 <IconTile icon={icon} />
                 <div>
                   <h3 className="font-display text-base font-semibold text-primary-950">

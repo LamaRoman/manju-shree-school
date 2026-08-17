@@ -152,10 +152,10 @@ export default async function AboutPage({
           />
 
           <div className="mt-14 grid gap-5 sm:grid-cols-2">
-            {goalMeta.map(({ key, icon }) => {
+            {goalMeta.map(({ key, icon }, i) => {
               const goal = dict.about.goals[key];
               return (
-                <Card key={key} className="flex gap-5">
+                <Card key={key} delay={i * 80} className="flex gap-5">
                   <IconTile icon={icon} tone="accent" />
                   <div>
                     <h3 className="font-display text-lg font-semibold text-primary-950">
@@ -180,10 +180,10 @@ export default async function AboutPage({
         />
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {valueMeta.map(({ key, icon }) => {
+          {valueMeta.map(({ key, icon }, i) => {
             const value = dict.about.values[key];
             return (
-              <Card key={key} className="text-center">
+              <Card key={key} delay={i * 70} className="text-center">
                 <div className="flex justify-center">
                   <IconTile icon={icon} />
                 </div>

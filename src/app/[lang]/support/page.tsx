@@ -97,10 +97,10 @@ export default async function SupportPage({
         />
 
         <div className="mt-14 grid gap-5 sm:grid-cols-3">
-          {philosophyMeta.map(({ key, icon }) => {
+          {philosophyMeta.map(({ key, icon }, i) => {
             const item = s.philosophy[key];
             return (
-              <Card key={key} className="text-center">
+              <Card key={key} delay={i * 90} className="text-center">
                 <div className="flex justify-center">
                   <IconTile icon={icon} />
                 </div>

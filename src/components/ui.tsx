@@ -1,4 +1,12 @@
-import type { ReactNode } from "react";
+"use client";
+
+import {
+  useEffect,
+  useRef,
+  useState,
+  type ReactNode,
+  type RefObject,
+} from "react";
 
 /* ---------------------------------------------------------------------------
    Shared presentation primitives.
@@ -7,7 +15,63 @@ import type { ReactNode } from "react";
    with small inconsistencies (different paddings, heading sizes, badge colors).
    Centralising them here is what makes the site read as one design rather than
    nine similar ones.
+
+   This file is a client boundary only so PageHero/SectionHeading/Card can run
+   useReveal below — none of them fetch data or hold real state, so making
+   them client components costs nothing and lets every page opt into the same
+   scroll-reveal without each page managing observers itself.
 --------------------------------------------------------------------------- */
+
+/** Reports whether an element has scrolled into view, once, via
+ *  IntersectionObserver — cheaper than a scroll listener and never
+ *  re-triggers on scroll-back.
+ *
+ *  Takes the ref rather than creating and returning one: a custom hook
+ *  handing back a ref (or anything wrapping one) trips the react-hooks/refs
+ *  lint, which wants every ref's origin traceable to a direct `useRef()`
+ *  call at its use site. Callers do
+ *  `const ref = useRef(null); const shown = useReveal(ref);` and pass `ref`
+ *  straight to the element — no indirection for the linter to lose track of.
+ *
+ *  Respects prefers-reduced-motion via the global transition-duration
+ *  override in globals.css rather than branching here — the transition
+ *  below just resolves to ~0ms for those users instead of being skipped. */
+function useReveal(ref: RefObject<HTMLElement | null>) {
+  const [shown, setShown] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShown(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -8% 0px" },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [ref]);
+
+  return shown;
+}
+
+function revealStyle(shown: boolean, delay = 0) {
+  return {
+    opacity: shown ? 1 : 0,
+    transform: shown ? "none" : "translateY(16px)",
+    transitionDelay: `${delay}ms`,
+  };
+}
+
+// transition-all rather than a narrower property list: Card also uses this
+// class on its `interactive` hover state (border-color, box-shadow), and two
+// separate transition-property utilities on one element don't merge — the
+// later one in Tailwind's stylesheet would simply win and silently drop the
+// other's properties.
+const revealClass = "transition-all duration-700 ease-out";
 
 /** Small capsule label that sits above a heading. The gold dot is the one
  *  recurring ornament in the system — it ties hero, sections and footer
@@ -45,6 +109,9 @@ export function PageHero({
   title: string;
   lede?: string;
 }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const shown = useReveal(ref);
+
   return (
     <section className="relative overflow-hidden border-b border-gray-200/70">
       <div
@@ -55,7 +122,11 @@ export function PageHero({
             "radial-gradient(70% 120% at 50% 0%, var(--color-primary-100) 0%, transparent 62%)",
         }}
       />
-      <div className="relative mx-auto max-w-3xl px-6 pt-16 pb-14 text-center sm:pt-20 sm:pb-16">
+      <div
+        ref={ref}
+        style={revealStyle(shown)}
+        className={`relative mx-auto max-w-3xl px-6 pt-16 pb-14 text-center sm:pt-20 sm:pb-16 ${revealClass}`}
+      >
         {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
         <h1 className="mt-5 font-display text-4xl font-semibold tracking-tight text-primary-950 sm:text-5xl">
           {title}
@@ -85,9 +156,15 @@ export function SectionHeading({
   tone?: "light" | "dark";
 }) {
   const centered = align === "center";
+  const ref = useRef<HTMLDivElement>(null);
+  const shown = useReveal(ref);
 
   return (
-    <div className={centered ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
+    <div
+      ref={ref}
+      style={revealStyle(shown)}
+      className={`${revealClass} ${centered ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}`}
+    >
       {eyebrow && <Eyebrow tone={tone}>{eyebrow}</Eyebrow>}
       <h2
         className={`font-display text-3xl font-semibold tracking-tight sm:text-4xl ${
@@ -163,21 +240,30 @@ export const cardClass =
   "rounded-2xl border border-gray-200/80 bg-white p-6 shadow-soft";
 
 /** Surface for grouped content. `interactive` adds the hover lift — only pass
- *  it for cards that are actually links. */
+ *  it for cards that are actually links. `delay` staggers reveal timing when
+ *  several cards sit in the same grid (pass `i * 70`, roughly) — capped so a
+ *  long grid doesn't leave the last card waiting a full second to appear. */
 export function Card({
   children,
   className = "",
   interactive = false,
+  delay = 0,
 }: {
   children: ReactNode;
   className?: string;
   interactive?: boolean;
+  delay?: number;
 }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const shown = useReveal(ref);
+
   return (
     <div
-      className={`${cardClass} ${
+      ref={ref}
+      style={revealStyle(shown, Math.min(delay, 400))}
+      className={`${cardClass} ${revealClass} ${
         interactive
-          ? "transition duration-200 hover:-translate-y-1 hover:border-primary-200 hover:shadow-lift"
+          ? "hover:-translate-y-1 hover:border-primary-200 hover:shadow-lift"
           : ""
       } ${className}`}
     >

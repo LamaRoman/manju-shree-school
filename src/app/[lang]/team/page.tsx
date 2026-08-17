@@ -16,6 +16,9 @@ function resolvePhoto(photo?: string) {
     : undefined;
 }
 
+/** A plain filled circle for whoever doesn't have a photo yet — squared off
+ *  to match ProfilePhoto's tile so a mix of photos and initials in the same
+ *  grid still reads as one consistent shape language. */
 function Avatar({ name, size }: { name: string; size: "sm" | "lg" }) {
   const initials = name
     .split(" ")
@@ -25,8 +28,10 @@ function Avatar({ name, size }: { name: string; size: "sm" | "lg" }) {
 
   return (
     <div
-      className={`flex shrink-0 items-center justify-center rounded-full bg-primary-100 font-display font-semibold text-primary-800 ${
-        size === "lg" ? "h-32 w-32 text-4xl" : "h-14 w-14 text-lg"
+      className={`flex shrink-0 items-center justify-center bg-primary-100 font-display font-semibold text-primary-800 ${
+        size === "lg"
+          ? "h-36 w-36 rounded-[1.75rem] text-4xl"
+          : "h-16 w-16 rounded-2xl text-lg"
       }`}
     >
       {initials}
@@ -34,6 +39,15 @@ function Avatar({ name, size }: { name: string; size: "sm" | "lg" }) {
   );
 }
 
+/** A rounded-square tile with a second, rotated tile of the same photo
+ *  peeking out behind it — the "stacked photo" motif used for the building
+ *  and community photos elsewhere on this page, brought down to portrait
+ *  scale instead of the plain circle avatar this replaced.
+ *
+ *  These are ID-style portraits: a lot of blank headroom above the hair and
+ *  shoulder/chest below the chin. `object-[50%_22%]` biases the crop toward
+ *  that headroom so the square trims mostly blank space and shoulder rather
+ *  than slicing through the chin the way a centered crop was doing. */
 function ProfilePhoto({
   src,
   name,
@@ -45,19 +59,26 @@ function ProfilePhoto({
 }) {
   if (!src) return <Avatar name={name} size={size} />;
 
+  const dims = size === "lg" ? "h-36 w-36" : "h-16 w-16";
+  const radius = size === "lg" ? "rounded-[1.75rem]" : "rounded-2xl";
+
   return (
-    <div
-      className={`relative shrink-0 overflow-hidden rounded-full ring-1 ring-gray-200 ${
-        size === "lg" ? "h-32 w-32" : "h-14 w-14"
-      }`}
-    >
-      <Image
-        src={src}
-        alt={name}
-        fill
-        className="object-cover"
-        sizes={size === "lg" ? "128px" : "56px"}
+    <div className={`relative shrink-0 ${dims}`}>
+      <div
+        aria-hidden
+        className={`absolute inset-0 -z-10 ${radius} bg-accent-200/70 rotate-6`}
       />
+      <div
+        className={`relative h-full w-full -rotate-3 overflow-hidden ${radius} shadow-lift ring-4 ring-white`}
+      >
+        <Image
+          src={src}
+          alt={name}
+          fill
+          className="object-cover object-[50%_22%]"
+          sizes={size === "lg" ? "144px" : "64px"}
+        />
+      </div>
     </div>
   );
 }
@@ -202,17 +223,30 @@ export default async function TeamPage({
           <SectionHeading title={dict.team.advisoryTitle} align="left" />
 
           <div className="mt-12 grid gap-5 lg:grid-cols-2">
-            {advisoryMeta.flatMap(({ key, photos }) => {
-              const entry = dict.team.leaders[key];
-              const people = (
-                Array.isArray(entry) ? entry : entry ? [entry] : []
-              ) as Person[];
-
-              return people.map((person, i) => (
-                <Card key={`${key}-${i}`} className="flex flex-col p-7">
+            {advisoryMeta
+              .flatMap(({ key, photos }) => {
+                const entry = dict.team.leaders[key];
+                const people = (
+                  Array.isArray(entry) ? entry : entry ? [entry] : []
+                ) as Person[];
+                return people.map((person, i) => ({
+                  cardKey: `${key}-${i}`,
+                  photo: photos?.[i],
+                  person,
+                }));
+              })
+              // Flattened first so the stagger below is one continuous count
+              // down the grid, rather than resetting when advisors hand off
+              // to coordinators.
+              .map(({ cardKey, photo, person }, i) => (
+                <Card
+                  key={cardKey}
+                  delay={i * 70}
+                  className="flex flex-col p-7"
+                >
                   <div className="flex items-center gap-4">
                     <ProfilePhoto
-                      src={resolvePhoto(photos?.[i])}
+                      src={resolvePhoto(photo)}
                       name={person.name}
                       size="sm"
                     />
@@ -238,8 +272,7 @@ export default async function TeamPage({
                     className="mt-5 text-sm leading-7 text-gray-600"
                   />
                 </Card>
-              ));
-            })}
+              ))}
           </div>
         </div>
       </section>
