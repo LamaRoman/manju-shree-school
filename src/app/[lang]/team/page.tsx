@@ -4,7 +4,11 @@ import { existsSync } from "node:fs";
 import path from "node:path";
 import { getDictionary, isLocale } from "@/lib/i18n";
 import { notFound } from "next/navigation";
+import { Card, PageHero, Prose, SectionHeading } from "@/components/ui";
 
+/** Photos are dropped into public/photos by hand as people send them in, so a
+ *  configured path may not exist yet. Checking at render time means a missing
+ *  file falls back to initials instead of showing a broken image. */
 function resolvePhoto(photo?: string) {
   if (!photo) return undefined;
   return existsSync(path.join(process.cwd(), "public", photo))
@@ -12,27 +16,18 @@ function resolvePhoto(photo?: string) {
     : undefined;
 }
 
-function Avatar({
-  name,
-  color,
-  size = "md",
-}: {
-  name: string;
-  color: string;
-  size?: "md" | "lg";
-}) {
+function Avatar({ name, size }: { name: string; size: "sm" | "lg" }) {
   const initials = name
     .split(" ")
     .map((n) => n[0])
     .join("")
     .slice(0, 2);
 
-  const sizeClasses =
-    size === "lg" ? "h-28 w-28 text-3xl" : "h-14 w-14 text-base";
-
   return (
     <div
-      className={`flex shrink-0 items-center justify-center rounded-full font-bold text-white ring-4 ring-primary-50 ${sizeClasses} ${color}`}
+      className={`flex shrink-0 items-center justify-center rounded-full bg-primary-100 font-display font-semibold text-primary-800 ${
+        size === "lg" ? "h-32 w-32 text-4xl" : "h-14 w-14 text-lg"
+      }`}
     >
       {initials}
     </div>
@@ -41,43 +36,48 @@ function Avatar({
 
 function ProfilePhoto({
   src,
-  alt,
   name,
-  color,
-  size = "md",
+  size,
 }: {
   src?: string;
-  alt: string;
   name: string;
-  color: string;
-  size?: "md" | "lg";
+  size: "sm" | "lg";
 }) {
-  if (!src) return <Avatar name={name} color={color} size={size} />;
-
-  const sizeClasses = size === "lg" ? "h-28 w-28" : "h-14 w-14";
+  if (!src) return <Avatar name={name} size={size} />;
 
   return (
     <div
-      className={`relative shrink-0 overflow-hidden rounded-full ring-4 ring-primary-50 ${sizeClasses}`}
+      className={`relative shrink-0 overflow-hidden rounded-full ring-1 ring-gray-200 ${
+        size === "lg" ? "h-32 w-32" : "h-14 w-14"
+      }`}
     >
-      <Image src={src} alt={alt} fill className="object-cover" sizes="112px" />
+      <Image
+        src={src}
+        alt={name}
+        fill
+        className="object-cover"
+        sizes={size === "lg" ? "128px" : "56px"}
+      />
     </div>
   );
 }
 
+type Person = {
+  name: string;
+  role: string;
+  message: string;
+  title?: string;
+  credentials?: string;
+};
+
 const leadershipMeta = [
-  {
-    key: "founder",
-    color: "bg-primary-600",
-    photo: "/photos/founder-khenpo-kalsang.jpg",
-  },
-  { key: "principal", color: "bg-accent-500" },
+  { key: "founder", photo: "/photos/founder-khenpo-kalsang.jpg" },
+  { key: "principal" },
 ] as const;
 
 const advisoryMeta = [
   {
     key: "advisor",
-    color: "bg-primary-700",
     photos: [
       "/photos/advisor-sudha-shrestha1.jpg",
       undefined,
@@ -86,7 +86,6 @@ const advisoryMeta = [
   },
   {
     key: "coordinator",
-    color: "bg-accent-700",
     photos: ["/photos/coordinator-tenzin-sangmo.jpg"],
   },
 ] as const;
@@ -116,132 +115,129 @@ export default async function TeamPage({
 
   return (
     <div>
-      <section className="bg-gradient-to-b from-primary-50 to-white">
-        <div className="mx-auto max-w-4xl px-6 py-16 text-center">
-          <span className="rounded-full bg-primary-100 px-4 py-1 text-sm font-semibold text-primary-700">
-            {dict.team.badge}
-          </span>
-          <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-primary-950 sm:text-5xl">
-            {dict.team.title}
-          </h1>
-          <p className="mt-4 text-lg leading-8 text-gray-600">
-            {dict.team.subtitle}
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow={dict.team.badge}
+        title={dict.team.title}
+        lede={dict.team.subtitle}
+      />
 
-      <section className="mx-auto max-w-5xl px-6">
-        <div className="overflow-hidden rounded-2xl border border-primary-100">
-          <div className="relative aspect-[4/3] w-full">
+      {/* This is a portrait photo (3024x4032). Forcing it into a wide banner
+          with object-cover showed only the bottom ~40% and cut everyone's
+          heads off, so it is sized from its own aspect ratio instead of a
+          fixed frame — nothing is cropped. */}
+      <section className="mx-auto max-w-5xl px-6 pt-16">
+        <figure className="mx-auto max-w-md">
+          <div className="relative">
             <Image
               src="/photos/community-group.jpeg"
               alt={dict.team.communityCaption}
-              fill
-              className="object-cover object-bottom"
-              sizes="(min-width: 1024px) 1024px, 100vw"
+              width={3024}
+              height={4032}
+              className="h-auto w-full rounded-3xl shadow-lift"
+              sizes="(min-width: 640px) 448px, 100vw"
+            />
+            <div
+              aria-hidden
+              className="absolute -bottom-5 -right-5 -z-10 h-32 w-32 rounded-3xl bg-accent-200/60"
             />
           </div>
-        </div>
-        <p className="mt-3 text-center text-sm text-gray-500">
-          {dict.team.communityCaption}
-        </p>
+          <figcaption className="mt-5 text-center text-sm text-gray-500">
+            {dict.team.communityCaption}
+          </figcaption>
+        </figure>
       </section>
 
-      <section className="mx-auto max-w-5xl px-6 py-16">
-        <div className="grid gap-8 lg:grid-cols-2 lg:items-stretch">
-          {leadershipMeta.map(({ key, color, ...rest }) => {
+      {/* --------------------------------------------------------------- */}
+      {/* Leadership letters.                                             */}
+      {/*                                                                 */}
+      {/* These messages run to several hundred words each. Boxing them   */}
+      {/* into side-by-side cards forced a very narrow measure and buried  */}
+      {/* the portraits; giving each person a full row — portrait beside   */}
+      {/* the letter — lets the text keep a readable line length.          */}
+      {/* --------------------------------------------------------------- */}
+      <section className="mx-auto max-w-5xl px-6 py-24">
+        <div className="space-y-16">
+          {leadershipMeta.map(({ key, ...rest }, i) => {
             const photo = resolvePhoto(
               "photo" in rest ? rest.photo : undefined,
             );
-            const leader = dict.team.leaders[key] as {
-              name: string;
-              role: string;
-              message: string;
-              title?: string;
-              credentials?: string;
-            };
+            const leader = dict.team.leaders[key] as Person;
+
             return (
-              <div
-                key={key}
-                className="relative flex flex-col items-center overflow-hidden rounded-2xl border border-primary-100 bg-white p-8 text-center shadow-sm"
-              >
-                <span
-                  aria-hidden
-                  className="pointer-events-none absolute -right-4 -top-6 font-serif text-[8rem] leading-none text-primary-50"
-                >
-                  &rdquo;
-                </span>
-                <ProfilePhoto
-                  src={photo}
-                  alt={leader.name}
-                  name={leader.name}
-                  color={color}
-                  size="lg"
-                />
-                <h3 className="relative mt-4 text-lg font-semibold text-primary-900">
-                  {leader.name}
-                </h3>
-                <span className="relative mt-2 inline-block rounded-full bg-primary-50 px-4 py-1 text-sm font-medium text-primary-700">
-                  {leader.role}
-                </span>
-                <p className="relative mt-6 flex-1 text-left text-sm leading-7 text-gray-600 italic">
-                  {leader.message}
-                </p>
-              </div>
+              <article key={key}>
+                {i > 0 && <hr className="rule-fade mb-16" />}
+                <div className="grid gap-10 md:grid-cols-[auto_1fr] md:gap-12">
+                  <div className="flex flex-col items-center text-center md:sticky md:top-28 md:h-fit md:w-44">
+                    <ProfilePhoto src={photo} name={leader.name} size="lg" />
+                    <h2 className="mt-5 font-display text-xl font-semibold leading-tight text-primary-950">
+                      {leader.name}
+                    </h2>
+                    <span className="mt-3 inline-block rounded-full bg-primary-50 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.08em] text-primary-700">
+                      {leader.role}
+                    </span>
+                  </div>
+
+                  <div className="relative">
+                    <span
+                      aria-hidden
+                      className="pointer-events-none absolute -left-2 -top-10 font-display text-[7rem] leading-none text-primary-100 select-none"
+                    >
+                      &ldquo;
+                    </span>
+                    <Prose
+                      text={leader.message}
+                      className="relative leading-8 text-gray-600"
+                    />
+                  </div>
+                </div>
+              </article>
             );
           })}
         </div>
+      </section>
 
-        <div className="mt-12">
-          <h2 className="text-xl font-bold text-primary-950">
-            {dict.team.advisoryTitle}
-          </h2>
-          <div className="mt-6 grid gap-6 sm:grid-cols-2">
-            {advisoryMeta.map(({ key, color, ...rest }) => {
-              const photos = "photos" in rest ? rest.photos : undefined;
+      {/* Advisors & coordinators */}
+      <section className="border-t border-gray-200/70 bg-paper-deep">
+        <div className="mx-auto max-w-6xl px-6 py-24">
+          <SectionHeading title={dict.team.advisoryTitle} align="left" />
+
+          <div className="mt-12 grid gap-5 lg:grid-cols-2">
+            {advisoryMeta.flatMap(({ key, photos }) => {
               const entry = dict.team.leaders[key];
-              const advisors = (
+              const people = (
                 Array.isArray(entry) ? entry : entry ? [entry] : []
-              ) as {
-                name: string;
-                role: string;
-                message: string;
-                title?: string;
-                credentials?: string;
-              }[];
-              return advisors.map((leader, i) => (
-                <div
-                  key={`${key}-${i}`}
-                  className="flex flex-col rounded-2xl bg-primary-50/60 p-6"
-                >
-                  <div className="flex items-center gap-3">
+              ) as Person[];
+
+              return people.map((person, i) => (
+                <Card key={`${key}-${i}`} className="flex flex-col p-7">
+                  <div className="flex items-center gap-4">
                     <ProfilePhoto
                       src={resolvePhoto(photos?.[i])}
-                      alt={leader.name}
-                      name={leader.name}
-                      color={color}
+                      name={person.name}
+                      size="sm"
                     />
-                    <div>
-                      <h3 className="font-semibold text-primary-900">
-                        {leader.name}
+                    <div className="min-w-0">
+                      <h3 className="font-display text-lg font-semibold leading-tight text-primary-950">
+                        {person.name}
                       </h3>
-                      <p className="text-sm text-accent-600">{leader.role}</p>
-                      {leader.title && (
-                        <p className="mt-0.5 text-xs text-gray-600">
-                          {leader.title}
-                        </p>
-                      )}
-                      {leader.credentials && (
-                        <p className="mt-0.5 text-xs text-gray-500">
-                          {leader.credentials}
-                        </p>
-                      )}
+                      <p className="mt-1 text-sm font-medium text-accent-700">
+                        {person.role}
+                      </p>
                     </div>
                   </div>
-                  <p className="mt-4 text-sm leading-6 text-gray-600 italic">
-                    {leader.message}
-                  </p>
-                </div>
+
+                  {(person.title || person.credentials) && (
+                    <div className="mt-4 space-y-1 border-l-2 border-accent-200 pl-4 text-xs leading-5 text-gray-500">
+                      {person.title && <p>{person.title}</p>}
+                      {person.credentials && <p>{person.credentials}</p>}
+                    </div>
+                  )}
+
+                  <Prose
+                    text={person.message}
+                    className="mt-5 text-sm leading-7 text-gray-600"
+                  />
+                </Card>
               ));
             })}
           </div>

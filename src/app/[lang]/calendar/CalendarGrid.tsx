@@ -80,7 +80,7 @@ export default function CalendarGrid({
 
   return (
     <div className="grid gap-8 lg:grid-cols-[1.2fr_1fr]">
-      <div className="rounded-2xl border border-primary-100 bg-white p-6">
+      <div className="rounded-2xl border border-gray-200/80 bg-white p-6 shadow-soft">
         <div className="flex items-center justify-between">
           <button
             type="button"
@@ -91,7 +91,7 @@ export default function CalendarGrid({
             &larr;
           </button>
           <div className="text-center">
-            <h2 className="text-lg font-bold text-primary-950">
+            <h2 className="font-display text-lg font-semibold text-primary-950">
               {dict.months[month]} {year}
             </h2>
             <p className="text-xs text-gray-500">{adRangeLabel}</p>
@@ -149,7 +149,7 @@ export default function CalendarGrid({
       </div>
 
       <div>
-        <h3 className="font-bold text-primary-950">
+        <h3 className="font-display text-lg font-semibold text-primary-950">
           {dict.months[month]} {year} {dict.activitiesLabel} ({monthEvents.length})
         </h3>
         {monthEvents.length === 0 ? (
@@ -160,7 +160,7 @@ export default function CalendarGrid({
               dayEvents.map((event) => (
                 <li
                   key={event.id}
-                  className="rounded-2xl border border-primary-100 bg-white p-4"
+                  className="rounded-2xl border border-gray-200/80 bg-white p-4 shadow-soft"
                 >
                   <div className="flex items-start gap-3">
                     <span className="mt-0.5 shrink-0 rounded-full bg-primary-50 px-3 py-1 text-xs font-semibold text-primary-700">

@@ -2,6 +2,15 @@ import Link from "next/link";
 import Image from "next/image";
 import { getDictionary, isLocale, type Locale } from "@/lib/i18n";
 import { notFound } from "next/navigation";
+import {
+  ArrowLink,
+  Eyebrow,
+  IconTile,
+  SectionHeading,
+  buttonOnDark,
+  buttonPrimary,
+  buttonSecondary,
+} from "@/components/ui";
 
 const galleryMeta = [
   { key: "assembly", photo: "/photos/school-assembly.jpeg" },
@@ -35,71 +44,74 @@ export default async function Home({
 
   return (
     <div className="flex flex-col">
-      <section className="relative overflow-hidden">
+      {/* ---------------------------------------------------------------- */}
+      {/* Hero                                                             */}
+      {/* ---------------------------------------------------------------- */}
+      <section className="relative isolate overflow-hidden">
         <Image
           src="/photos/hero-school-group.jpeg"
           alt=""
           fill
           priority
-          className="object-cover"
+          className="-z-10 object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-primary-950/60" />
-        <div className="relative mx-auto flex min-h-[480px] max-w-6xl flex-col items-center justify-center px-6 pb-40 pt-16 text-center sm:min-h-[560px] lg:min-h-[620px] lg:pb-48">
-          <div className="flex flex-col items-center gap-8 px-6 py-10 sm:px-12 sm:py-12">
-            <h1 className="max-w-3xl text-4xl font-extrabold tracking-tight text-white [text-shadow:0_2px_12px_rgba(0,0,0,0.55)] sm:text-5xl">
-              {dict.home.title}
-            </h1>
-            <p className="rounded-full border border-accent-300/40 bg-primary-950/40 px-6 py-2 text-base font-semibold italic text-accent-300 backdrop-blur-sm sm:text-lg">
-              {dict.about.motto}
-            </p>
-            <p className="max-w-2xl text-lg leading-8 text-primary-50 [text-shadow:0_2px_8px_rgba(0,0,0,0.55)]">
-              {dict.home.subtitle}
-            </p>
-            <div className="flex flex-col gap-4 sm:flex-row">
-              <Link
-                href={`/${locale}/volunteer`}
-                className="rounded-full bg-accent-500 px-7 py-3 text-base font-semibold text-white shadow-sm transition-colors hover:bg-accent-600"
-              >
-                {dict.home.becomeVolunteer}
-              </Link>
-              <Link
-                href={`/${locale}/about`}
-                className="rounded-full border border-white/60 bg-white/10 px-7 py-3 text-base font-semibold text-white backdrop-blur-sm shadow-sm transition-colors hover:bg-white/20"
-              >
-                {dict.home.learnAboutUs}
-              </Link>
-            </div>
+        {/* A graded garnet wash rather than a flat black scrim: it keeps the
+            children's faces readable in the middle of the frame while still
+            anchoring the type top and bottom. */}
+        <div
+          aria-hidden
+          className="absolute inset-0 -z-10"
+          style={{
+            backgroundImage:
+              "linear-gradient(180deg, rgba(46,15,19,0.82) 0%, rgba(46,15,19,0.55) 42%, rgba(46,15,19,0.72) 78%, rgba(46,15,19,0.92) 100%)",
+          }}
+        />
+
+        <div className="mx-auto flex min-h-[560px] max-w-4xl flex-col items-center justify-center px-6 pb-32 pt-20 text-center sm:min-h-[620px] sm:pb-36 lg:min-h-[680px]">
+          <Eyebrow tone="dark">{dict.nav.location}</Eyebrow>
+
+          <h1 className="mt-7 font-display text-4xl font-semibold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl">
+            {dict.home.title}
+          </h1>
+
+          <p className="mt-7 max-w-2xl text-lg leading-8 text-white/85">
+            {dict.home.subtitle}
+          </p>
+
+          <p className="mt-8 border-y border-accent-300/30 px-6 py-3 font-display text-lg italic text-accent-200 sm:text-xl">
+            {dict.about.motto}
+          </p>
+
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+            <Link href={`/${locale}/volunteer`} className={buttonPrimary}>
+              {dict.home.becomeVolunteer}
+            </Link>
+            <Link href={`/${locale}/about`} className={buttonOnDark}>
+              {dict.home.learnAboutUs}
+            </Link>
           </div>
         </div>
-        <a
-          href="#explore-more"
-          aria-label={dict.home.scrollDown}
-          className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce text-white/80 transition-colors hover:text-white"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={2}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="h-8 w-8"
-          >
-            <path d="M6 9l6 6 6-6" />
-          </svg>
-        </a>
+
       </section>
 
-      <section id="explore-more" className="border-y border-primary-100 bg-white">
-        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-8 px-6 py-12 sm:grid-cols-4">
-          {statMeta.map((stat) => (
-            <div key={stat.key} className="text-center">
-              <div className="text-3xl font-extrabold text-primary-700">
+      {/* Stats lifted onto the seam between the hero and the page. The hero's
+          bottom padding is what reserves room for it. */}
+      <section id="explore-more" className="relative z-10 -mt-20 px-6">
+        <div className="mx-auto grid max-w-5xl grid-cols-2 gap-y-8 rounded-3xl border border-gray-200/80 bg-white px-6 py-9 shadow-lift sm:grid-cols-4 sm:px-10">
+          {statMeta.map((stat, i) => (
+            <div
+              key={stat.key}
+              /* Divider on every item that doesn't start a row: at two
+                 columns that's 1 and 3, at four columns it's 1, 2 and 3. */
+              className={`border-gray-200 text-center ${
+                i % 2 === 1 ? "border-l" : ""
+              } ${i === 2 ? "sm:border-l" : ""}`}
+            >
+              <div className="font-display text-4xl font-semibold text-primary-700">
                 {stat.value}
               </div>
-              <div className="mt-1 text-sm text-gray-500">
+              <div className="mt-1.5 text-sm font-medium text-gray-500">
                 {dict.home.stats[stat.key]}
               </div>
             </div>
@@ -107,104 +119,149 @@ export default async function Home({
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold text-primary-950">
-            {dict.home.exploreTitle}
-          </h2>
-          <p className="mt-3 text-gray-600">{dict.home.exploreSubtitle}</p>
-        </div>
+      {/* ---------------------------------------------------------------- */}
+      {/* Explore                                                          */}
+      {/* ---------------------------------------------------------------- */}
+      <section className="mx-auto w-full max-w-6xl px-6 py-24">
+        <SectionHeading
+          title={dict.home.exploreTitle}
+          subtitle={dict.home.exploreSubtitle}
+        />
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {quickLinkMeta.map((link) => (
             <Link
               key={link.key}
               href={`/${locale}/${link.href}`}
-              className="group flex flex-col rounded-2xl border border-primary-100 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
+              className="group relative flex flex-col overflow-hidden rounded-2xl border border-gray-200/80 bg-white p-6 shadow-soft transition duration-200 hover:-translate-y-1 hover:border-primary-200 hover:shadow-lift"
             >
-              <span className="text-3xl">{link.icon}</span>
-              <h3 className="mt-4 text-lg font-semibold text-primary-900 group-hover:text-primary-600">
+              <span
+                aria-hidden
+                className="absolute inset-x-0 top-0 h-0.5 scale-x-0 bg-accent-400 transition-transform duration-300 group-hover:scale-x-100"
+              />
+              <IconTile icon={link.icon} />
+              <h3 className="mt-5 font-display text-lg font-semibold text-primary-950">
                 {dict.home.quickLinks[link.key].title}
               </h3>
-              <p className="mt-2 text-sm leading-6 text-gray-600">
+              <p className="mt-2 flex-1 text-sm leading-6 text-gray-600">
                 {dict.home.quickLinks[link.key].description}
               </p>
-              <span className="mt-4 text-sm font-semibold text-primary-600">
-                {dict.home.learnMore}
+              <span className="mt-5">
+                <ArrowLink label={dict.home.learnMore} />
               </span>
             </Link>
           ))}
         </div>
       </section>
 
-      <section className="bg-primary-50">
-        <div className="mx-auto max-w-6xl px-6 py-20">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold text-primary-950">
-              {dict.home.galleryTitle}
-            </h2>
-            <p className="mt-3 text-gray-600">{dict.home.gallerySubtitle}</p>
+      {/* ---------------------------------------------------------------- */}
+      {/* Life at the school                                               */}
+      {/* ---------------------------------------------------------------- */}
+      <section className="border-y border-gray-200/70 bg-paper-deep">
+        <div className="mx-auto max-w-6xl px-6 py-24">
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <SectionHeading
+              title={dict.home.galleryTitle}
+              subtitle={dict.home.gallerySubtitle}
+              align="left"
+            />
+            <Link
+              href={`/${locale}/gallery`}
+              className="group shrink-0 self-start pb-1 sm:self-auto"
+            >
+              <ArrowLink label={dict.gallery.title} />
+            </Link>
           </div>
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-3">
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {galleryMeta.map(({ key, photo }) => (
-              <div
+              <figure
                 key={key}
-                className="overflow-hidden rounded-2xl border border-primary-100 bg-white shadow-sm"
+                className="group overflow-hidden rounded-2xl border border-gray-200/80 bg-white shadow-soft transition duration-200 hover:shadow-lift"
               >
-                <div className="relative aspect-[4/3] w-full">
+                <div className="relative aspect-[4/3] w-full overflow-hidden">
                   <Image
                     src={photo}
                     alt={dict.home.gallery[key].title}
                     fill
-                    className="object-cover"
-                    sizes="(min-width: 1024px) 33vw, 100vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(min-width: 640px) 33vw, 100vw"
                   />
                 </div>
-                <div className="p-5">
-                  <h3 className="font-semibold text-primary-900">
+                <figcaption className="p-6">
+                  <h3 className="font-display text-lg font-semibold text-primary-950">
                     {dict.home.gallery[key].title}
                   </h3>
-                  <p className="mt-1 text-sm leading-6 text-gray-600">
+                  <p className="mt-2 text-sm leading-6 text-gray-600">
                     {dict.home.gallery[key].description}
                   </p>
-                </div>
-              </div>
+                </figcaption>
+              </figure>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="border-y border-primary-100 bg-primary-50">
-        <div className="mx-auto flex max-w-5xl flex-col items-center gap-6 px-6 py-16 text-center">
-          <span className="rounded-full bg-primary-100 px-4 py-1 text-sm font-semibold text-primary-700">
-            {dict.support.badge}
-          </span>
-          <h2 className="max-w-2xl text-3xl font-bold text-primary-950">
-            {dict.support.title}
-          </h2>
-          <p className="max-w-2xl text-gray-600 leading-7">
-            {dict.support.visionText}
-          </p>
-          <Link
-            href={`/${locale}/support`}
-            className="rounded-full bg-primary-600 px-7 py-3 text-base font-semibold text-white shadow-sm transition-colors hover:bg-primary-700"
-          >
-            {dict.footer.supportBuildingLink}
-          </Link>
+      {/* ---------------------------------------------------------------- */}
+      {/* The building fund — given a photo so it reads as a real place     */}
+      {/* rather than another block of centered text.                       */}
+      {/* ---------------------------------------------------------------- */}
+      <section className="mx-auto w-full max-w-6xl px-6 py-24">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="relative">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl shadow-lift">
+              <Image
+                src="/photos/school-building.jpeg"
+                alt={dict.about.buildingCaption}
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 50vw, 100vw"
+              />
+            </div>
+            <div
+              aria-hidden
+              className="absolute -bottom-5 -left-5 -z-10 h-32 w-32 rounded-3xl bg-accent-200/60"
+            />
+          </div>
+
+          <div>
+            <Eyebrow>{dict.support.badge}</Eyebrow>
+            <h2 className="mt-5 font-display text-3xl font-semibold tracking-tight text-primary-950 sm:text-4xl">
+              {dict.support.title}
+            </h2>
+            <p className="mt-5 leading-7 text-gray-600">
+              {dict.support.visionText}
+            </p>
+            <Link
+              href={`/${locale}/support`}
+              className={`${buttonSecondary} mt-8`}
+            >
+              {dict.footer.supportBuildingLink}
+            </Link>
+          </div>
         </div>
       </section>
 
-      <section className="bg-primary-900">
-        <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-6 py-16 text-center">
-          <h2 className="text-3xl font-bold text-white">
+      {/* ---------------------------------------------------------------- */}
+      {/* Closing call to action                                           */}
+      {/* ---------------------------------------------------------------- */}
+      <section className="grain relative overflow-hidden bg-primary-950">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            backgroundImage:
+              "radial-gradient(60% 80% at 50% 0%, rgba(246,165,36,0.14) 0%, transparent 70%)",
+          }}
+        />
+        <div className="relative mx-auto flex max-w-3xl flex-col items-center gap-7 px-6 py-24 text-center">
+          <h2 className="font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl">
             {dict.home.ctaTitle}
           </h2>
-          <p className="max-w-2xl text-primary-100">{dict.home.ctaText}</p>
-          <Link
-            href={`/${locale}/volunteer`}
-            className="rounded-full bg-accent-500 px-7 py-3 text-base font-semibold text-white shadow-sm transition-colors hover:bg-accent-600"
-          >
+          <p className="max-w-xl leading-7 text-primary-100/80">
+            {dict.home.ctaText}
+          </p>
+          <Link href={`/${locale}/volunteer`} className={buttonPrimary}>
             {dict.home.ctaButton}
           </Link>
         </div>

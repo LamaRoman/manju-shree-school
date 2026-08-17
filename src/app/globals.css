@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+/* ---------------------------------------------------------------------------
+   Design system — "Stone, Saffron & Sky"
+
+   The palette is drawn from the school's own surroundings in Jumla: dry-stone
+   walls (warm limestone neutrals), the maroon of the students' uniforms and
+   monastic robes (primary), and the saffron of khata scarves and marigolds
+   (accent). Warm neutrals replace Tailwind's default cold grays so body text
+   sits comfortably on the paper-toned background instead of fighting it.
+--------------------------------------------------------------------------- */
+
 /* Slightly larger base size — Tailwind's text-* utilities are all rem-based,
    so this scales every font size on the site proportionally in one place
    instead of bumping dozens of individual classes. */
@@ -7,72 +17,151 @@ html {
   font-size: 106%;
 }
 
-:root {
-  --background: #fffdf9;
-  --foreground: #1f2937;
-  --color-primary-50: #eff8ff;
-  --color-primary-100: #d9edff;
-  --color-primary-200: #b8dfff;
-  --color-primary-300: #86caff;
-  --color-primary-400: #4dabff;
-  --color-primary-500: #2288f7;
-  --color-primary-600: #1268e0;
-  --color-primary-700: #1053b5;
-  --color-primary-800: #134590;
-  --color-primary-900: #143c73;
-  --color-primary-950: #0f2748;
-  --color-accent-50: #fff9ec;
-  --color-accent-100: #ffefc8;
-  --color-accent-200: #ffdd8b;
-  --color-accent-300: #ffc44d;
-  --color-accent-400: #ffab24;
-  --color-accent-500: #fa8b09;
-  --color-accent-600: #de6704;
-  --color-accent-700: #b84707;
-  --color-accent-800: #94370d;
-  --color-accent-900: #7a2f0e;
-}
-
-/* Geist has no Tibetan glyphs. Override the source variable that --font-sans
-   chains to (see @theme inline below) so every existing font-sans usage
-   picks up the Tibetan font automatically on Tibetan pages, with no need to
-   touch individual components. */
+/* Geist has no Tibetan or Devanagari glyphs. Overriding the source variable
+   that --font-sans chains to means every font-sans usage picks up the right
+   script automatically, with no need to touch individual components. */
 html[lang="bo"] {
-  --font-geist-sans: var(--font-tibetan), sans-serif;
+  --font-geist-sans: var(--font-tibetan);
+  --font-display: var(--font-tibetan);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html[lang="ne"] {
+  --font-geist-sans: var(--font-devanagari);
+  --font-display: var(--font-devanagari);
+}
 
-  --color-primary-50: var(--color-primary-50);
-  --color-primary-100: var(--color-primary-100);
-  --color-primary-200: var(--color-primary-200);
-  --color-primary-300: var(--color-primary-300);
-  --color-primary-400: var(--color-primary-400);
-  --color-primary-500: var(--color-primary-500);
-  --color-primary-600: var(--color-primary-600);
-  --color-primary-700: var(--color-primary-700);
-  --color-primary-800: var(--color-primary-800);
-  --color-primary-900: var(--color-primary-900);
-  --color-primary-950: var(--color-primary-950);
+/* No webfont for Chinese — CJK families are megabytes even subsetted, and the
+   system faces here are excellent. */
+html[lang="zh"] {
+  --font-display: var(--font-sans);
+}
 
-  --color-accent-50: var(--color-accent-50);
-  --color-accent-100: var(--color-accent-100);
-  --color-accent-200: var(--color-accent-200);
-  --color-accent-300: var(--color-accent-300);
-  --color-accent-400: var(--color-accent-400);
-  --color-accent-500: var(--color-accent-500);
-  --color-accent-600: var(--color-accent-600);
-  --color-accent-700: var(--color-accent-700);
-  --color-accent-800: var(--color-accent-800);
-  --color-accent-900: var(--color-accent-900);
+@theme {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --font-display: var(--font-fraunces), ui-serif, Georgia, "Songti SC",
+    "Noto Serif", serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  /* Surfaces */
+  --color-paper: #fbf8f3;
+  --color-paper-deep: #f5f0e8;
+
+  /* Warm stone neutrals — these override Tailwind's default cold grays, so
+     every existing text-gray-600 / border-gray-200 warms up site-wide. */
+  --color-gray-50: #faf8f5;
+  --color-gray-100: #f2efea;
+  --color-gray-200: #e6e1d8;
+  --color-gray-300: #d2cbc0;
+  --color-gray-400: #a89f92;
+  --color-gray-500: #837a6d;
+  --color-gray-600: #645c51;
+  --color-gray-700: #4d473e;
+  --color-gray-800: #39342d;
+  --color-gray-900: #29251f;
+  --color-gray-950: #1a1713;
+
+  /* Garnet — uniforms, robes, the school's own red */
+  --color-primary-50: #fcf4f4;
+  --color-primary-100: #f9e5e6;
+  --color-primary-200: #f2cccf;
+  --color-primary-300: #e5a5aa;
+  --color-primary-400: #d4757d;
+  --color-primary-500: #be4e59;
+  --color-primary-600: #a33642;
+  --color-primary-700: #8a2b37;
+  --color-primary-800: #73262f;
+  --color-primary-900: #522028;
+  --color-primary-950: #2e0f13;
+
+  /* Saffron — khata scarves, marigolds, mustard fields */
+  --color-accent-50: #fff8ec;
+  --color-accent-100: #ffedcc;
+  --color-accent-200: #ffd894;
+  --color-accent-300: #fcbe55;
+  --color-accent-400: #f6a524;
+  --color-accent-500: #e68a0b;
+  --color-accent-600: #c46b05;
+  --color-accent-700: #9c500a;
+  --color-accent-800: #7e410f;
+  --color-accent-900: #68360f;
+
+  /* Shadows tinted with the garnet ink rather than neutral black, so elevation
+     reads warm instead of gray. */
+  --shadow-soft: 0 1px 2px rgba(46, 15, 19, 0.04),
+    0 4px 12px -2px rgba(46, 15, 19, 0.05);
+  --shadow-lift: 0 2px 4px rgba(46, 15, 19, 0.05),
+    0 14px 30px -8px rgba(46, 15, 19, 0.11);
+  --shadow-deep: 0 24px 56px -14px rgba(46, 15, 19, 0.28);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-paper);
+  color: var(--color-gray-800);
+  font-family: var(--font-sans);
+}
+
+/* Headings set tighter and balanced; body copy avoids orphans. */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+::selection {
+  background: var(--color-accent-200);
+  color: var(--color-primary-950);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary-600);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* A faint film of noise over large flat color fields. Without it, big garnet
+   sections band on wide displays and read flat; at 3% it is invisible as
+   texture but keeps the surface alive. */
+.grain {
+  position: relative;
+  isolation: isolate;
+}
+
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.035;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Hairline rule that fades out at both ends — used to separate sections
+   without the hard edge of a full-width border. */
+.rule-fade {
+  height: 1px;
+  border: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-gray-200),
+    transparent
+  );
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getDictionary, isLocale } from "@/lib/i18n";
 import { notFound } from "next/navigation";
+import { Card, IconTile, PageHero, SectionHeading } from "@/components/ui";
 
 const dayHikeMeta = [
   { key: "chandannath", icon: "🛕" },
@@ -39,69 +40,83 @@ export default async function TrekkingPage({
 
   return (
     <div>
-      <section className="bg-gradient-to-b from-primary-50 to-white">
-        <div className="mx-auto max-w-4xl px-6 py-16 text-center">
-          <span className="rounded-full bg-primary-100 px-4 py-1 text-sm font-semibold text-primary-700">
-            {dict.trekking.badge}
-          </span>
-          <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-primary-950 sm:text-5xl">
-            {dict.trekking.title}
-          </h1>
-          <p className="mt-4 text-lg leading-8 text-gray-600">{dict.trekking.subtitle}</p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow={dict.trekking.badge}
+        title={dict.trekking.title}
+        lede={dict.trekking.subtitle}
+      />
 
-      <section className="mx-auto max-w-6xl px-6 py-16">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold text-primary-950">{dict.trekking.dayTitle}</h2>
-          <p className="mt-3 text-gray-600">{dict.trekking.daySubtitle}</p>
-        </div>
+      {/* Day hikes */}
+      <section className="mx-auto max-w-6xl px-6 py-24">
+        <SectionHeading
+          title={dict.trekking.dayTitle}
+          subtitle={dict.trekking.daySubtitle}
+        />
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
+        <div className="mt-14 grid gap-5 lg:grid-cols-3">
           {dayHikeMeta.map(({ key, icon }) => {
             const hike = dict.trekking.dayHikes[key];
             return (
-              <div
-                key={key}
-                className="flex flex-col rounded-2xl border border-primary-100 bg-white p-6 shadow-sm"
-              >
-                <span className="text-3xl">{icon}</span>
-                <h3 className="mt-3 text-lg font-semibold text-primary-900">{hike.title}</h3>
-                <span className="mt-1 text-sm font-medium text-accent-600">{hike.duration}</span>
-                <p className="mt-2 text-sm leading-6 text-gray-600">{hike.description}</p>
-              </div>
+              <Card key={key} className="flex flex-col">
+                <div className="flex items-start justify-between gap-4">
+                  <IconTile icon={icon} />
+                  <span className="rounded-full bg-accent-50 px-3 py-1 text-xs font-semibold whitespace-nowrap text-accent-800 ring-1 ring-accent-200/70">
+                    {hike.duration}
+                  </span>
+                </div>
+                <h3 className="mt-5 font-display text-lg font-semibold text-primary-950">
+                  {hike.title}
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-gray-600">
+                  {hike.description}
+                </p>
+              </Card>
             );
           })}
         </div>
       </section>
 
-      <section className="bg-primary-50">
-        <div className="mx-auto max-w-6xl px-6 py-16">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold text-primary-950">{dict.trekking.multiTitle}</h2>
-            <p className="mt-3 text-gray-600">{dict.trekking.multiSubtitle}</p>
-          </div>
+      {/* Multi-day treks */}
+      <section className="border-y border-gray-200/70 bg-paper-deep">
+        <div className="mx-auto max-w-6xl px-6 py-24">
+          <SectionHeading
+            title={dict.trekking.multiTitle}
+            subtitle={dict.trekking.multiSubtitle}
+          />
 
-          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+          <div className="mt-14 grid gap-5 lg:grid-cols-3">
             {multiDayMeta.map(({ key, icon }) => {
               const trek = dict.trekking.multiDay[key];
               return (
-                <div key={key} className="flex flex-col rounded-2xl bg-white p-6 shadow-sm">
-                  <span className="text-3xl">{icon}</span>
-                  <h3 className="mt-3 text-lg font-semibold text-primary-900">{trek.title}</h3>
-                  <span className="mt-1 text-sm font-medium text-accent-600">{trek.duration}</span>
-                  <p className="mt-2 text-sm leading-6 text-gray-600">{trek.description}</p>
-                </div>
+                <Card key={key} className="flex flex-col">
+                  <div className="flex items-start justify-between gap-4">
+                    <IconTile icon={icon} tone="accent" />
+                    <span className="rounded-full bg-primary-50 px-3 py-1 text-xs font-semibold whitespace-nowrap text-primary-700 ring-1 ring-primary-100">
+                      {trek.duration}
+                    </span>
+                  </div>
+                  <h3 className="mt-5 font-display text-lg font-semibold text-primary-950">
+                    {trek.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-gray-600">
+                    {trek.description}
+                  </p>
+                </Card>
               );
             })}
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-3xl px-6 py-16">
-        <div className="rounded-2xl border border-primary-100 bg-white p-8 text-center shadow-sm">
-          <h2 className="text-xl font-semibold text-primary-900">{dict.trekking.noteTitle}</h2>
-          <p className="mt-3 text-sm leading-6 text-gray-600">{dict.trekking.noteText}</p>
+      {/* Practical note */}
+      <section className="mx-auto max-w-3xl px-6 py-24">
+        <div className="rounded-2xl border border-accent-200/70 bg-accent-50/60 p-8 text-center sm:p-10">
+          <h2 className="font-display text-xl font-semibold text-primary-950">
+            {dict.trekking.noteTitle}
+          </h2>
+          <p className="mt-4 leading-7 text-gray-600">
+            {dict.trekking.noteText}
+          </p>
         </div>
       </section>
     </div>

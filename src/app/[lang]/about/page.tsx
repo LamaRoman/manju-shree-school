@@ -2,8 +2,15 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { getDictionary, isLocale } from "@/lib/i18n";
 import { notFound } from "next/navigation";
+import { Card, IconTile, PageHero, SectionHeading } from "@/components/ui";
 
-const milestoneMeta = ["founded", "campus", "language", "programs", "today"] as const;
+const milestoneMeta = [
+  "founded",
+  "campus",
+  "language",
+  "programs",
+  "today",
+] as const;
 const goalMeta = [
   { key: "quality", icon: "🎯" },
   { key: "language", icon: "🗣️" },
@@ -50,21 +57,15 @@ export default async function AboutPage({
         School (Nepali). Left as "Primary School" sitewide for now per user instruction;
         revisit once the official name is confirmed.
       */}
-      <section className="bg-gradient-to-b from-primary-50 to-white">
-        <div className="mx-auto max-w-4xl px-6 py-16 text-center">
-          <span className="rounded-full bg-primary-100 px-4 py-1 text-sm font-semibold text-primary-700">
-            {dict.about.badge}
-          </span>
-          <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-primary-950 sm:text-5xl">
-            {dict.about.title}
-          </h1>
-          <p className="mt-4 text-lg leading-8 text-gray-600">{dict.about.intro}</p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow={dict.about.badge}
+        title={dict.about.title}
+        lede={dict.about.intro}
+      />
 
-      <section className="mx-auto max-w-5xl px-6">
-        <div className="overflow-hidden rounded-2xl border border-primary-100">
-          <div className="relative aspect-[16/7] w-full">
+      <section className="mx-auto max-w-5xl px-6 pt-16">
+        <figure>
+          <div className="relative aspect-[16/7] w-full overflow-hidden rounded-3xl shadow-lift">
             <Image
               src="/photos/school-building.jpeg"
               alt={dict.about.buildingCaption}
@@ -74,31 +75,43 @@ export default async function AboutPage({
               sizes="(min-width: 1024px) 1024px, 100vw"
             />
           </div>
-        </div>
-        <p className="mt-3 text-center text-sm text-gray-500">
-          {dict.about.buildingCaption}
-        </p>
+          <figcaption className="mt-4 text-center text-sm text-gray-500">
+            {dict.about.buildingCaption}
+          </figcaption>
+        </figure>
       </section>
 
-      <section className="mx-auto max-w-5xl px-6 py-16">
-        <div className="grid gap-12 lg:grid-cols-5">
+      {/* Story + timeline */}
+      <section className="mx-auto max-w-5xl px-6 py-24">
+        <div className="grid gap-12 lg:grid-cols-5 lg:gap-16">
           <div className="lg:col-span-2">
-            <h2 className="text-2xl font-bold text-primary-950">
+            <h2 className="font-display text-2xl font-semibold tracking-tight text-primary-950 sm:text-3xl">
               {dict.about.howWeStartedTitle}
             </h2>
-            <p className="mt-4 text-gray-600 leading-7">{dict.about.howWeStartedP1}</p>
-            <p className="mt-4 text-gray-600 leading-7">{dict.about.howWeStartedP2}</p>
+            <p className="mt-5 leading-7 text-gray-600">
+              {dict.about.howWeStartedP1}
+            </p>
+            <p className="mt-4 leading-7 text-gray-600">
+              {dict.about.howWeStartedP2}
+            </p>
           </div>
 
           <div className="lg:col-span-3">
-            <ol className="relative space-y-8 border-l-2 border-primary-100 pl-6">
+            <ol className="relative space-y-9 border-l border-gray-200 pl-8">
               {milestoneMeta.map((key) => {
                 const m = dict.about.milestones[key];
                 return (
                   <li key={key} className="relative">
-                    <span className="absolute -left-[31px] flex h-4 w-4 items-center justify-center rounded-full bg-primary-600 ring-4 ring-white" />
-                    <div className="text-sm font-bold text-primary-600">{m.year}</div>
-                    <p className="mt-1 text-gray-600">{m.text}</p>
+                    <span
+                      aria-hidden
+                      className="absolute -left-[38px] top-1 flex h-4 w-4 items-center justify-center rounded-full border-2 border-accent-400 bg-paper"
+                    >
+                      <span className="h-1.5 w-1.5 rounded-full bg-accent-400" />
+                    </span>
+                    <div className="font-display text-sm font-semibold tracking-wide text-primary-700">
+                      {m.year}
+                    </div>
+                    <p className="mt-1.5 leading-7 text-gray-600">{m.text}</p>
                   </li>
                 );
               })}
@@ -107,65 +120,80 @@ export default async function AboutPage({
         </div>
       </section>
 
-      <section className="bg-primary-900">
-        <div className="mx-auto max-w-3xl px-6 py-16 text-center">
-          <p className="text-sm font-semibold uppercase tracking-wide text-accent-300">
+      {/* Motto */}
+      <section className="grain relative overflow-hidden bg-primary-950">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            backgroundImage:
+              "radial-gradient(55% 75% at 50% 0%, rgba(246,165,36,0.13) 0%, transparent 70%)",
+          }}
+        />
+        <div className="relative mx-auto max-w-3xl px-6 py-24 text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent-300">
             {dict.about.mottoEyebrow}
           </p>
-          <blockquote className="mt-4 text-2xl font-bold leading-snug text-white sm:text-3xl">
+          <blockquote className="mt-6 font-display text-3xl font-semibold leading-snug text-white sm:text-4xl">
             {dict.about.motto}
           </blockquote>
-          <p className="mt-6 leading-7 text-primary-100">{dict.about.mottoText}</p>
+          <p className="mt-7 leading-7 text-primary-100/75">
+            {dict.about.mottoText}
+          </p>
         </div>
       </section>
 
-      <section className="bg-primary-50">
-        <div className="mx-auto max-w-6xl px-6 py-16">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold text-primary-950">{dict.about.goalsTitle}</h2>
-            <p className="mt-3 text-gray-600">{dict.about.goalsSubtitle}</p>
-          </div>
+      {/* Goals */}
+      <section className="border-b border-gray-200/70 bg-paper-deep">
+        <div className="mx-auto max-w-6xl px-6 py-24">
+          <SectionHeading
+            title={dict.about.goalsTitle}
+            subtitle={dict.about.goalsSubtitle}
+          />
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-2">
+          <div className="mt-14 grid gap-5 sm:grid-cols-2">
             {goalMeta.map(({ key, icon }) => {
               const goal = dict.about.goals[key];
               return (
-                <div
-                  key={key}
-                  className="flex gap-4 rounded-2xl bg-white p-6 shadow-sm"
-                >
-                  <span className="text-3xl">{icon}</span>
+                <Card key={key} className="flex gap-5">
+                  <IconTile icon={icon} tone="accent" />
                   <div>
-                    <h3 className="font-semibold text-primary-900">{goal.title}</h3>
-                    <p className="mt-1 text-sm leading-6 text-gray-600">
+                    <h3 className="font-display text-lg font-semibold text-primary-950">
+                      {goal.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-6 text-gray-600">
                       {goal.description}
                     </p>
                   </div>
-                </div>
+                </Card>
               );
             })}
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-16">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold text-primary-950">{dict.about.valuesTitle}</h2>
-          <p className="mt-3 text-gray-600">{dict.about.valuesSubtitle}</p>
-        </div>
+      {/* Values */}
+      <section className="mx-auto max-w-6xl px-6 py-24">
+        <SectionHeading
+          title={dict.about.valuesTitle}
+          subtitle={dict.about.valuesSubtitle}
+        />
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {valueMeta.map(({ key, icon }) => {
             const value = dict.about.values[key];
             return (
-              <div
-                key={key}
-                className="rounded-2xl border border-primary-100 p-6 text-center transition-shadow hover:shadow-md"
-              >
-                <span className="text-3xl">{icon}</span>
-                <h3 className="mt-3 font-semibold text-primary-900">{value.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-gray-600">{value.description}</p>
-              </div>
+              <Card key={key} className="text-center">
+                <div className="flex justify-center">
+                  <IconTile icon={icon} />
+                </div>
+                <h3 className="mt-4 font-display text-lg font-semibold text-primary-950">
+                  {value.title}
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-gray-600">
+                  {value.description}
+                </p>
+              </Card>
             );
           })}
         </div>

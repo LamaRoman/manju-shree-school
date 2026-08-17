@@ -4,6 +4,13 @@ import Link from "next/link";
 import VolunteerForm from "@/components/VolunteerForm";
 import { getDictionary, isLocale } from "@/lib/i18n";
 import { notFound } from "next/navigation";
+import {
+  ArrowLink,
+  Card,
+  IconTile,
+  PageHero,
+  SectionHeading,
+} from "@/components/ui";
 
 const categoryMeta = [
   { key: "food", icon: "🍲" },
@@ -47,21 +54,15 @@ export default async function VolunteerPage({
 
   return (
     <div>
-      <section className="bg-gradient-to-b from-accent-50 to-white">
-        <div className="mx-auto max-w-4xl px-6 py-16 text-center">
-          <span className="rounded-full bg-accent-100 px-4 py-1 text-sm font-semibold text-accent-700">
-            {dict.volunteer.badge}
-          </span>
-          <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-primary-950 sm:text-5xl">
-            {dict.volunteer.title}
-          </h1>
-          <p className="mt-4 text-lg leading-8 text-gray-600">{dict.volunteer.subtitle}</p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow={dict.volunteer.badge}
+        title={dict.volunteer.title}
+        lede={dict.volunteer.subtitle}
+      />
 
-      <section className="mx-auto max-w-5xl px-6">
-        <div className="overflow-hidden rounded-2xl border border-accent-100">
-          <div className="relative aspect-[16/7] w-full">
+      <section className="mx-auto max-w-5xl px-6 pt-16">
+        <figure>
+          <div className="relative aspect-[16/7] w-full overflow-hidden rounded-3xl shadow-lift">
             <Image
               src="/photos/opening-ceremony.jpeg"
               alt={dict.volunteer.photoCaption}
@@ -71,106 +72,126 @@ export default async function VolunteerPage({
               sizes="(min-width: 1024px) 1024px, 100vw"
             />
           </div>
-        </div>
-        <p className="mt-3 text-center text-sm text-gray-500">
-          {dict.volunteer.photoCaption}
-        </p>
+          <figcaption className="mt-4 text-center text-sm text-gray-500">
+            {dict.volunteer.photoCaption}
+          </figcaption>
+        </figure>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-16">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold text-primary-950">{dict.volunteer.waysTitle}</h2>
-          <p className="mt-3 text-gray-600">{dict.volunteer.waysSubtitle}</p>
-        </div>
+      {/* Ways to help */}
+      <section className="mx-auto max-w-6xl px-6 py-24">
+        <SectionHeading
+          title={dict.volunteer.waysTitle}
+          subtitle={dict.volunteer.waysSubtitle}
+        />
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
+        <div className="mt-14 grid gap-5 lg:grid-cols-3">
           {categoryMeta.map(({ key, icon }) => {
             const cat = dict.volunteer.categories[key];
             return (
-              <div
-                key={key}
-                className="flex flex-col rounded-2xl border border-primary-100 bg-white p-6 shadow-sm"
-              >
-                <span className="text-3xl">{icon}</span>
-                <h3 className="mt-3 text-lg font-semibold text-primary-900">{cat.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-gray-600">{cat.description}</p>
-                <ul className="mt-4 space-y-1.5 text-sm text-gray-600">
+              <Card key={key} className="flex flex-col">
+                <IconTile icon={icon} tone="accent" />
+                <h3 className="mt-5 font-display text-lg font-semibold text-primary-950">
+                  {cat.title}
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-gray-600">
+                  {cat.description}
+                </p>
+                <ul className="mt-5 space-y-2 border-t border-gray-200 pt-5 text-sm text-gray-600">
                   {cat.items.map((item) => (
-                    <li key={item} className="flex items-start gap-2">
-                      <span className="mt-1 text-accent-500">•</span>
+                    <li key={item} className="flex items-start gap-2.5">
+                      <span
+                        aria-hidden
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-400"
+                      />
                       {item}
                     </li>
                   ))}
                 </ul>
-              </div>
+              </Card>
             );
           })}
         </div>
       </section>
 
-      <section className="bg-primary-50">
-        <div className="mx-auto max-w-5xl px-6 py-16">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold text-primary-950">{dict.volunteer.howTitle}</h2>
-          </div>
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      {/* How it works */}
+      <section className="border-y border-gray-200/70 bg-paper-deep">
+        <div className="mx-auto max-w-6xl px-6 py-24">
+          <SectionHeading title={dict.volunteer.howTitle} />
+
+          <ol className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {stepMeta.map((key, i) => {
               const step = dict.volunteer.steps[key];
               return (
-                <div key={key} className="text-center">
-                  <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-primary-600 text-sm font-bold text-white">
-                    {i + 1}
+                <li key={key} className="relative">
+                  {/* Connector between steps, desktop only. */}
+                  {i < stepMeta.length - 1 && (
+                    <span
+                      aria-hidden
+                      className="absolute left-[calc(50%+2rem)] right-[calc(-50%+2rem)] top-5 hidden h-px bg-gray-300 lg:block"
+                    />
+                  )}
+                  <div className="relative text-center">
+                    <span className="mx-auto flex h-10 w-10 items-center justify-center rounded-full border border-primary-200 bg-white font-display text-sm font-semibold text-primary-800 shadow-soft">
+                      {i + 1}
+                    </span>
+                    <h3 className="mt-4 font-display text-lg font-semibold text-primary-950">
+                      {step.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-6 text-gray-600">
+                      {step.description}
+                    </p>
                   </div>
-                  <h3 className="mt-3 font-semibold text-primary-900">{step.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-gray-600">{step.description}</p>
-                </div>
+                </li>
               );
             })}
-          </div>
+          </ol>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-16">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold text-primary-950">{dict.volunteer.expectTitle}</h2>
-          <p className="mt-3 text-gray-600">{dict.volunteer.expectSubtitle}</p>
-        </div>
+      {/* What to expect */}
+      <section className="mx-auto max-w-6xl px-6 py-24">
+        <SectionHeading
+          title={dict.volunteer.expectTitle}
+          subtitle={dict.volunteer.expectSubtitle}
+        />
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {expectMeta.map(({ key, icon }) => {
             const item = dict.volunteer.expectations[key];
             return (
-              <div
-                key={key}
-                className="flex gap-4 rounded-2xl border border-primary-100 bg-white p-6 shadow-sm"
-              >
-                <span className="text-3xl">{icon}</span>
+              <Card key={key} className="flex gap-5">
+                <IconTile icon={icon} />
                 <div>
-                  <h3 className="font-semibold text-primary-900">{item.title}</h3>
-                  <p className="mt-1 text-sm leading-6 text-gray-600">{item.description}</p>
+                  <h3 className="font-display text-base font-semibold text-primary-950">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-gray-600">
+                    {item.description}
+                  </p>
                 </div>
-              </div>
+              </Card>
             );
           })}
         </div>
 
-        <p className="mt-8 text-center">
-          <Link
-            href={`/${lang}/trekking`}
-            className="text-sm font-semibold text-primary-600 hover:text-primary-700"
-          >
-            {dict.volunteer.trekkingLink}
+        <p className="mt-10 text-center">
+          <Link href={`/${lang}/trekking`} className="group">
+            <ArrowLink label={dict.volunteer.trekkingLink} />
           </Link>
         </p>
       </section>
 
-      <section className="mx-auto max-w-3xl px-6 py-16">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold text-primary-950">{dict.volunteer.ctaTitle}</h2>
-          <p className="mt-3 text-gray-600">{dict.volunteer.ctaSubtitle}</p>
-        </div>
-        <div className="mt-10">
-          <VolunteerForm dict={dict} />
+      {/* Form */}
+      <section className="border-t border-gray-200/70 bg-paper-deep">
+        <div className="mx-auto max-w-3xl px-6 py-24">
+          <SectionHeading
+            title={dict.volunteer.ctaTitle}
+            subtitle={dict.volunteer.ctaSubtitle}
+          />
+          <div className="mt-12">
+            <VolunteerForm dict={dict} />
+          </div>
         </div>
       </section>
     </div>

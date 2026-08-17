@@ -56,7 +56,7 @@ export default function GalleryGrid({
     <div className="space-y-12">
       {groups.map((group, groupIndex) => (
         <section key={group.caption ?? "__uncategorized__"}>
-          <h2 className="mb-4 text-xl font-bold text-primary-950">
+          <h2 className="mb-5 font-display text-xl font-semibold text-primary-950">
             {group.caption ?? labels.uncategorized}
           </h2>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -65,7 +65,7 @@ export default function GalleryGrid({
                 key={photo.id}
                 type="button"
                 onClick={() => setOpen({ groupIndex, photoIndex })}
-                className="group cursor-zoom-in overflow-hidden rounded-2xl border border-primary-100 bg-white text-left shadow-sm transition-shadow hover:shadow-md"
+                className="group cursor-zoom-in overflow-hidden rounded-2xl border border-gray-200/80 bg-white text-left shadow-soft transition duration-200 hover:-translate-y-1 hover:shadow-lift"
               >
                 <div className="relative aspect-[4/3] w-full overflow-hidden">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -95,7 +95,7 @@ export default function GalleryGrid({
 
       {open && activePhoto && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-primary-950/90 p-4"
           onClick={() => setOpen(null)}
         >
           <button
