@@ -39,10 +39,12 @@ function Avatar({ name, size }: { name: string; size: "sm" | "lg" }) {
   );
 }
 
-/** A rounded-square tile with a second, rotated tile of the same photo
- *  peeking out behind it — the "stacked photo" motif used for the building
- *  and community photos elsewhere on this page, brought down to portrait
- *  scale instead of the plain circle avatar this replaced.
+/** A rounded-square photo tile with a rotated accent square peeking out
+ *  behind it — the "stacked photo" motif used for the building and community
+ *  photos elsewhere on this page, brought down to portrait scale instead of
+ *  the plain circle avatar this replaced. Only the backdrop square is
+ *  rotated; the photo itself stays level, since tilting the actual portrait
+ *  reads as the person's face being crooked rather than as a design flourish.
  *
  *  These are ID-style portraits: a lot of blank headroom above the hair and
  *  shoulder/chest below the chin. `object-[50%_22%]` biases the crop toward
@@ -69,7 +71,7 @@ function ProfilePhoto({
         className={`absolute inset-0 -z-10 ${radius} bg-accent-200/70 rotate-6`}
       />
       <div
-        className={`relative h-full w-full -rotate-3 overflow-hidden ${radius} shadow-lift ring-4 ring-white`}
+        className={`relative h-full w-full overflow-hidden ${radius} shadow-lift ring-4 ring-white`}
       >
         <Image
           src={src}
