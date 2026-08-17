@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { existsSync } from "node:fs";
+import path from "node:path";
 import { getDictionary, isLocale } from "@/lib/i18n";
 import { notFound } from "next/navigation";
+
+function resolvePhoto(photo?: string) {
+  if (!photo) return undefined;
+  return existsSync(path.join(process.cwd(), "public", photo)) ? photo : undefined;
+}
 
 function Avatar({
   name,
@@ -18,25 +25,63 @@ function Avatar({
     .join("")
     .slice(0, 2);
 
-  const sizeClasses = size === "lg" ? "h-20 w-20 text-2xl" : "h-14 w-14 text-base";
+  const sizeClasses = size === "lg" ? "h-28 w-28 text-3xl" : "h-14 w-14 text-base";
 
   return (
     <div
-      className={`flex shrink-0 items-center justify-center rounded-full font-bold text-white ${sizeClasses} ${color}`}
+      className={`flex shrink-0 items-center justify-center rounded-full font-bold text-white ring-4 ring-primary-50 ${sizeClasses} ${color}`}
     >
       {initials}
     </div>
   );
 }
 
+function ProfilePhoto({
+  src,
+  alt,
+  name,
+  color,
+  size = "md",
+}: {
+  src?: string;
+  alt: string;
+  name: string;
+  color: string;
+  size?: "md" | "lg";
+}) {
+  if (!src) return <Avatar name={name} color={color} size={size} />;
+
+  const sizeClasses = size === "lg" ? "h-28 w-28" : "h-14 w-14";
+
+  return (
+    <div
+      className={`relative shrink-0 overflow-hidden rounded-full ring-4 ring-primary-50 ${sizeClasses}`}
+    >
+      <Image src={src} alt={alt} fill className="object-cover" sizes="112px" />
+    </div>
+  );
+}
+
 const leadershipMeta = [
-  { key: "founder", color: "bg-primary-600" },
+  { key: "founder", color: "bg-primary-600", photo: "/photos/founder-khenpo-kalsang.jpg" },
   { key: "principal", color: "bg-accent-500" },
 ] as const;
 
 const advisoryMeta = [
-  { key: "advisor", color: "bg-primary-700" },
-  { key: "coordinator", color: "bg-accent-700" },
+  {
+    key: "advisor",
+    color: "bg-primary-700",
+    photos: [
+      "/photos/advisor-sudha-shrestha.jpg",
+      undefined,
+      "/photos/advisor-khenpo-ngodrub-gyatso.jpg",
+    ],
+  },
+  {
+    key: "coordinator",
+    color: "bg-accent-700",
+    photos: ["/photos/coordinator-tenzin-sangmo.jpg"],
+  },
 ] as const;
 
 export async function generateMetadata({
@@ -95,7 +140,8 @@ export default async function TeamPage({
 
       <section className="mx-auto max-w-5xl px-6 py-16">
         <div className="grid gap-8 lg:grid-cols-2 lg:items-stretch">
-          {leadershipMeta.map(({ key, color }) => {
+          {leadershipMeta.map(({ key, color, ...rest }) => {
+            const photo = resolvePhoto("photo" in rest ? rest.photo : undefined);
             const leader = dict.team.leaders[key] as {
               name: string;
               role: string;
@@ -106,7 +152,7 @@ export default async function TeamPage({
             return (
               <div
                 key={key}
-                className="relative flex flex-col overflow-hidden rounded-2xl border border-primary-100 bg-white p-8 shadow-sm"
+                className="relative flex flex-col items-center overflow-hidden rounded-2xl border border-primary-100 bg-white p-8 text-center shadow-sm"
               >
                 <span
                   aria-hidden
@@ -114,14 +160,20 @@ export default async function TeamPage({
                 >
                   &rdquo;
                 </span>
-                <div className="relative flex items-center gap-4">
-                  <Avatar name={leader.name} color={color} size="lg" />
-                  <div>
-                    <h3 className="text-lg font-semibold text-primary-900">{leader.name}</h3>
-                    <p className="text-sm font-medium text-accent-600">{leader.role}</p>
-                  </div>
-                </div>
-                <p className="relative mt-6 flex-1 text-sm leading-7 text-gray-600 italic">
+                <ProfilePhoto
+                  src={photo}
+                  alt={leader.name}
+                  name={leader.name}
+                  color={color}
+                  size="lg"
+                />
+                <h3 className="relative mt-4 text-lg font-semibold text-primary-900">
+                  {leader.name}
+                </h3>
+                <span className="relative mt-2 inline-block rounded-full bg-primary-50 px-4 py-1 text-sm font-medium text-primary-700">
+                  {leader.role}
+                </span>
+                <p className="relative mt-6 flex-1 text-left text-sm leading-7 text-gray-600 italic">
                   {leader.message}
                 </p>
               </div>
@@ -132,7 +184,8 @@ export default async function TeamPage({
         <div className="mt-12">
           <h2 className="text-xl font-bold text-primary-950">{dict.team.advisoryTitle}</h2>
           <div className="mt-6 grid gap-6 sm:grid-cols-2">
-            {advisoryMeta.map(({ key, color }) => {
+            {advisoryMeta.map(({ key, color, ...rest }) => {
+              const photos = "photos" in rest ? rest.photos : undefined;
               const entry = dict.team.leaders[key];
               const advisors = (
                 Array.isArray(entry) ? entry : entry ? [entry] : []
@@ -143,7 +196,12 @@ export default async function TeamPage({
                   className="flex flex-col rounded-2xl bg-primary-50/60 p-6"
                 >
                   <div className="flex items-center gap-3">
-                    <Avatar name={leader.name} color={color} />
+                    <ProfilePhoto
+                      src={resolvePhoto(photos?.[i])}
+                      alt={leader.name}
+                      name={leader.name}
+                      color={color}
+                    />
                     <div>
                       <h3 className="font-semibold text-primary-900">{leader.name}</h3>
                       <p className="text-sm text-accent-600">{leader.role}</p>
