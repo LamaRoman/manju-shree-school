@@ -7,7 +7,9 @@ import { notFound } from "next/navigation";
 
 function resolvePhoto(photo?: string) {
   if (!photo) return undefined;
-  return existsSync(path.join(process.cwd(), "public", photo)) ? photo : undefined;
+  return existsSync(path.join(process.cwd(), "public", photo))
+    ? photo
+    : undefined;
 }
 
 function Avatar({
@@ -25,7 +27,8 @@ function Avatar({
     .join("")
     .slice(0, 2);
 
-  const sizeClasses = size === "lg" ? "h-28 w-28 text-3xl" : "h-14 w-14 text-base";
+  const sizeClasses =
+    size === "lg" ? "h-28 w-28 text-3xl" : "h-14 w-14 text-base";
 
   return (
     <div
@@ -63,7 +66,11 @@ function ProfilePhoto({
 }
 
 const leadershipMeta = [
-  { key: "founder", color: "bg-primary-600", photo: "/photos/founder-khenpo-kalsang.jpg" },
+  {
+    key: "founder",
+    color: "bg-primary-600",
+    photo: "/photos/founder-khenpo-kalsang.jpg",
+  },
   { key: "principal", color: "bg-accent-500" },
 ] as const;
 
@@ -72,7 +79,7 @@ const advisoryMeta = [
     key: "advisor",
     color: "bg-primary-700",
     photos: [
-      "/photos/advisor-sudha-shrestha.jpg",
+      "/photos/advisor-sudha-shrestha1.jpg",
       undefined,
       "/photos/advisor-khenpo-ngodrub-gyatso.jpg",
     ],
@@ -117,7 +124,9 @@ export default async function TeamPage({
           <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-primary-950 sm:text-5xl">
             {dict.team.title}
           </h1>
-          <p className="mt-4 text-lg leading-8 text-gray-600">{dict.team.subtitle}</p>
+          <p className="mt-4 text-lg leading-8 text-gray-600">
+            {dict.team.subtitle}
+          </p>
         </div>
       </section>
 
@@ -141,7 +150,9 @@ export default async function TeamPage({
       <section className="mx-auto max-w-5xl px-6 py-16">
         <div className="grid gap-8 lg:grid-cols-2 lg:items-stretch">
           {leadershipMeta.map(({ key, color, ...rest }) => {
-            const photo = resolvePhoto("photo" in rest ? rest.photo : undefined);
+            const photo = resolvePhoto(
+              "photo" in rest ? rest.photo : undefined,
+            );
             const leader = dict.team.leaders[key] as {
               name: string;
               role: string;
@@ -182,14 +193,22 @@ export default async function TeamPage({
         </div>
 
         <div className="mt-12">
-          <h2 className="text-xl font-bold text-primary-950">{dict.team.advisoryTitle}</h2>
+          <h2 className="text-xl font-bold text-primary-950">
+            {dict.team.advisoryTitle}
+          </h2>
           <div className="mt-6 grid gap-6 sm:grid-cols-2">
             {advisoryMeta.map(({ key, color, ...rest }) => {
               const photos = "photos" in rest ? rest.photos : undefined;
               const entry = dict.team.leaders[key];
               const advisors = (
                 Array.isArray(entry) ? entry : entry ? [entry] : []
-              ) as { name: string; role: string; message: string; title?: string; credentials?: string }[];
+              ) as {
+                name: string;
+                role: string;
+                message: string;
+                title?: string;
+                credentials?: string;
+              }[];
               return advisors.map((leader, i) => (
                 <div
                   key={`${key}-${i}`}
@@ -203,13 +222,19 @@ export default async function TeamPage({
                       color={color}
                     />
                     <div>
-                      <h3 className="font-semibold text-primary-900">{leader.name}</h3>
+                      <h3 className="font-semibold text-primary-900">
+                        {leader.name}
+                      </h3>
                       <p className="text-sm text-accent-600">{leader.role}</p>
                       {leader.title && (
-                        <p className="mt-0.5 text-xs text-gray-600">{leader.title}</p>
+                        <p className="mt-0.5 text-xs text-gray-600">
+                          {leader.title}
+                        </p>
                       )}
                       {leader.credentials && (
-                        <p className="mt-0.5 text-xs text-gray-500">{leader.credentials}</p>
+                        <p className="mt-0.5 text-xs text-gray-500">
+                          {leader.credentials}
+                        </p>
                       )}
                     </div>
                   </div>
