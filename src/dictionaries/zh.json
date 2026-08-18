@@ -253,6 +253,22 @@
       "proposal": { "title": "带来您自己的想法", "description": "如果您有想要提议的项目或教学想法，我们非常欢迎，请提前与我们分享您的计划。" }
     },
     "trekkingLink": "看看附近的徒步路线和安静的地方 →",
+    "storiesLinkLabel": "阅读志愿者故事",
+    "storiesTitle": "志愿者的故事",
+    "storiesSubtitle": "用他们自己的话讲述——在这里度过一段时光是怎样的体验。",
+    "stories": {
+      "colette": {
+        "name": "Colette Baron",
+        "location": "澳大利亚",
+        "year": "2026",
+        "message": "In May and June of this year I had the pleasure of volunteering in the tiny village of Chum Chour in northwestern Himalyas, in a community school called Manju Shree.\n\nThis was a life changing experience for me, as I went in there not really knowing what to expect, never having been to that part of the world.\n\nIt was a sensory overload with the breathtaking landscape, the most beautiful heart felt people you will ever meet, the gorgeous, enthusiastic children, and the simplicity of a life that is rarely experienced in this time.\n\nI would highly recommend this to anyone with a sense of adventure, who is keen to dip into an entirely different culture and way of life and would like to offer support to this beautiful village."
+      },
+      "kavya": {
+        "name": "Kavya Sreekumar",
+        "location": "印度",
+        "message": "This was one of a kind experience where I went to teach computer basics to the teachers of Manjushree school in Jumla.\n\nIn the process of teaching, I learnt more from the hardworking, committed tiny kindergarten kids who walk over 2 hours daily to commute to school, love and care given by kalang ji's family who hosted us and the openness and dedication of the teachers to upskill with technology they have never seen before.\n\nWhat has stayed with me most, and what I am still turning over in my mind, is how completely at one with nature everyone there lives. I went to help, and I ended up being the one who was helped."
+      }
+    },
     "ctaTitle": "准备好参与支持了吗？",
     "ctaSubtitle": "请在下方填写一些信息，我们的志愿者协调员会与您联系，说明后续步骤。",
     "form": {

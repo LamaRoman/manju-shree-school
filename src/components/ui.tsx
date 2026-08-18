@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import {
   useEffect,
   useRef,
@@ -232,6 +233,74 @@ export function Prose({
       {paragraphs.map((paragraph, i) => (
         <p key={i}>{paragraph}</p>
       ))}
+    </div>
+  );
+}
+
+/** A plain filled circle for whoever doesn't have a photo yet — squared off
+ *  to match ProfilePhoto's tile so a mix of photos and initials in the same
+ *  grid still reads as one consistent shape language. */
+export function Avatar({ name, size }: { name: string; size: "sm" | "lg" }) {
+  const initials = name
+    .split(" ")
+    .map((n) => n[0])
+    .join("")
+    .slice(0, 2);
+
+  return (
+    <div
+      className={`flex shrink-0 items-center justify-center bg-primary-100 font-display font-semibold text-primary-800 ${
+        size === "lg"
+          ? "h-36 w-36 rounded-[1.75rem] text-4xl"
+          : "h-16 w-16 rounded-2xl text-lg"
+      }`}
+    >
+      {initials}
+    </div>
+  );
+}
+
+/** A rounded-square photo tile with a rotated accent square peeking out
+ *  behind it. Only the backdrop square is rotated; the photo itself stays
+ *  level, since tilting the actual portrait reads as the person's face being
+ *  crooked rather than as a design flourish. Falls back to `Avatar` when no
+ *  `src` is resolved (see `resolvePhoto` in `@/lib/photo`).
+ *
+ *  These are ID-style portraits: a lot of blank headroom above the hair and
+ *  shoulder/chest below the chin. `object-[50%_22%]` biases the crop toward
+ *  that headroom so the square trims mostly blank space and shoulder rather
+ *  than slicing through the chin the way a centered crop was doing. */
+export function ProfilePhoto({
+  src,
+  name,
+  size,
+}: {
+  src?: string;
+  name: string;
+  size: "sm" | "lg";
+}) {
+  if (!src) return <Avatar name={name} size={size} />;
+
+  const dims = size === "lg" ? "h-36 w-36" : "h-16 w-16";
+  const radius = size === "lg" ? "rounded-[1.75rem]" : "rounded-2xl";
+
+  return (
+    <div className={`relative shrink-0 ${dims}`}>
+      <div
+        aria-hidden
+        className={`absolute inset-0 -z-10 ${radius} bg-accent-200/70 rotate-6`}
+      />
+      <div
+        className={`relative h-full w-full overflow-hidden ${radius} shadow-lift ring-4 ring-white`}
+      >
+        <Image
+          src={src}
+          alt={name}
+          fill
+          className="object-cover object-[50%_22%]"
+          sizes={size === "lg" ? "144px" : "64px"}
+        />
+      </div>
     </div>
   );
 }

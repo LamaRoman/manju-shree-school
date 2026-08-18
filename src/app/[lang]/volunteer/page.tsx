@@ -3,12 +3,16 @@ import Image from "next/image";
 import Link from "next/link";
 import VolunteerForm from "@/components/VolunteerForm";
 import { getDictionary, isLocale } from "@/lib/i18n";
+import { resolvePhoto } from "@/lib/photo";
 import { notFound } from "next/navigation";
 import {
   ArrowLink,
+  buttonSecondary,
   Card,
   IconTile,
   PageHero,
+  ProfilePhoto,
+  Prose,
   SectionHeading,
 } from "@/components/ui";
 
@@ -27,6 +31,14 @@ const expectMeta = [
   { key: "rules", icon: "📋" },
   { key: "commitment", icon: "🗓️" },
   { key: "proposal", icon: "💡" },
+] as const;
+
+// Photos are dropped into public/photos as volunteers send them in — see
+// resolvePhoto. Both of these are pending, so cards render with initials
+// until a file lands at the path below.
+const storiesMeta = [
+  { key: "colette", photo: "/photos/volunteer-colette-baron.jpg" },
+  { key: "kavya", photo: "/photos/volunteer-kavya-sreekumar.jpg" },
 ] as const;
 
 export async function generateMetadata({
@@ -76,6 +88,12 @@ export default async function VolunteerPage({
             {dict.volunteer.photoCaption}
           </figcaption>
         </figure>
+
+        <p className="mt-8 text-center">
+          <a href="#stories" className={buttonSecondary}>
+            {dict.volunteer.storiesLinkLabel}
+          </a>
+        </p>
       </section>
 
       {/* Ways to help */}
@@ -180,6 +198,51 @@ export default async function VolunteerPage({
             <ArrowLink label={dict.volunteer.trekkingLink} />
           </Link>
         </p>
+      </section>
+
+      {/* Volunteer stories */}
+      <section
+        id="stories"
+        className="scroll-mt-24 border-t border-gray-200/70 bg-paper-deep"
+      >
+        <div className="mx-auto max-w-6xl px-6 py-24">
+          <SectionHeading
+            title={dict.volunteer.storiesTitle}
+            subtitle={dict.volunteer.storiesSubtitle}
+          />
+
+          <div className="mt-14 grid gap-5 lg:grid-cols-2">
+            {storiesMeta.map(({ key, photo }, i) => {
+              const story = dict.volunteer.stories[key];
+              return (
+                <Card key={key} delay={i * 90} className="flex flex-col p-7">
+                  <div className="flex items-center gap-4">
+                    <ProfilePhoto
+                      src={resolvePhoto(photo)}
+                      name={story.name}
+                      size="sm"
+                    />
+                    <div className="min-w-0">
+                      <h3 className="font-display text-lg font-semibold leading-tight text-primary-950">
+                        {story.name}
+                      </h3>
+                      <p className="mt-1 text-sm font-medium text-accent-700">
+                        {"year" in story && story.year
+                          ? `${story.location} · ${story.year}`
+                          : story.location}
+                      </p>
+                    </div>
+                  </div>
+
+                  <Prose
+                    text={story.message}
+                    className="mt-5 text-sm leading-7 text-gray-600"
+                  />
+                </Card>
+              );
+            })}
+          </div>
+        </div>
       </section>
 
       {/* Form */}

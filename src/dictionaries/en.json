@@ -416,6 +416,22 @@
       }
     },
     "trekkingLink": "Explore nearby treks and quiet spots →",
+    "storiesLinkLabel": "Read Volunteer Stories",
+    "storiesTitle": "Stories From Our Volunteers",
+    "storiesSubtitle": "In their own words — what it's like to spend a season with us.",
+    "stories": {
+      "colette": {
+        "name": "Colette Baron",
+        "location": "Australia",
+        "year": "2026",
+        "message": "In May and June of this year I had the pleasure of volunteering in the tiny village of Chum Chour in northwestern Himalyas, in a community school called Manju Shree.\n\nThis was a life changing experience for me, as I went in there not really knowing what to expect, never having been to that part of the world.\n\nIt was a sensory overload with the breathtaking landscape, the most beautiful heart felt people you will ever meet, the gorgeous, enthusiastic children, and the simplicity of a life that is rarely experienced in this time.\n\nI would highly recommend this to anyone with a sense of adventure, who is keen to dip into an entirely different culture and way of life and would like to offer support to this beautiful village."
+      },
+      "kavya": {
+        "name": "Kavya Sreekumar",
+        "location": "India",
+        "message": "This was one of a kind experience where I went to teach computer basics to the teachers of Manjushree school in Jumla.\n\nIn the process of teaching, I learnt more from the hardworking, committed tiny kindergarten kids who walk over 2 hours daily to commute to school, love and care given by kalang ji's family who hosted us and the openness and dedication of the teachers to upskill with technology they have never seen before.\n\nWhat has stayed with me most, and what I am still turning over in my mind, is how completely at one with nature everyone there lives. I went to help, and I ended up being the one who was helped."
+      }
+    },
     "ctaTitle": "Ready to Get Involved?",
     "ctaSubtitle": "Share a few details below and our volunteer coordinator will follow up with next steps.",
     "form": {
