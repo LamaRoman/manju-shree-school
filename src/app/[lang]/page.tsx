@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { getDictionary, isLocale, type Locale } from "@/lib/i18n";
+import { getActiveAnnouncement } from "@/lib/announcement";
 import { notFound } from "next/navigation";
 import {
   ArrowLink,
@@ -12,6 +13,7 @@ import {
   buttonSecondary,
 } from "@/components/ui";
 import Reveal from "@/components/Reveal";
+import AnnouncementModal from "@/components/AnnouncementModal";
 
 const galleryMeta = [
   { key: "assembly", photo: "/photos/school-assembly.jpeg" },
@@ -42,9 +44,12 @@ export default async function Home({
   if (!isLocale(lang)) notFound();
   const locale: Locale = lang;
   const dict = await getDictionary(locale);
+  const announcement = await getActiveAnnouncement();
 
   return (
     <div className="flex flex-col">
+      <AnnouncementModal announcement={announcement} />
+
       {/* ---------------------------------------------------------------- */}
       {/* Hero                                                             */}
       {/* ---------------------------------------------------------------- */}

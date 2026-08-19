@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { locales, localeNames, type Locale } from "@/lib/locales";
 import type { Dictionary } from "@/lib/i18n";
-import { REOPEN_ANNOUNCEMENT_EVENT } from "@/components/AnnouncementModal";
 
 function withLocale(pathname: string, lang: Locale) {
   const segments = pathname.split("/");
@@ -24,42 +23,6 @@ function GlobeIcon() {
       <circle cx="12" cy="12" r="9" />
       <path d="M3 12h18M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18" />
     </svg>
-  );
-}
-
-function BellIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      aria-hidden
-      className="h-4 w-4 fill-none stroke-current stroke-[1.6]"
-    >
-      <path
-        d="M6 8a6 6 0 0 1 12 0c0 4 1.5 5.5 2 6.5H4c.5-1 2-2.5 2-6.5Z"
-        strokeLinejoin="round"
-      />
-      <path d="M9.5 18.5a2.5 2.5 0 0 0 5 0" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-/** Lets a visitor bring back the current announcement popup on purpose,
- *  even after they've dismissed it — dismissal only suppresses the
- *  automatic homepage popup, not an explicit request to see it again. Only
- *  rendered when there's actually an announcement to show. Talks to
- *  AnnouncementModal (mounted separately in the root layout) via a plain
- *  window event rather than shared state, since the two components are
- *  siblings with nothing else in common. */
-function AnnouncementBell() {
-  return (
-    <button
-      type="button"
-      onClick={() => window.dispatchEvent(new Event(REOPEN_ANNOUNCEMENT_EVENT))}
-      aria-label="Show announcement"
-      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white/70 text-gray-700 transition-colors hover:border-primary-200 hover:text-primary-700"
-    >
-      <BellIcon />
-    </button>
   );
 }
 
@@ -124,11 +87,9 @@ function LanguageSwitcher({ lang }: { lang: Locale }) {
 export default function Navbar({
   lang,
   dict,
-  hasAnnouncement = false,
 }: {
   lang: Locale;
   dict: Dictionary;
-  hasAnnouncement?: boolean;
 }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -232,8 +193,6 @@ export default function Navbar({
         </ul>
 
         <div className="ml-auto flex items-center gap-2.5 lg:ml-0">
-          {hasAnnouncement && <AnnouncementBell />}
-
           <div className="hidden lg:block">
             <LanguageSwitcher lang={lang} />
           </div>
