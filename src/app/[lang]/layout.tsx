@@ -10,6 +10,8 @@ import "../globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SocialDock from "@/components/SocialDock";
+import AnnouncementModal from "@/components/AnnouncementModal";
+import { getActiveAnnouncement } from "@/lib/announcement";
 import {
   getDictionary,
   isLocale,
@@ -91,6 +93,7 @@ export default async function RootLayout({
   if (!isLocale(lang)) notFound();
 
   const dict = await getDictionary(lang);
+  const announcement = await getActiveAnnouncement();
 
   return (
     <html
@@ -98,7 +101,8 @@ export default async function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} ${notoSerifTibetan.variable} ${notoSansDevanagari.variable} h-full scroll-smooth antialiased`}
     >
       <body className="flex min-h-full flex-col">
-        <Navbar lang={lang} dict={dict} />
+        <AnnouncementModal announcement={announcement} lang={lang} />
+        <Navbar lang={lang} dict={dict} hasAnnouncement={!!announcement} />
         <main className="flex-1">{children}</main>
         <Footer lang={lang} dict={dict} />
         <SocialDock
