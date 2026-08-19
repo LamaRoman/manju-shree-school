@@ -92,6 +92,9 @@ export default async function VolunteerPage({
         <p className="mt-8 text-center">
           <a href="#stories" className={buttonSecondary}>
             {dict.volunteer.storiesLinkLabel}
+            <span aria-hidden className="animate-bounce">
+              ↓
+            </span>
           </a>
         </p>
       </section>
